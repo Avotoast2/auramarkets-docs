@@ -1,8 +1,41 @@
 ---
 title: "Market Pulse"
-description: "How to read the live cross-asset snapshot and AI feed."
+description: "The right-rail live snapshot, available from every Macro view."
 ---
 
-<Note>
-  This page is being written. Check back soon.
-</Note>
+The **Market Pulse** sidebar is the right rail of the [Macro page](/macro/overview). It's pinned — no matter which view you have open in the center, Pulse stays visible.
+
+It's designed for the question "what's actually happening right now?"
+
+## What's in it
+
+### Header
+- **Day's quant score** at the top — the same [score](/concepts/quant-score) you see in the Daily Recap, but live, updating through the session.
+- **Recap badge** — when a Daily Recap is published (after 4:30 PM ET on weekdays), a link appears here to jump straight to it.
+
+### Two view modes
+A toggle near the top lets you switch between:
+
+- **AI Briefing** — a written paragraph, refreshed every ~15 minutes during market hours. Synthesized by Claude using the live cross-asset state. Good for "summarize what's going on" without reading raw tiles.
+- **Raw Feed** — chronological list of recent updates: notable headlines, model alerts, regime flips. Good for the moment-by-moment.
+
+### Key Events
+Curated list of events moving the tape — earnings beats/misses, headline news, big macro prints. Each entry shows tickers affected and an impact tag.
+
+### Notable Calls
+Sell-side and notable analyst calls (upgrades, downgrades, big price target revisions). Filtered to ones likely to actually move price.
+
+## How often it updates
+
+- **Score and tiles**: every 5 minutes during market hours (8 AM – 6 PM ET, weekdays)
+- **AI Briefing**: every 15 minutes during market hours
+- **Events / Calls**: as they're picked up from the feeds (within minutes)
+
+Off-hours and weekends, you'll see the last cached state.
+
+## How to use it
+
+- **Glance check** — score color and one-liner sentiment ("cautious," "complacent," etc.) tell you the regime in two seconds.
+- **Why is the score moving?** — switch to Raw Feed; the most recent events explain it.
+- **Pre-market briefing** — open before the cash open, read the AI Briefing, scan Key Events for overnight catalysts.
+- **End-of-day** — when the Recap badge appears, click straight to the [Daily Recap](/macro/daily-recap).

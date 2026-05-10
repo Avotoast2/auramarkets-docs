@@ -1,8 +1,53 @@
 ---
 title: "Macro overview"
-description: "The four lenses on what markets are doing right now."
+description: "How the Macro page is laid out, and what each piece does."
 ---
 
-<Note>
-  This page is being written. Check back soon.
-</Note>
+The [Macro](https://auramarkets.io/macro) page is the most-used page in auramarkets. It's where you go to read the market — what regime are we in, what just changed, what's the cross-asset story.
+
+## Layout
+
+Three columns:
+
+- **Left rail** — navigation between views (Calendar, Cross-Asset, CTA, VRP, Oil, QFI, Daily Recap). Click any one to swap the center pane.
+- **Center pane** — the active view. Default is the macro dashboard with calendar + tiles.
+- **Right rail (Market Pulse)** — always visible, no matter which view you're in. The live cross-asset snapshot and AI feed.
+
+## What's available in the left rail
+
+<CardGroup cols={2}>
+  <Card title="Calendar" href="/macro/overview">
+    Upcoming releases (CPI, NFP, FOMC) and recent actuals. Sub-views for **Yield Curve**, **Crude Curve**, **VIX Curve**, **SOFR Curve**.
+  </Card>
+  <Card title="Cross-Asset Scanner" href="/macro/cross-asset">
+    Customizable tiles across rates, FX, credit, commodities. Pin what you care about.
+  </Card>
+  <Card title="CTA Trend Following" href="/macro/cta">
+    The trend-following model and its tier signals.
+  </Card>
+  <Card title="VRP Vol Harvesting" href="/macro/vrp">
+    The vol risk premium model — harvest vs hibernate regime.
+  </Card>
+  <Card title="Oil dashboard" href="/macro/overview">
+    Crude term structure, refining margins, positioning.
+  </Card>
+  <Card title="QFI" href="/macro/qfi">
+    Quantum Fear Index — composite tail-risk gauge.
+  </Card>
+  <Card title="Daily Recap" href="/macro/daily-recap">
+    End-of-day arc, what mattered, cross-asset verdict, tomorrow's setup.
+  </Card>
+</CardGroup>
+
+## What's always on the right (Market Pulse)
+
+The Pulse sidebar stays pinned no matter which view you select on the left. It's the live read of right-now.
+
+→ [How to read Market Pulse](/macro/market-pulse)
+
+## How most people use it
+
+1. Open Macro in the morning. Check Pulse for overnight + pre-market.
+2. Skim the Daily Recap for yesterday if you missed the close.
+3. Click into Cross-Asset or a model (CTA / VRP / QFI) when you want to dig into a specific question.
+4. Come back through the day; Pulse refreshes throughout.

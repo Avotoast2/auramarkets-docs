@@ -1,8 +1,54 @@
 ---
 title: "Daily Recap"
-description: "The end-of-day arc, what mattered, and the cross-asset verdict."
+description: "The end-of-day arc, what mattered, the cross-asset verdict, and tomorrow's setup."
 ---
 
-<Note>
-  This page is being written. Check back soon.
-</Note>
+The **Daily Recap** is auramarkets' single most useful page if you missed the trading session. It's the AI-written summary layered on top of the day's [quant score](/concepts/quant-score) arc.
+
+Generated automatically at **4:30 PM ET on weekdays**, then archived. You can scroll back through every recap with the date selector at the top.
+
+## How to open it
+
+- From [Macro](https://auramarkets.io/macro): click **Daily Recap** in the left rail.
+- Or jump to it from the [Market Pulse](/macro/market-pulse) sidebar — the recap badge appears once it's published.
+
+## The header
+
+- **Day type label** — Trending Up/Down, Reversal (Recovery/Failed), Range-Bound, Breakout, or Mixed. Color-coded. → [What each label means](/concepts/day-type)
+- **Score and sentiment word** — e.g., "+18 / cautious" or "−45 / risk-off"
+- **Title** — a one-line characterization of the day, written by the AI (e.g., *"Risk-On Breadth Masks Bond Market's Recession Warning"*)
+
+## The arc bar
+
+Right under the header — the gradient bar showing how the [quant score](/concepts/quant-score) moved through the session. Color encodes risk-on/off at each moment.
+
+→ [How to read the arc bar](/concepts/days-arc-bar)
+
+## The sections
+
+Each recap follows the same structure, in this order:
+
+| Section | What's in it |
+|---|---|
+| **The Day's Arc** | The session as a story: how it opened, where it inflected, how it closed. The "what happened" narrative. |
+| **What Actually Mattered** | Separates **signal** (the events that drove price) from **noise** (the events that got headlines but didn't actually move things). |
+| **Cross-Asset Verdict** | What credit, vol, gold, FX, and rates were saying — especially when they disagreed with equities. |
+| **Structural Shifts** | Concentration, factor rotations, sector dispersion, breadth health. |
+| **Equity Internals** | [Breadth](/concepts/breadth), factor excess, sector leadership, vol term structure detail. |
+| **The Score Story** | A walk-through of how the quant score itself moved — peaks, troughs, what they coincided with. |
+| **Tomorrow Setup** | Bias, key levels, catalysts, regime-shift triggers, historical edge from similar days. |
+| **Bottom Line** | One-paragraph summary if you're skimming. |
+
+## How it's generated
+
+- A **deterministic engine** ([quant score](/concepts/quant-score), breadth, factor excess, divergences) produces the structured features.
+- **Claude** writes the prose by reading those features plus the day's quant timeline, the Pulse events, and historical context for similar days.
+- The AI never invents numbers — it only narrates the structured data.
+
+## Browsing past recaps
+
+The date selector at the top lets you scroll backward through every archived recap. Useful for:
+
+- **Reviewing your trades** — open the recap from the day you took a position
+- **Pattern recognition** — read several "Reversal (Failed)" days in a row to internalize what they look like
+- **Learning the vocabulary** — every recap uses the same terms; reading 5–10 will make the [Concepts](/concepts/quant-score) glossary click
