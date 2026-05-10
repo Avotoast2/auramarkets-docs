@@ -1,0 +1,121 @@
+{
+  "$schema": "https://mintlify.com/docs.json",
+  "theme": "mint",
+  "name": "auramarkets",
+  "description": "A bird's-eye view of markets — macro, single names, and your portfolio in one place.",
+  "colors": {
+    "primary": "#5c6bc0",
+    "light": "#7986cb",
+    "dark": "#3949ab"
+  },
+  "background": {
+    "color": {
+      "dark": "#1a1a2e"
+    }
+  },
+  "appearance": {
+    "default": "dark"
+  },
+  "navigation": {
+    "tabs": [
+      {
+        "tab": "Documentation",
+        "groups": [
+          {
+            "group": "Getting Started",
+            "pages": [
+              "getting-started/welcome",
+              "getting-started/quick-tour"
+            ]
+          },
+          {
+            "group": "Macro",
+            "pages": [
+              "macro/overview",
+              "macro/market-pulse",
+              "macro/daily-recap",
+              "macro/qfi",
+              "macro/cta",
+              "macro/vrp",
+              "macro/cross-asset",
+              "macro/treasury-yields"
+            ]
+          },
+          {
+            "group": "Indices",
+            "pages": [
+              "indices/overview",
+              "indices/reading-cards",
+              "indices/volatility-tickers"
+            ]
+          },
+          {
+            "group": "Single Names",
+            "pages": [
+              "single-names/overview",
+              "single-names/watchlists-heatmaps",
+              "single-names/phase-change"
+            ]
+          },
+          {
+            "group": "Portfolio",
+            "pages": [
+              "portfolio/connect",
+              "portfolio/performance-attribution",
+              "portfolio/risk",
+              "portfolio/factor-exposure",
+              "portfolio/earnings-calendar"
+            ]
+          },
+          {
+            "group": "Research",
+            "pages": [
+              "research/overview",
+              "research/browsing",
+              "research/confidence-tiers",
+              "research/entity-pages",
+              "research/watchlist-matches"
+            ]
+          },
+          {
+            "group": "Concepts",
+            "pages": [
+              "concepts/quant-score",
+              "concepts/day-type",
+              "concepts/breadth",
+              "concepts/vol-richness",
+              "concepts/days-arc-bar"
+            ]
+          },
+          {
+            "group": "FAQ",
+            "pages": [
+              "faq/cost",
+              "faq/data-freshness",
+              "faq/export",
+              "faq/missing-features"
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "navbar": {
+    "links": [
+      {
+        "label": "Open auramarkets",
+        "href": "https://auramarkets.io"
+      }
+    ],
+    "primary": {
+      "type": "button",
+      "label": "Sign in",
+      "href": "https://auramarkets.io/login"
+    }
+  },
+  "footer": {
+    "socials": {
+      "website": "https://auramarkets.io"
+    }
+  }
+}
