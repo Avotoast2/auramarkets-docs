@@ -1,8 +1,54 @@
 ---
 title: "Entity & ticker pages"
-description: "Every mention of a ticker across all sources, in one view."
+description: "Every mention of a ticker, in one timeline."
 ---
 
-<Note>
-  This page is being written. Check back soon.
-</Note>
+The **entity page** for any ticker (e.g., `/research/entity/NVDA`) is a single timeline of every research item that has mentioned that name across Substack, X, and YouTube.
+
+Useful when you're about to make a decision on a name and want to know what the smart-money writers and operators have been saying — without having to remember which Substack newsletter covered it last month.
+
+## How to get there
+
+Three ways:
+
+1. **Click any ticker badge** in any feed card — auto-navigates to the entity page
+2. **Direct URL** — `auramarkets.io/research/entity/NVDA`
+3. **From the Single Names modal** — when you click a ticker in your watchlist, the side panel includes a research tab
+
+## What's on the page
+
+### Header
+- Ticker, company name, current price, 1D / 1W / 1M change
+- Recent macro context for the name (sector, industry, market cap)
+
+### Timeline of mentions
+Every piece of research that mentioned this ticker, sorted by recency by default.
+
+For each mention:
+- Source (Substack / X / YouTube)
+- Author + publication
+- Snippet showing the context the ticker appeared in
+- Confidence badge
+- Whether it was a **primary** mention (the piece was *about* this name) or **mentioned** (passing reference)
+
+### Filters
+- **Primary only** — hide passing references. Useful when a name shows up in 50 macro pieces but you only want the 5 deep-dives.
+- **Confidence floor** — hide low-confidence noise.
+- **Date range** — last 30 / 90 / 365 days, or custom.
+
+### Aggregate view
+A small panel showing:
+- **Mention count** over time (sparkline) — useful for spotting attention spikes
+- **Sentiment shift** if detectable
+- **Top authors** who've covered this name most frequently
+
+## How to use it
+
+- **Pre-trade research** — before adding a position, hit the entity page. 10 minutes of skimming the last 30 days will tell you what the bull and bear cases are.
+- **Track attention** — when mention count spikes, something's brewing. The sparkline is a thin signal but useful.
+- **Find your authors** — the "top authors" panel surfaces who covers this name well. Follow them on Substack/X if you don't already.
+
+## Related
+
+- [Watchlist matches](/research/watchlist-matches) — same idea, but auto-aggregated across every name in a watchlist
+- [Confidence tiers](/research/confidence-tiers) — what the badges in the timeline mean

@@ -1,8 +1,57 @@
 ---
 title: "Research overview"
-description: "Substack + X + YouTube ingested daily, scored, searchable by ticker."
+description: "Substack + X + YouTube ingested daily, scored, and searchable by ticker."
 ---
 
-<Note>
-  This page is being written. Check back soon.
-</Note>
+The [Research](https://auramarkets.io/research) section is auramarkets' answer to the firehose problem. Curated researchers, analysts, and operators publish too much across too many channels for any human to keep up. Research collapses it into one feed.
+
+## What gets ingested
+
+Three sources, all daily:
+
+| Source | What's pulled |
+|---|---|
+| **Substack** | Articles from a curated list of investing/macro publications. Both free and paid (where you have access). |
+| **X (Twitter)** | Posts and threads from a curated list of accounts. Original posts, threads, retweets with commentary, and quote-tweets all flagged. |
+| **YouTube** | Videos from a curated list of channels (in development). Eventually with timestamp-anchored claim extraction. |
+
+Currently around **200+ Substack articles live**, with X posts ingested and YouTube in progress.
+
+## What happens to the content
+
+Each piece of content gets:
+
+1. **Full-text ingestion** — the actual article/post body, not just headlines
+2. **Embedding** — stored in pgvector for semantic search
+3. **Ticker extraction** — every $TICKER mentioned is tagged
+4. **Author + publication** — for filtering and trust scoring
+5. **Confidence score** — 0–1, based on author reliability, claim specificity, and corroboration → [Confidence tiers](/research/confidence-tiers)
+6. **Lifecycle status** — fresh / aging / stale (claims have shelf life)
+
+## How you can use it
+
+<CardGroup cols={2}>
+  <Card title="Browse the feed" href="/research/browsing">
+    Sort, filter, search across all sources at once.
+  </Card>
+  <Card title="Look up a ticker" href="/research/entity-pages">
+    Every mention of $NVDA, in one timeline. Across all sources.
+  </Card>
+  <Card title="See watchlist coverage" href="/research/watchlist-matches">
+    Just the research touching names you actually own or follow.
+  </Card>
+  <Card title="Daily recap chatter" href="/macro/daily-recap">
+    A mini-feed of relevant research surfaces in the Daily Recap.
+  </Card>
+</CardGroup>
+
+## What it's not
+
+- **Not a hot-takes feed** — content is filtered for substance, not engagement
+- **Not realtime** — daily ingest. For minute-by-minute, use the [Market Pulse](/macro/market-pulse) right rail
+- **Not financial advice** — the system is a reading-aid, nothing more
+
+## Related infrastructure (for the curious)
+
+- The same pipeline powers a Claude Desktop MCP server — you can ask Claude to "find all Substack articles mentioning copper supply chain in the last 30 days"
+- Confidence and lifecycle scoring is a separate pass that runs after ingestion; both are tunable per source

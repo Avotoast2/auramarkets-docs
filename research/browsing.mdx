@@ -1,8 +1,64 @@
 ---
 title: "Browsing the feed"
-description: "Sort, filters, date range, and freshness."
+description: "Sort, filter, search, and date-range across all sources."
 ---
 
-<Note>
-  This page is being written. Check back soon.
-</Note>
+The main [Research](/research/overview) view is one feed across Substack + X + YouTube. The controls let you slice it.
+
+## Sort
+
+Three sort orders, switchable from the top:
+
+| Sort | Best for |
+|---|---|
+| **Newest** (default) | Daily check — what dropped today |
+| **Confidence** | When you have time and want signal-first |
+| **Most discussed** | What multiple sources are talking about right now |
+
+## Filters
+
+### By source
+Toggle Substack / X / YouTube on or off independently. Useful when you want only long-form (Substack), only quick takes (X), or video.
+
+### By ticker
+Type a ticker to see only content mentioning it. Multi-ticker is supported.
+
+### By author / publication
+Narrow to a specific writer or publication.
+
+### By confidence tier
+Filter to High / Medium / Low confidence. → [What confidence tiers mean](/research/confidence-tiers)
+
+### By date range
+Default is last 7 days. Expand to 30, 90, or pick a custom range.
+
+## What each card shows
+
+Per item in the feed:
+
+- **Title** (or first 240 chars for X posts that don't have titles)
+- **Author + publication** — clickable to filter to that author
+- **Time ago** ("3h ago," "2 days ago")
+- **Confidence badge** (color-coded by tier)
+- **Tickers tagged** — primary tickers (the focus) vs mentioned (passing references)
+- **Source badge** — Substack / X / YouTube
+- **Special tags** — THREAD, RT (retweet), QT (quote-tweet), PAID, etc.
+
+Click the title to read the full piece in a side panel without leaving the page.
+
+## Search
+
+The search box runs **semantic search** across the corpus — type a phrase like "uranium supply" or "Fed pivot" and get the top matches by meaning, not just keyword.
+
+Behind the scenes this hits the pgvector embeddings. Same engine the Claude Desktop MCP uses.
+
+## How most people use it
+
+- **Morning** — sort by Newest, filter by date = today, scan the top 20
+- **Researching a name** — filter by ticker, sort by Confidence, last 90 days
+- **Following a theme** — search the phrase, sort by Newest
+
+## Related
+
+- [Confidence tiers](/research/confidence-tiers) — what the badges mean
+- [Entity & ticker pages](/research/entity-pages) — once you've spotted a recurring name, the entity page shows everything about it

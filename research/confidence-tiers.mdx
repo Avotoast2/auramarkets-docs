@@ -1,8 +1,54 @@
 ---
 title: "Confidence tiers"
-description: "What the 0–1 score means, plus lifecycle and staleness."
+description: "How research items get a 0–1 score, and how that score changes over time."
 ---
 
-<Note>
-  This page is being written. Check back soon.
-</Note>
+Every item in [Research](/research/overview) carries a **confidence score** between 0 and 1. The score is the system's best guess at how seriously a thoughtful reader should take the claims in the piece.
+
+## The score, briefly
+
+| Score | Tier | Color | What it means |
+|---|---|---|---|
+| **0.80 – 1.00** | High | Bright green | Strong author track record, specific testable claims, often corroborated |
+| **0.60 – 0.80** | Mid-High | Light green | Solid author, reasonable specificity, worth reading carefully |
+| **0.40 – 0.60** | Medium | Yellow / amber | Mixed signals — read with skepticism |
+| **0.20 – 0.40** | Mid-Low | Light red | Either weak author or vague/promotional claims |
+| **0.00 – 0.20** | Low | Bright red | Skip unless you have a specific reason |
+
+The badge on each card shows the score. The default sort on the [browse page](/research/browsing) is **Newest**, but you can sort by confidence if you want signal-first.
+
+## What goes into the score
+
+Roughly:
+
+- **Author reliability** — historical track record on prior calls (where measurable). Substack writers and X accounts are scored separately.
+- **Claim specificity** — "NVDA is a buy" scores worse than "NVDA's data-center revenue will accelerate to 50% Q/Q because of X, with X being a falsifiable claim about contract pipeline."
+- **Corroboration** — does another source independently make a similar claim? Multiple confirms raise the score.
+- **Source quality** — paid newsletters with a track record score above free, anonymous threads.
+- **Hedging language** — pieces full of "might," "could," "potentially" score lower than confident specific claims.
+
+## Lifecycle and staleness
+
+Confidence isn't static. A piece written 6 months ago about Q4 earnings is **stale** by Q1 — the claims either resolved or didn't, and the score collapses.
+
+Three lifecycle states:
+
+| State | Display | Meaning |
+|---|---|---|
+| **Fresh** | Full opacity | Claims are live, score is current |
+| **Aging** | Slight fade | Old enough that some claims may be resolving |
+| **Stale** | Heavy fade (~55% opacity) | Old enough that the piece is mostly historical |
+
+The fade is visible in the feed — older pieces literally dim. Your eye learns to treat them as reference, not signal.
+
+## What confidence is *not*
+
+- **Not a return prediction** — high-confidence calls can be wrong. The score reflects how well-reasoned the case is, not the future.
+- **Not censorship** — low-confidence pieces still appear in the feed (just with the badge); you decide what to read.
+- **Not personalization** — the score doesn't reflect your views or holdings. Same score for everyone.
+
+## How to use it
+
+- **Filter to High when time-constrained** — the most efficient first pass through a busy day's content
+- **Sort by Confidence on a researched name** — the highest-scored takes on $XYZ are the ones that earn the read
+- **Don't blindly trust** — a high-confidence call from a strong author still gets your skepticism. The score is a starting point, not a verdict.
