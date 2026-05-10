@@ -1,8 +1,70 @@
 ---
 title: "Watchlists & heatmaps"
-description: "Building lists, color encoding, and history view."
+description: "How to build a watchlist, what the heatmap encodes, and how to read the history view."
 ---
 
-<Note>
-  This page is being written. Check back soon.
-</Note>
+Watchlists are the workhorse of the [Single Names](/single-names/overview) section — your personal collections of tickers, surfaced as heatmaps, performance tables, and history charts.
+
+## Building a watchlist
+
+Two ways to populate one:
+
+### From scratch
+1. Click **+** next to the watchlist picker
+2. Name it (e.g., "AI infrastructure")
+3. Add tickers — either typed in or pasted as a comma/newline-separated list
+
+### From a sector
+1. Click **Browse Sectors** in the top controls
+2. Pick a sector (e.g., Technology)
+3. Optionally filter by industry, market cap, or include/exclude ETFs
+4. Click **Load** — it loads as a temporary watchlist
+5. Save it (with the `+` action) if you want to keep it
+
+Watchlists save automatically and persist across sessions, scoped to your account.
+
+## The heatmap view
+
+The default rendering of a watchlist is a heatmap grid — one tile per ticker, color-encoded by performance over the active timeframe.
+
+### Color encoding
+
+The heatmap uses the same scheme as the [Indices cards](/indices/reading-cards):
+
+- **Bright green** = top performers (95th+ percentile of today's distribution)
+- **Light green** = upper quartile
+- **Neutral** = middle
+- **Light red** = lower quartile
+- **Bright red** = bottom decile
+
+### Two display modes
+
+Toggle in the controls:
+
+- **% mode** — color encodes raw percentage move
+- **σ (sigma) mode** — color encodes the move relative to the ticker's own volatility
+
+Sigma mode is more useful for comparing across tickers with very different normal volatility (a 5% move in a utility is very different from a 5% move in a small-cap biotech).
+
+### Timeframes
+
+The "usual timeframes" toggle works the same as on Indices: 1D, 1W, 1M, 3M, 6M, YTD, 1Y, plus a Custom date range.
+
+## The performance table view
+
+For lists where you want numbers rather than colors, switch to the table view. Sortable by any column — return, vol, sigma, current price, etc.
+
+## History view
+
+The history tab shows how the watchlist itself has performed over time, treating each list as an equal-weight basket. Use it to:
+
+- See which of your themes are working over weeks/months
+- Compare a custom list to SPY or a relevant ETF
+- Spot regime shifts in a basket before individual tickers obviously break out
+
+## How most people use it
+
+- **One watchlist per theme** — not one giant list. AI, energy, EM, crypto-related, etc.
+- **Heatmap first, table second** — heatmaps catch outliers in 2 seconds; tables answer the follow-up
+- **Sigma mode when comparing across cap sizes** — keeps the eye honest
+- **History view weekly** — to see if your theses are actually playing out

@@ -1,8 +1,49 @@
 ---
 title: "Single Names overview"
-description: "Watchlists, heatmaps, and ticker-level deep dives."
+description: "Watchlists, sector browsers, screeners, and phase-change flags — all the ticker-level views."
 ---
 
-<Note>
-  This page is being written. Check back soon.
-</Note>
+The [Single Names](https://auramarkets.io/single-names) section is where you leave the macro view and zoom into individual tickers. Build watchlists of names you actually care about, scan sectors for what's moving, run screens for specific setups.
+
+## Three sub-tabs
+
+The Single Names section has three sub-pages, switchable from the sub-tab bar at the top:
+
+<CardGroup cols={2}>
+  <Card title="Watchlists" href="/single-names/watchlists-heatmaps">
+    The default view. Build and analyze custom lists of tickers — heatmaps, performance tables, history.
+  </Card>
+  <Card title="Screener" href="/single-names/overview">
+    Find tickers matching specific performance windows. Filter by % move or by sigma over 1D/1W/1M/3M/6M/YTD/1Y or a custom date range.
+  </Card>
+  <Card title="Screener 2" href="/single-names/overview">
+    A second screener flavor. (In active development — the redesign around monthly TSMOM + IC-validated harness is in progress.)
+  </Card>
+</CardGroup>
+
+## Watchlist controls
+
+The top of the Watchlists page exposes these controls:
+
+- **Watchlist picker** — pick from your saved lists, or create a new one (`+`)
+- **Edit / Delete** — manage the active list
+- **Browse Sectors** — load any sector as a watchlist, optionally filtered by:
+  - Industry (sub-sector)
+  - Market cap (Mega / Large / Mid / Small)
+  - Include ETFs
+
+This means you can switch between curated lists ("my AI names," "energy infra") and on-demand sector loads ("show me all mid-cap healthcare") without leaving the page.
+
+## What's available beyond watchlists
+
+- **Phase-change screen** — flags tickers that just changed regime (trend, vol, breadth). → [Phase change](/single-names/phase-change)
+- **Heatmaps** — color-encoded grids of your watchlist over the active timeframe. → [Watchlists & heatmaps](/single-names/watchlists-heatmaps)
+- **Watchlist history** — track how your list has performed over time
+- **Scatter views** — Risk/Return, Drawdown/Recovery, Tail Risk, Capture Ratio, Sharpe Stability (in the screener)
+
+## How most people use it
+
+1. **Start with sectors** — Browse Sectors → load a sector → glance at the heatmap for outliers
+2. **Build a personal watchlist** — drop in the 30–50 names you actually trade or follow
+3. **Check phase-change daily** — flagged tickers are where attention should go
+4. **Use the Screener** — when you have a specific setup in mind ("show me all stocks down −2σ over 1W")
