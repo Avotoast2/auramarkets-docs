@@ -1,8 +1,61 @@
 ---
 title: "Factor exposure"
-description: "Momentum, value, growth, quality, size — and the regression view."
+description: "Your momentum, value, growth, quality, and size tilts — visible whether you meant them or not."
 ---
 
-<Note>
-  This page is being written. Check back soon.
-</Note>
+Most portfolios have **factor tilts** even when their owners don't realize it. A "diversified tech basket" is usually 80% growth and 60% momentum. A "value pick collection" often has heavy small-cap exposure too.
+
+The Factor Exposure view makes those tilts visible.
+
+## The factors tracked
+
+| Factor | What it captures |
+|---|---|
+| **Market** | Pure beta — how much you move with the broad market |
+| **Size** | Small-cap vs large-cap tilt (SMB) |
+| **Value** | Cheap (high B/P) vs expensive (HML) |
+| **Momentum** | Trending up vs trending down (MOM) |
+| **Quality** | High ROE / low debt vs the opposite |
+| **Growth** | High earnings/revenue growth vs slower-growing |
+
+These map roughly onto the standard Fama-French + extensions framework.
+
+## How exposure is computed
+
+Each holding gets factor loadings from a regression of its returns on the factor return series. Your portfolio's loading is the **weighted sum** of those holding-level loadings.
+
+A loading of **+1.0** means full exposure to that factor (you move 1:1 with the factor). **−1.0** means short exposure. **0** means flat.
+
+## What you'll see
+
+### Factor bar chart
+Six bars, one per factor, showing your portfolio's loading. Bars are color-coded — green for positive tilt, red for short tilt, gray for neutral.
+
+### Factor regression
+Statistical regression results: R² (how much of your return is explained by factors), per-factor t-stats (how reliable each loading is), residual alpha (the part not explained by factors).
+
+A high R² (>0.85) means your portfolio is mostly factor exposure dressed up as stock picking. A low R² (<0.6) means you're doing something idiosyncratic — for better or worse.
+
+### Per-holding factor breakdown
+Sortable table — every holding's contribution to each factor. Useful for "why am I so long momentum?" → click momentum column → sort descending → see which 3 names are doing it.
+
+## Reading the result
+
+| Pattern | What it usually means |
+|---|---|
+| Heavy positive momentum + growth | "Tech basket" — 2020-style portfolio |
+| Heavy value + size | Small-cap value — Buffett-flavored |
+| Heavy quality, neutral elsewhere | Defensive — utilities and staples flavor |
+| Negative beta | You're effectively short the market — typically vol-product or hedge-heavy book |
+| All factors near zero, high R² to market | Effectively SPY — your stock picking is canceling out |
+
+## How to use it
+
+- **After every rebalance** — verify your tilts match your thesis
+- **When the market regime changes** — e.g., when momentum cracks, you want to know how much momentum you actually own
+- **Before bragging or apologizing** — high return on a momentum-tilted book during a momentum rally is not alpha. Check your R² and residual before celebrating.
+
+## Related
+
+- [Performance & attribution](/portfolio/performance-attribution) — the attribution view also breaks return down by factor
+- [Risk](/portfolio/risk) — IVaR helps locate concentrated risk; factor exposure helps locate concentrated *style* risk

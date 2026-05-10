@@ -1,8 +1,63 @@
 ---
 title: "Risk: CVaR, IVaR, stress"
-description: "What each metric measures and how to read percentiles."
+description: "What your portfolio loses in bad scenarios — and which holdings are responsible."
 ---
 
-<Note>
-  This page is being written. Check back soon.
-</Note>
+The **Risk Analysis** sub-tab of [Portfolio](/portfolio/connect) is where you find out what your book actually loses when things go sideways. Three lenses, each answering a slightly different question.
+
+## CVaR — Conditional Value at Risk
+
+**The question:** "On a really bad day, how much do I lose?"
+
+CVaR is the average loss in the **worst X% of historical scenarios**. We typically show the 95% and 99% CVaR.
+
+| Reading | Meaning |
+|---|---|
+| **95% CVaR = -3.2%** | In the worst 5% of historical days, your portfolio averaged a -3.2% loss |
+| **99% CVaR = -6.8%** | In the worst 1% of historical days, your portfolio averaged a -6.8% loss |
+
+CVaR is more honest than VaR (Value at Risk) because it doesn't ignore the tail — it averages it.
+
+**How to use it:** if your 99% CVaR is bigger than what you can stomach losing on a single day, your position sizes are too big.
+
+## IVaR — Incremental Value at Risk
+
+**The question:** "Which holdings are responsible for my risk?"
+
+IVaR breaks down your portfolio's risk by holding. Each name gets a contribution score — how much of your CVaR is *that* position adding?
+
+| Reading | Meaning |
+|---|---|
+| `NVDA: +18% IVaR` | NVDA is contributing 18% of your portfolio's downside risk |
+| `BRK.B: +2% IVaR` | BRK.B is contributing 2% — disproportionately small risk for its weight |
+
+A position with a small **weight** but a large **IVaR contribution** is your risk problem — even if you don't think of it that way.
+
+**How to use it:** sort holdings by IVaR. If one name is 30%+ of your risk, ask whether that's intentional.
+
+## Stress scenarios
+
+**The question:** "What does my portfolio do in a specific historical event?"
+
+Stress scenarios replay your *current* holdings through past crisis windows:
+
+- **2008 GFC** — Sep 2008–Mar 2009
+- **2020 COVID crash** — Feb–Mar 2020
+- **2022 rate shock** — full year 2022
+- **2018 vol spike (Volmageddon)** — early Feb 2018
+- **Custom date ranges** — pick any window
+
+Each scenario shows: total drawdown, time-to-recover, worst day, and per-holding contribution.
+
+**How to use it:** these are "what would happen if X repeated tomorrow." Useful for calibrating sizes before a known catalyst (FOMC, CPI, election).
+
+## Correlation matrix
+
+Lives on the Performance tab but matters here too — if your IVaR shows two names contributing risk and the correlation matrix shows them at +0.92, you don't have two positions, you have one.
+
+## How most people use it
+
+- **After every new position** — check IVaR; did you just concentrate risk?
+- **Before known catalysts** — run the stress scenarios most analogous to what you're worried about
+- **Monthly** — re-check 99% CVaR against your "I can stomach losing this in a day" number
+- **When markets feel calm** — that's when CVaR is most useful; the calm reading is your early warning that a bad day will hurt more than your gut thinks

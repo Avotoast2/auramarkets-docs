@@ -1,8 +1,58 @@
 ---
 title: "Performance & attribution"
-description: "Total return, factor decomposition, contribution by holding."
+description: "Total return, what's contributing, and how your portfolio decomposes into factors."
 ---
 
-<Note>
-  This page is being written. Check back soon.
-</Note>
+The **Performance** tab is the default view of the [Portfolio](/portfolio/connect) page. It answers two questions:
+
+1. *How am I doing?*
+2. *What's actually driving it?*
+
+## What's on the page
+
+### Holdings table
+Every position with: ticker, quantity, current value, weight %, and return contribution over the active timeframe.
+
+Sortable by any column. Clicking a ticker pops a detail view with chart + sector context.
+
+### Change panel
+The single-line summary of your portfolio's move over the active timeframe — total $ change, % return, vs benchmark.
+
+### Portfolio Benchmarking
+Compare your portfolio to:
+- A choice of benchmarks (SPY, QQQ, ACWI, configurable)
+- Custom blends if you want a more honest comparison (e.g., 60/40, your own allocation target)
+
+The chart overlays your portfolio against the benchmark over the active timeframe with a relative-return line.
+
+### Asset Allocation
+Pie/bar of your weights:
+- By sector
+- By geography
+- By market cap
+- By account (if you have multiple connected)
+
+### Heatmap
+Same color logic as the [Single Names heatmaps](/single-names/watchlists-heatmaps) — tile per holding, color encoding daily/weekly/monthly performance. Outliers in red or green earn a click-through.
+
+### Correlation Matrix
+Pairwise correlations between your holdings. Useful for catching unintended concentration — when you think you have 10 names but two clusters of 4 are essentially the same trade.
+
+### Risk Analysis (mini-card)
+A compact preview of the risk metrics that live in full on the [Risk](/portfolio/risk) sub-tab — point-in-time CVaR, max drawdown, Sharpe.
+
+## Attribution — what's actually driving returns
+
+The attribution view decomposes your return into:
+
+- **Contribution per holding** — which positions accounted for which slice of the return
+- **Sector contribution** — which sectors carried (or hurt) you
+- **Factor contribution** — how much of your return came from market beta, size, value, momentum, etc.
+- **Idiosyncratic** — the residual that wasn't explained by sectors or factors. This is your true alpha (or anti-alpha).
+
+## How to use it
+
+- **Daily check** — Change panel and Heatmap, 30 seconds
+- **Weekly review** — Attribution and Correlation matrix, 5 minutes; spot drift in your tilts
+- **Monthly** — Benchmarking chart over 3M / 6M / YTD, see if you're keeping up with what you're trying to beat
+- **Quarterly** — full Asset Allocation review, rebalance decisions

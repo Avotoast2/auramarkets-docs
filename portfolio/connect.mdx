@@ -1,8 +1,62 @@
 ---
 title: "Connecting a portfolio"
-description: "The Plaid flow, what we can and cannot see, and refresh cadence."
+description: "Plaid connect, manual import, and what we can and can't see."
 ---
 
-<Note>
-  This page is being written. Check back soon.
-</Note>
+The [Portfolio](https://auramarkets.io/portfolio) section needs holdings to do anything useful. Two ways to get them in:
+
+## Option 1: Plaid (recommended)
+
+Plaid is the standard bank/broker connect layer used across most US fintech (Robinhood, Coinbase, Wealthfront, etc.).
+
+### Steps
+
+1. Go to [Portfolio](https://auramarkets.io/portfolio)
+2. Click **Connect via Plaid**
+3. Search for your broker (Schwab, Fidelity, IBKR, Robinhood, Coinbase, etc.)
+4. Sign in with your broker credentials in Plaid's modal
+5. Pick which accounts to share
+6. Done — holdings auto-import
+
+### What we see
+- **Account names and types** (e.g., "Brokerage – ****1234")
+- **Holdings** — tickers, quantities, cost basis when available
+- **Account values** — for benchmarking and weighting
+
+### What we don't see
+- **No passwords or login credentials.** Plaid handles auth; we never receive them.
+- **No transfers, no trading.** Read-only access. We can't move money or place trades even if we wanted to.
+- **No transaction history beyond what we need for cost basis.**
+
+### Refresh cadence
+Holdings auto-refresh on a daily cadence. You can force a refresh with the refresh button in the top controls.
+
+## Option 2: Manual import
+
+If you'd rather not connect a broker, you can paste holdings directly:
+
+1. Click **Import Holdings**
+2. Paste a CSV-like list: `TICKER, QUANTITY, COST_BASIS`
+3. Save
+
+Manual portfolios won't auto-update — you'll need to edit when holdings change.
+
+## Multiple accounts
+
+You can connect multiple Plaid accounts, mix Plaid + manual, and the views will treat them as one consolidated portfolio. Account-level filtering is available where it matters (e.g., "show me only my IRA's risk profile").
+
+## Privacy notes
+
+- Holdings live in our database, scoped to your account
+- Nothing is shared with other users or third parties
+- You can disconnect Plaid at any time from the controls (revokes the access token)
+- Deleting your account wipes everything
+
+## Next steps
+
+Once connected, the Performance and Risk Analysis tabs come alive:
+
+- [Performance & attribution](/portfolio/performance-attribution) — total return, factor decomposition, contribution per holding
+- [Risk: CVaR, IVaR, stress](/portfolio/risk) — what your portfolio loses in bad scenarios
+- [Factor exposure](/portfolio/factor-exposure) — your tilts vs the benchmark
+- [Earnings calendar](/portfolio/earnings-calendar) — what's reporting in your book this week
