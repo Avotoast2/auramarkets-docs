@@ -1,8 +1,40 @@
 ---
 title: "The day's arc bar"
-description: "Color encoding and how to read the gradient."
+description: "How to read the gradient bar at the top of every Daily Recap."
 ---
 
-<Note>
-  This page is being written. Check back soon.
-</Note>
+The horizontal gradient bar at the top of every [Daily Recap](/macro/daily-recap). It's the visual story of how the [quant score](/concepts/quant-score) moved through the trading day.
+
+## How to read it
+
+**Time runs left to right:**
+
+| Position | Time (ET) |
+|---|---|
+| Far left | 8:00 AM (pre-market) |
+| ~15% | 9:30 AM (cash open) |
+| ~40% | 12:00 PM |
+| ~80% | 4:00 PM (cash close) |
+| Far right | 6:00 PM (post-market wind-down) |
+
+**Color encodes the score at each moment:**
+
+| Color | Score range |
+|---|---|
+| Bright green | +0.5 or higher (strong risk-on) |
+| Light green | +0.2 to +0.5 (mild risk-on) |
+| Orange | −0.2 to +0.2 (neutral) |
+| Light red | −0.5 to −0.2 (mild risk-off) |
+| Bright red | below −0.5 (strong risk-off) |
+
+## What to look for
+
+- **Smooth left-to-right gradient** — the day had one direction. Cross-check with the [day type](/concepts/day-type) badge.
+- **Color flip mid-day** — a regime shift, often newsy (rate decision, geopolitical headline, big earnings, CPI surprise).
+- **Bright color compressed at one end** — most of the day's drama happened in a small window.
+- **Bar ends short of the right edge with a vertical white line** — today's intraday recap. The white line is "now."
+- **Bar fills end-to-end** — past day, complete.
+
+## A quick example
+
+A bar that starts green, oscillates through orange around 11AM, then deepens into red by 3PM tells a "morning rally faded into close" story — almost certainly tagged **Reversal (Failed)** or **Trending Down**, depending on how strong the morning was.

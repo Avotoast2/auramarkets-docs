@@ -1,8 +1,50 @@
 ---
 title: "Vol richness & term structure"
-description: "Contango vs backwardation and the SKEW percentile."
+description: "How to tell when options are cheap, when they're expensive, and when the market is pricing tail risk."
 ---
 
-<Note>
-  This page is being written. Check back soon.
-</Note>
+These are the tools for reading what the **options market** is saying — separate from what the cash equity market is doing. Often the two disagree, and that's where the signal is.
+
+## Vol richness (0–100)
+
+A score that compares **implied vol** (what options are pricing) to **realized vol** (what actually happened recently).
+
+- **0–25** = options unusually **cheap** vs realized — protection is on sale
+- **75–100** = options unusually **expensive** — market is pricing future pain
+- **40–60** = fair
+
+When equities are calm but vol richness is climbing, somebody is paying up for hedges before the crowd notices.
+
+## VIX term structure
+
+VIX (1-month implied vol) divided by VIX3M (3-month).
+
+- **Ratio < 1** — *backwardation*. Near-term fear is elevated. Often a stress signal; sometimes the panic low.
+- **Ratio > 1** — *contango*. Normal — longer-dated vol is higher than spot, market expects calm to persist.
+- **Steepening contango** = complacency building
+- **Flattening or inverting** = stress building
+
+## SKEW
+
+A separate gauge: **how much OTM puts cost relative to ATM** options. Tracked as a percentile.
+
+- **High SKEW (90th+ %ile)** = market is paying up for tail-risk protection. Either a real worry or a smart-money hedge.
+- **Low SKEW (10th–) %ile)** = complacency about the left tail. Historically, this has preceded sharp drawdowns more often than the headline VIX has.
+
+SKEW being elevated while VIX is calm is one of the most-cited "smart hedge" signals.
+
+## How to use them together
+
+| VIX | SKEW | Vol richness | Read |
+|---|---|---|---|
+| Low | Low | Cheap | Pure complacency. Downside is mispriced. |
+| Low | **High** | Mid | Hidden hedging. Smart money is positioning for something. |
+| High | High | Expensive | Stress in the price. Often closer to a low than a high. |
+| **Spiking** | High | Spiking | Active panic. Don't sell vol here. |
+
+## Where you see it
+
+- [VRP Vol Harvesting](/macro/vrp) model — uses these to flip between *harvest* and *hibernate* regimes
+- [QFI](/macro/qfi) dashboard — vol richness and SKEW are core inputs
+- **Cross-Asset Verdict** section of the [Daily Recap](/macro/daily-recap)
+- The volatility shelf at the bottom of the [Indices](/indices/overview) page

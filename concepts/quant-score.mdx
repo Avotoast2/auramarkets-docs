@@ -1,8 +1,37 @@
 ---
 title: "Quant score"
-description: "How the −1 to +1 score is computed and how the timeline updates."
+description: "The −1 to +1 number that summarizes how risk-on or risk-off the market is right now."
 ---
 
-<Note>
-  This page is being written. Check back soon.
-</Note>
+The **quant score** is one number, between −1 and +1, that summarizes how risk-on or risk-off the market is at a given moment. It updates every five minutes during the trading day.
+
+It's the spine of the [Daily Recap](/macro/daily-recap), the [Market Pulse](/macro/market-pulse) sidebar, and the [day's arc bar](/concepts/days-arc-bar).
+
+## How to read it
+
+| Score | Meaning |
+|---|---|
+| **+0.5 to +1.0** | Strong risk-on — equities up, vol low, credit tight, breadth wide |
+| **+0.2 to +0.5** | Mild risk-on |
+| **−0.2 to +0.2** | Neutral / mixed |
+| **−0.5 to −0.2** | Mild risk-off |
+| **−1.0 to −0.5** | Strong risk-off — equities down, vol up, credit widening, defensives bid |
+
+## What goes into it
+
+Eight buckets, weighted and combined:
+
+- **Equities** — index returns, sector dispersion
+- **Volatility** — VIX, MOVE, term structure, [vol richness](/concepts/vol-richness)
+- **Credit** — HY spreads (HYG vs SPY)
+- **[Breadth](/concepts/breadth)** — A/D, % above moving averages
+- **Yields** — front-end vs long-end direction
+- **Gold** — defensive haven flow
+- **Dollar** — DXY direction
+- **Sector tilts** — defensive vs cyclical leadership
+
+No AI in the calculation — it's a deterministic weighted average. AI is layered on top later for the written recap.
+
+## Why −1 to +1
+
+Bounded scale means today's score is directly comparable to last Tuesday's, last quarter's, last year's. The percentile next to the score (e.g., "57th %ile") tells you where today sits in the historical distribution.
