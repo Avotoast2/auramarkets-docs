@@ -1,8 +1,64 @@
 ---
 title: "How fresh is the data?"
-description: "yfinance lag, intraday cadence, and market-hours behavior."
+description: "Where each feed comes from and what its lag looks like."
 ---
 
-<Note>
-  This page is being written. Check back soon.
-</Note>
+Different parts of auramarkets pull from different sources. Here's what's fast, what's slow, and what's planned.
+
+## Equity prices and indices
+
+**Source:** yfinance (Yahoo Finance free feed).
+
+**Lag:** 15–20 minutes during US market hours. End-of-day close is the close (not delayed).
+
+**Why:** real-time direct feeds cost meaningful money. The current build uses free feeds; the plan is to migrate to paid near-real-time feeds once the site is more bootstrapped.
+
+## Treasury yields
+
+**Source:** Primary is CNBC's quote endpoint (added in the most recent build); fallback is yfinance.
+
+**Lag:** Roughly real-time during US market hours via CNBC. Daily close otherwise.
+
+**Why:** rates are too important to leave on a 20-minute delay. CNBC's free endpoint provides effectively-live yields.
+
+## Volatility tickers (VIX, MOVE, SKEW, etc.)
+
+**Source:** yfinance.
+
+**Lag:** 15–20 minutes. Same as equities.
+
+## Quant score and Daily Recap
+
+**Source:** computed in-house.
+
+**Cadence:** quant score updates **every 5 minutes** during market hours (8 AM – 6 PM ET, weekdays). The score is logged to a timeline regardless of user traffic, so the [day's arc bar](/concepts/days-arc-bar) fills end-to-end even if no one is on the page.
+
+The Daily Recap is generated automatically at **4:30 PM ET** on weekdays.
+
+## Market Pulse
+
+- Tiles refresh every 5 minutes
+- AI Briefing refreshes every ~15 minutes
+- Events / Calls update as picked up from feeds (within minutes)
+
+## Research feed
+
+**Source:** Substack, X, YouTube ingestion pipelines.
+
+**Cadence:** daily ingest, runs overnight. Items appear the next morning.
+
+## Portfolio holdings
+
+**Source:** Plaid (read-only).
+
+**Cadence:** daily auto-refresh. Manual refresh button available in the controls.
+
+## Off-hours behavior
+
+Outside market hours and on weekends, you'll see the last cached values. The site doesn't burn API calls fetching nothing. Daily Recap shows the most recent recap; arc bar fills its full range based on last session.
+
+## Coming improvements
+
+- Paid near-real-time equity feeds (planned, no date)
+- Paid options chains for richer vol calculations (under consideration)
+- Live Market Pulse refresh at sub-5-minute intervals (depends on data feed upgrade)

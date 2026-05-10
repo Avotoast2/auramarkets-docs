@@ -1,8 +1,36 @@
 ---
 title: "Can I export?"
-description: "What is exportable today and what is not."
+description: "What is exportable today, and what isn't (yet)."
 ---
 
-<Note>
-  This page is being written. Check back soon.
-</Note>
+Short version: **most of it, eventually**. Right now exports are limited and ad-hoc.
+
+## What's exportable today
+
+- **Daily Recaps** — copy/paste the prose. The full recap is rendered as plain text with markdown structure; it pastes cleanly into Notion, Apple Notes, etc.
+- **Watchlist tickers** — copy from the table view; pastes as a comma/newline list.
+- **Portfolio holdings table** — copy from the table view; sortable then pasteable.
+- **Research articles** — open in a side panel, then copy the body.
+
+## What's not exportable yet
+
+- **Charts** — no built-in PNG/SVG export. Use a screenshot tool for now.
+- **CSV downloads** — not yet implemented for any data table.
+- **JSON / API access** — there is no public API. The internal API is locked to the auramarkets.io frontend.
+- **PDF reports** — not planned in the near term.
+
+## What's coming
+
+Probably in this rough order:
+
+1. **CSV download buttons** on the major tables (holdings, watchlists, research feed)
+2. **Daily Recap as PDF/email** — daily digest delivery to your inbox
+3. **API tokens** — for advanced users who want to script against their own data
+
+No commitments on dates. If a specific export would unlock something for you, send a note — feature requests with concrete use-cases jump the queue.
+
+## Workarounds in the meantime
+
+- **Browser print → save as PDF** works on most pages
+- **Screen-shot tools** (CleanShot, Greenshot, system Snip) for charts
+- **Selecting + copying** generally works on text-heavy pages

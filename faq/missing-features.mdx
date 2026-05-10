@@ -1,8 +1,49 @@
 ---
 title: "Why is X feature missing?"
-description: "How the roadmap works and how to request features."
+description: "How the roadmap works and how to request a feature."
 ---
 
-<Note>
-  This page is being written. Check back soon.
-</Note>
+auramarkets is a one-developer project at the friends-and-family stage. That shapes what gets built and when.
+
+## How priorities work
+
+Roughly, in order:
+
+1. **Things that break** — bug fixes always come first
+2. **Things friends/users actually ask for** — feature requests with a clear use-case from someone using the site
+3. **Quality-of-life improvements** — making existing features easier to use
+4. **New domains** — entirely new sections (the next big bet, e.g., YouTube ingestion)
+
+This means: if you want a feature, **ask for it**. The roadmap isn't fixed; user requests with concrete use-cases jump the queue.
+
+## How to request a feature
+
+- Send a note directly to me
+- Be specific: *"I want to be able to export my watchlist to a CSV so I can import it into [tool X]"* beats *"add export"*
+- The clearer the use-case, the faster it gets built
+
+## What's in flight
+
+Areas with active or near-term planned work:
+
+- **Substack ingestion improvements** — Phase 2c author scoring
+- **YouTube ingestion** — full pipeline build
+- **X (Twitter) integration** — including subscriber-only tweet ingestion (waiting on dev portal setup)
+- **Market Pulse V2** — ground-up redesign around price-first 4-layer architecture
+- **CSP rollout** — Content-Security-Policy hardening
+
+## What's intentionally not built (yet)
+
+- **Trading execution** — auramarkets is a research and risk tool, not a broker
+- **Bundler / charting library** — vanilla JS + Canvas 2D is a deliberate choice; no React, no D3
+- **Mobile app** — the web works on mobile but isn't optimized; native is not a priority
+
+## What's parked but not dead
+
+Ideas that have been thought through but aren't being actively built:
+
+- **Earnings beat/miss odds** — implied move from options or Polymarket
+- **askedgar.io SEC filings integration** — dilution / shelf / cash-runway analytics for small-mid caps
+- **Site-wide Content-Security-Policy** — needs YouTube + Clerk allow-list
+
+If one of these would unlock something for you, that's the kind of nudge that moves it up.
