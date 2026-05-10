@@ -1,8 +1,70 @@
 ---
 title: "Reading the index cards"
-description: "Timeframes, sparklines, and percentile shading explained."
+description: "What every element on a single index card means."
 ---
 
-<Note>
-  This page is being written. Check back soon.
-</Note>
+Every index card on the [Indices](/indices/overview) page packs a lot of signal into a small box. Here's how to decode it.
+
+## Anatomy of a card
+
+- **Ticker + name** — top-left (e.g., `^GSPC` / S&P 500)
+- **Current price** — large, top
+- **Change %** — color-coded green/red against the active timeframe
+- **Sparkline** — the price path over the active timeframe
+- **Percentile shading** — background tint based on where today sits in the trailing 1-year distribution
+- **Sigma badge** — appears only at extremes (`+2σ`, `+1.5σ`, `−1.5σ`, `−2σ`)
+
+## Timeframes
+
+The "usual timeframes" toggle at the top of the page applies to all cards at once:
+
+| Tab | Window |
+|---|---|
+| **1D** | Today |
+| **1W** | 5 trading days |
+| **1M** | 21 trading days |
+| **3M** | 63 trading days |
+| **6M** | 126 trading days |
+| **YTD** | Since Jan 1 |
+| **1Y** | 252 trading days |
+| **3Y** | 756 trading days |
+
+Switch the timeframe to ask different questions — 1D for "what happened today," 1Y for "where are we in the regime."
+
+## Percentile shading
+
+The card background is tinted based on the **1-year percentile** of today's reading.
+
+- **Deep green** = top decile (95th+ percentile)
+- **Light green** = upper quartile
+- **Neutral** = middle 50%
+- **Light red** = lower quartile
+- **Deep red** = bottom decile (5th– percentile)
+
+Useful for spotting outliers in a glance — a deep-red card on a green tape is asking why.
+
+## Sigma badges
+
+Appear only when the reading is statistically extreme on its 1-year distribution:
+
+| Badge | Meaning |
+|---|---|
+| **+2σ** | 95th+ percentile — multi-month high |
+| **+1.5σ** | 84th+ percentile — elevated |
+| **−1.5σ** | 16th– percentile — depressed |
+| **−2σ** | 5th– percentile — multi-month low |
+
+These are mean-reversion flags, not trade signals. They tell you the reading is unusual, not that it's about to revert.
+
+## Click into a card
+
+Click any index card to open a detail view with:
+- Larger chart with full timeframe history
+- Range stats (high/low, % from highs)
+- Related instruments
+
+## How most people use the cards
+
+- **Eye sweep** — scan all 25 for outlier shading and sigma badges
+- **Cross-region** — compare same-timeframe shading across Americas / Europe / Asia
+- **Click in** — when a card stands out, click to see the chart and ask why

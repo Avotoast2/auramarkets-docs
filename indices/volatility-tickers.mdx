@@ -1,8 +1,79 @@
 ---
 title: "Volatility tickers"
-description: "VIX, VIX3M, VXN, MOVE, SKEW, VVIX, COR3M — what each tells you."
+description: "Every gauge on the volatility shelf, what it measures, and what to do with it."
 ---
 
-<Note>
-  This page is being written. Check back soon.
-</Note>
+The shelf at the bottom of the [Indices](/indices/overview) page holds the **vol-and-fear gauges** — seven tickers that, together, tell you what the options market is pricing.
+
+For the conceptual backdrop on how to combine these, see [Vol richness & term structure](/concepts/vol-richness).
+
+## The seven gauges
+
+### VIX (`^VIX`)
+**S&P 500 1-month implied volatility.** The headline "fear gauge."
+
+- **< 13** = complacency
+- **13–18** = normal
+- **18–25** = elevated stress
+- **> 25** = panic regime
+
+VIX measures *equity* fear. It says nothing about bonds or rates.
+
+### VIX3M (`^VIX3M`)
+**S&P 500 3-month implied volatility.** Same idea as VIX but on a longer horizon.
+
+Used mainly for the **VIX/VIX3M ratio** (term structure):
+- Ratio < 1 = backwardation (near-term fear above forward fear) — stress signal
+- Ratio > 1 = contango (normal)
+
+### VXN (`^VXN`)
+**NASDAQ 100 1-month implied volatility.** The tech-flavored VIX.
+
+VXN persistently trading above VIX = vol risk concentrated in mega-cap tech. Compare against VIX for relative risk between the broad market and the growth tilt.
+
+### MOVE (`^MOVE`)
+**US Treasury implied volatility.** The bond market's VIX.
+
+Asks: "is the bond market scared?" Often a leading indicator for equity vol.
+
+- **< 80** = calm rates regime
+- **80–120** = normal
+- **> 120** = rates uncertainty
+- **> 150** = serious bond-market stress (think 2022, March 2023)
+
+When MOVE rises while VIX stays calm, the bond market is pricing a problem equities haven't noticed yet.
+
+### SKEW (`^SKEW`)
+**Cost of OTM puts vs ATM options on the S&P.** Tracked as a percentile.
+
+Asks: "how much are people paying for crash protection?"
+
+- **High SKEW (90th+ %ile)** = paying up for tail-risk hedges. Smart-money hedging or genuine worry.
+- **Low SKEW (10th– %ile)** = complacency about the left tail. Historically, this has preceded sharp drawdowns more often than headline VIX has.
+
+### VVIX (`^VVIX`)
+**Volatility of VIX itself.** "How uncertain is the fear gauge?"
+
+When VVIX is high, the market doesn't know what VIX is going to do — uncertainty about uncertainty. Often spikes before regime shifts in vol.
+
+### COR3M (`^COR3M`)
+**3-month implied correlation across S&P names.**
+
+Asks: "is the market trading like one thing or like 500 things?"
+
+- **High correlation** (during stress) = everything moves together; diversification fails
+- **Low correlation** (during calm) = stock-picking environment
+
+A rising COR3M during a calm tape often precedes a stress event — money is starting to crowd into the same positions.
+
+## How to read them together
+
+| What you see | What it means |
+|---|---|
+| VIX low, MOVE low, SKEW low | Pure complacency — protection is on sale, position-mispricing risk is high |
+| VIX low, **MOVE rising**, SKEW low | Bond market is pricing trouble equities haven't seen yet |
+| VIX low, SKEW **high** | Hidden hedging — smart money is positioning for something while the headline gauge stays calm |
+| VIX **spiking**, VVIX **spiking** | Active panic. Don't sell vol. |
+| VIX high, **MOVE high**, COR3M high | Cross-asset stress regime. Risk-off everything. |
+
+Use these alongside the [quant score](/concepts/quant-score) and the [Daily Recap](/macro/daily-recap)'s Cross-Asset Verdict for a complete read.
