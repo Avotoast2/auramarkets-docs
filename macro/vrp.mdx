@@ -1,8 +1,42 @@
 ---
 title: "VRP Vol Harvesting"
-description: "When implied vol is rich vs realized — harvest vs hibernate."
+description: "When the vol risk premium is rich enough to be worth selling — and when it isn't."
 ---
 
-<Note>
-  This page is being written. Check back soon.
-</Note>
+The **VRP model** tracks the **Vol Risk Premium** — the persistent gap between implied volatility (what options price) and realized volatility (what actually happens). When implied is high relative to realized, selling vol pays. When it isn't, selling vol is dangerous.
+
+The model classifies the regime into one of four states.
+
+## The four regimes
+
+| Regime | What it means | What the model is telling you |
+|---|---|---|
+| **HARVESTING** | VRP is positive and stable | Selling vol is being paid. The premium is rich. |
+| **NEUTRAL** | VRP is small or noisy | No edge in either direction. |
+| **COMPLACENT** | Vol is too cheap relative to historical regimes | Buying vol may be the better trade. Premium is squeezed. |
+| **DANGER** | Realized > implied, regime breaking down | Vol-selling is actively losing money. Step away. |
+
+## What feeds it
+
+- **VIX vs realized 1M S&P vol** — the headline VRP
+- **VIX/VIX3M term structure** — backwardation = trouble (see [Vol richness](/concepts/vol-richness))
+- **SKEW percentile** — when paying for tail-risk hedges is expensive, the body of the distribution may be cheap
+- **Vol-of-vol (VVIX)** — when uncertainty about vol itself is high, regime shifts get more likely
+
+## How regime transitions work
+
+The model uses **persistence rules** — it won't flip from HARVESTING to DANGER on a single bad day. A regime change requires the underlying conditions to hold for several sessions, similar to the [CTA](/macro/cta) hysteresis.
+
+This is intentional. Whipsaws cost you money in vol selling; the model is built to be slow on the way out so you don't get faked out of a still-good regime.
+
+## How to use it
+
+- **HARVESTING** — the structural backdrop for short-vol trades is supportive. (Trade construction is on you — the model doesn't size or hedge.)
+- **NEUTRAL** — no edge. Skip new vol trades; manage existing ones to time decay.
+- **COMPLACENT** — the asymmetry has flipped. Consider being long vol or at least flat short positions.
+- **DANGER** — close short-vol exposure. Historically, sustained DANGER readings precede vol shocks.
+
+## Where you see it
+
+- The dedicated **VRP** view in the [Macro page](/macro/overview) left rail
+- Surfaced in the **Cross-Asset Verdict** section of the [Daily Recap](/macro/daily-recap) when it's actively informing the day's read

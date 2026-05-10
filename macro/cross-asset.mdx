@@ -1,8 +1,54 @@
 ---
-title: "Cross-asset scanner"
-description: "Rates, FX, credit, and commodities tiles you can customize."
+title: "Cross-Asset Scanner"
+description: "A customizable grid of rates, FX, credit, and commodities tiles."
 ---
 
-<Note>
-  This page is being written. Check back soon.
-</Note>
+The **Cross-Asset Scanner** is the customizable workspace for everything *not* equity-index — rates, FX, credit, commodities, sector ETFs, anything you want to keep an eye on without cluttering the main views.
+
+Think of it as your personal Bloomberg launch page, dark.
+
+## What's in a tile
+
+Each tile shows:
+
+- **Ticker + name**
+- **Current price / level**
+- **Change (1D, configurable)**
+- **Sparkline** over the active timeframe
+- **Percentile shading** (1Y) — same color logic as the [Indices cards](/indices/reading-cards)
+- **Sigma badge** if the reading is at an extreme
+
+Click any tile to open a detail chart with full history.
+
+## What's available
+
+The scanner catalog includes (non-exhaustive):
+
+- **Rates** — 2Y, 5Y, 10Y, 30Y US Treasuries; 2s10s, 3m10y spreads; SOFR; international 10Y yields
+- **FX** — DXY, major crosses (EURUSD, USDJPY, GBPUSD, USDCNH), EM crosses
+- **Credit** — HYG, LQD, JNK, EMB, IG/HY spread proxies
+- **Commodities** — WTI, Brent, gold, silver, copper, natural gas, agricultural softs
+- **Crypto** — BTC, ETH, total market cap
+- **Sector ETFs** — XLF, XLK, XLE, XLU, XLV, etc.
+
+If a ticker is on yfinance, it can probably be added.
+
+## Customizing your scanner
+
+The scanner remembers your selection per-account.
+
+- **Add a tile** — pick from the catalog, drag into your scanner
+- **Remove a tile** — drag it out, or click the × in edit mode
+- **Reorder** — drag to reorganize
+- **Saves automatically** — no "save" button; your changes persist
+
+## How most people use it
+
+- **Build a "regime watch" board** — DXY, 10Y, HYG, gold, BTC. When all five move together, regime is shifting.
+- **Build a "single asset deep dive" board** — focus on oil with crude curve, refining margins, USD, and inventory-sensitive equities side by side.
+- **Build a "morning checks" board** — overnight S&P futures, DXY, 10Y, BTC, gold for a 30-second pre-open scan.
+
+## Related
+
+- [Treasury yields & curves](/macro/treasury-yields) — the dedicated rates view, more detail than the rates tiles here
+- [Reading the index cards](/indices/reading-cards) — same percentile/sigma logic

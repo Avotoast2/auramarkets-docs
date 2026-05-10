@@ -1,8 +1,44 @@
 ---
 title: "CTA Trend Following"
-description: "What the trend model is signaling and how to read its tiers."
+description: "Where the trend-following crowd is positioned across 20 macro pillars."
 ---
 
-<Note>
-  This page is being written. Check back soon.
-</Note>
+The **CTA model** is auramarkets' replica of how the systematic trend-following industry — the multi-billion-dollar CTA funds — is likely positioned across the macro complex right now.
+
+It tracks **20 pillars** (equities, rates, FX, commodities) and runs Time-Series Momentum (TSMOM) signals on each. The output is a per-asset directional bias: **long**, **short**, or **flat**.
+
+## Why this matters
+
+CTAs collectively manage hundreds of billions and trade systematically. When their signals flip on a major asset, **flow follows** — sometimes for weeks. Knowing where they sit is knowing where a meaningful chunk of macro flow is biased.
+
+It's not a leading indicator of *price* — it's a positioning indicator. Trade it as "what's the crowd doing," not "what should I do."
+
+## The 20 pillars
+
+Equities (US, EU, EM, etc.), sovereign bonds across the curve, major FX crosses, energy, metals, agricultural softs. The full list is on the page itself.
+
+## How signals work
+
+For each pillar, the model computes momentum at three horizons:
+
+| Horizon | Catches |
+|---|---|
+| **20-day** | Short-term flips, fastest |
+| **60-day** | Medium-term trend |
+| **200-day** | Secular regime |
+
+These are combined into a single TSMOM score per asset. **Hysteresis** is applied — the signal won't flip back and forth on noise; it requires a meaningful move to change direction.
+
+The model exposes three weighting **schemas** (A, B, C) — different blends of the three horizons. A is the default; B emphasizes shorter-term signals; C is the slowest.
+
+## What you'll see on the page
+
+- **Per-asset card** with: current direction (long/short/flat), TSMOM score, vol state (Low / Normal / Spiking), days since last flip
+- **Aggregate view** — how many pillars are long vs short, broken out by asset class
+- **Vol context** — assets in "Spiking" vol get flagged; CTAs typically reduce risk on spiking vol regardless of trend
+
+## How to use it
+
+- **Confirmation, not signal** — if you're considering a long S&P trade and the CTA model says equities are positioned long across the board, you're with the crowd. That's not bad, just know it.
+- **Crowded position warning** — when 18 of 20 pillars are positioned the same way (long-everything or short-everything), reversal risk grows. Crowded trades unwind hard.
+- **Vol-spike de-risking** — when vol state flips to Spiking on a held position, expect CTA selling pressure regardless of the trend signal.

@@ -1,8 +1,51 @@
 ---
 title: "QFI — Quantum Fear Index"
-description: "A composite tail-risk gauge across vol, skew, and credit."
+description: "A Bitcoin-specific composite gauging quantum-computing risk to the network."
 ---
 
-<Note>
-  This page is being written. Check back soon.
-</Note>
+The **QFI (Quantum Fear Index)** answers a very specific question: *how much should Bitcoin holders be thinking about the day quantum computers can break ECDSA?*
+
+It's not a generic tail-risk gauge. It's a focused composite of seven signals — some market-priced, some technical, some time-based — that together summarize where Bitcoin sits on the quantum-risk timeline.
+
+## The score
+
+QFI is a **0 to 100** number. Higher = more quantum-risk concern priced in or implied.
+
+| Score | Label |
+|---|---|
+| **< 30** | Low |
+| **30–45** | Moderate |
+| **45–55** | Baseline |
+| **55–70** | Elevated |
+| **70–85** | High |
+| **> 85** | Critical |
+
+The score is a tanh-normalized weighted sum of Z-scores across the seven inputs, so it never blows past the bounds.
+
+## What goes into it
+
+| Input | What it measures |
+|---|---|
+| **Deribit skew** | BTC 25-delta put-call IV skew on Deribit. The crypto-native "are people paying for crash protection?" gauge. |
+| **Forward basis** | BTC futures basis. Compression often precedes stress. |
+| **Venue concentration** | Exchange concentration risk — how much BTC sits at how few venues. |
+| **Q-day proximity** | Estimated time until quantum computers can break ECDSA. Updates as research benchmarks ship. |
+| **On-chain risk** | On-chain stress signals (large dormant coin movements, unusual flows). |
+| **Quantum equity momentum** | Momentum in publicly traded quantum-computing companies (IBM, IonQ, Rigetti, etc.). Their progress is the clock. |
+| **PQ migration commits** | GitHub commit activity in post-quantum cryptography projects. The defense side of the race. |
+
+Each input is independently harvested. If one source fails, QFI degrades gracefully — the others still produce a score.
+
+## Why this matters
+
+Bitcoin's signature scheme (ECDSA on secp256k1) is theoretically vulnerable to a sufficiently large quantum computer running Shor's algorithm. The threat isn't immediate, but it's not infinite either.
+
+QFI is the closest thing to a single number tracking that race — both **how fast the threat is approaching** (quantum equity momentum, Q-day proximity) and **how fast the defense is moving** (PQ migration commits) — alongside whether the **market** is starting to price it (skew, basis).
+
+## How to use it
+
+- **Baseline reading (45–55)** — no action needed; this is "the market isn't pricing quantum risk in any unusual way."
+- **Elevated / High (55–85)** — worth checking *which* inputs are driving the move. Skew rising means market-priced; quantum equity momentum spiking means the technology side of the race accelerated.
+- **Critical (> 85)** — has not been observed yet at the time of writing. Would warrant attention regardless of position size.
+
+QFI is a **slow** indicator by design — it measures a multi-year tail risk, not a tomorrow risk. Don't trade it as a swing signal.

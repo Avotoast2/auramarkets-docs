@@ -1,8 +1,54 @@
 ---
 title: "Treasury yields & curves"
-description: "2s10s, 3m10y, and live intraday overlays."
+description: "Live yields, curve spreads, and what shape changes are saying."
 ---
 
-<Note>
-  This page is being written. Check back soon.
-</Note>
+The Treasury section covers the **yield curve** — every major US Treasury point, the key spread relationships, and live intraday overlays during US market hours.
+
+Bond yields are the most important price in finance. Equity multiples, FX, credit spreads, and risk regimes all key off them.
+
+## What's tracked
+
+| Point | Why it matters |
+|---|---|
+| **3M, 6M** | Front-end — Fed policy expectations |
+| **2Y** | Most rate-sensitive — what the market expects from the Fed in the next ~2 years |
+| **5Y** | Mid-curve — growth expectations |
+| **10Y** | The benchmark — the rate the world prices off |
+| **30Y** | Long bond — inflation and growth-trajectory expectations |
+
+## Curve spreads
+
+The shape matters as much as the level. Two key spreads:
+
+### 2s10s (10Y minus 2Y)
+The classic recession indicator.
+- **Inverted (negative)** — front-end above long-end. Historically precedes recessions by 6–18 months.
+- **Steepening from inversion** — often the actual recession trigger. The curve "bull-steepens" as the Fed cuts.
+- **Normal (positive, +100 to +200 bp)** — standard upward slope.
+
+### 3m10y (10Y minus 3M)
+The Fed's preferred recession signal — used in the New York Fed's recession probability model.
+- More sensitive to actual policy than 2s10s
+- Inversions here have a stronger track record than 2s10s for predicting recessions
+
+## Live overlay
+
+During US market hours, an intraday overlay updates the long end (10Y, 30Y) on top of the daily close data. Previously this was a paid feed; the current build pulls live yields from CNBC's quote endpoint as the primary source, with yfinance as fallback.
+
+## How to read curve moves
+
+| Move | What it usually means |
+|---|---|
+| **Bull-steepening** (front-end falls faster than long-end) | Fed-cut expectations rising — growth fear or active easing |
+| **Bear-steepening** (long-end rises faster than front-end) | Inflation expectations rising — long-end pricing-in higher term premium |
+| **Bull-flattening** (long-end falls faster than front-end) | Growth fear — flight-to-duration |
+| **Bear-flattening** (front-end rises faster than long-end) | Hawkish Fed — pricing in more hikes |
+
+The [Daily Recap](/macro/daily-recap)'s **Cross-Asset Verdict** section will name the move when it's the day's story.
+
+## How most people use it
+
+- **Glance at 10Y direction first** — the most important number on the page
+- **Check 2s10s and 3m10y** — recession-signal context
+- **Compare today's curve to the day's equity move** — when bonds and stocks disagree, the disagreement is the signal
