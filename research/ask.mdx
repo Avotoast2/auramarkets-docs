@@ -99,9 +99,15 @@ Above the answer area, four sample-question chips kickstart common patterns: "NV
 - **Backtest requests** — the agent doesn't run simulations, just retrieves data.
 - **Predictions** — it can summarize what consensus thinks; it won't tell you where the stock is going.
 
+## Performance & convergence
+
+- **Hard turn cap.** Deep mode runs at most **5 turns** of tool-use, with a soft rule that the agent should stop gathering data after turn 3 and start synthesizing. This bounds answer time to roughly 60-90 seconds and prevents the "Claude is being too thorough" failure mode where complex comparison questions never converge.
+- **Parallel tool fan-out.** For multi-ticker questions ("deep dive on $FCEL vs $BE"), the agent is instructed to batch tool calls in a single turn — `get_quote(A) + get_quote(B) + get_fundamentals(A) + get_fundamentals(B)` all fire together rather than sequentially. This cuts comparison-question latency roughly in half.
+- **Per-request cost cap.** Default mode caps at $0.50, deep mode at $1.50. If the running cost would exceed the cap, the agent stops and returns the partial answer with a note rather than running up an unbounded bill.
+
 ## Behind the scenes (for the curious)
 
 - Default mode runs through Gemini 2.5 Pro with function-calling. Gemini's `google_search` native tool isn't used because xAI/Google chose mutually-exclusive APIs; web search is implemented as a function call instead.
-- Deep mode runs Claude Sonnet 4.6 with `tool_use` chains up to 8 turns.
+- Deep mode runs Claude Sonnet 4.6 with `tool_use` chains, hard-capped at 5 turns.
 - `x_search` calls xAI's new Responses API (`/v1/responses`) with the Agent Tools framework — the legacy `search_parameters` API was deprecated in May 2026.
 - Streaming uses Server-Sent Events. Tool calls and results stream as they happen; the final answer streams token-by-token; markdown renders on completion.
