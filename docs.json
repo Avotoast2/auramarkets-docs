@@ -34,6 +34,7 @@
               "macro/overview",
               "macro/market-pulse",
               "macro/daily-recap",
+              "macro/daily-digest",
               "macro/qfi",
               "macro/cta",
               "macro/vrp",
@@ -74,7 +75,9 @@
               "research/browsing",
               "research/confidence-tiers",
               "research/entity-pages",
-              "research/watchlist-matches"
+              "research/watchlist-matches",
+              "research/thirteenf",
+              "research/ask"
             ]
           },
           {

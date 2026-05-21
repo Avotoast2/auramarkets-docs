@@ -13,6 +13,17 @@ It's designed for the question "what's actually happening right now?"
 - **Day's quant score** at the top — the same [score](/concepts/quant-score) you see in the Daily Recap, but live, updating through the session.
 - **Recap badge** — when a Daily Recap is published (after 4:30 PM ET on weekdays), a link appears here to jump straight to it.
 
+### Key signal commentary
+
+A one-sentence headline above the briefing, surfaced from the cross-asset state. The commentary engine prioritizes:
+
+1. **Multi-year extremes first** — when any tracked instrument hits a level not seen for ≥1 year (e.g., "30Y yield at 5.05%, highest since Aug 2007 — long-end repricing the term premium, not a single-day move"). All-time highs/lows take top billing.
+2. **52-week highs/lows** — secondary triggers when not at a longer-window extreme.
+3. **Cross-asset divergences** — credit/equity, MOVE/VIX, rates/dollar splits that don't reconcile with the dominant theme.
+4. **Notable single-day moves** — only when ≥2σ on a 60-day baseline and tied to the dominant regime.
+
+The long-lens fetch covers all yields, broad indices, DXY, gold, BTC, VIX, MOVE, TLT — these are the instruments where "highest since YYYY" is a real signal. Other instruments get a 1-year window only.
+
 ### Two view modes
 A toggle near the top lets you switch between:
 

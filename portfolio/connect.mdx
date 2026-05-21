@@ -31,13 +31,32 @@ Plaid is the standard bank/broker connect layer used across most US fintech (Rob
 ### Refresh cadence
 Holdings auto-refresh on a daily cadence. You can force a refresh with the refresh button in the top controls.
 
-## Option 2: Manual import
+## Option 2: Manual / file import
 
-If you'd rather not connect a broker, you can paste holdings directly:
+If you'd rather not connect a broker, you can add holdings manually. Click **+ Add Holding** (next to Link Brokerage) — a tabbed modal opens with two paths:
 
-1. Click **Import Holdings**
-2. Paste a CSV-like list: `TICKER, QUANTITY, COST_BASIS`
-3. Save
+### Tab 1: Single
+
+One position at a time:
+- **Ticker** (e.g., `AAPL`)
+- **Shares** (e.g., `100`)
+- **Cost basis per share** (e.g., `150.00`)
+
+Save adds it to the active account.
+
+### Tab 2: Bulk (CSV)
+
+For larger imports — three ways to populate the list:
+
+1. **Drag and drop** a `.csv` or `.xlsx` file onto the drop zone at the top
+2. **Click the drop zone** to open a file picker
+3. **Paste rows directly** into the textarea as `ticker, shares, cost_basis` per line
+
+For CSV/XLSX files:
+- The first row is auto-detected as a header if it contains the word "ticker" and gets stripped
+- Only the first sheet of an XLSX is read
+- The parser fills the textarea so you can preview/edit before clicking Import
+- A status line shows how many rows loaded
 
 Manual portfolios won't auto-update — you'll need to edit when holdings change.
 

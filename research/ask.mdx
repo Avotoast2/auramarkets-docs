@@ -1,0 +1,107 @@
+---
+title: "Ask"
+description: "Q&A grounded in your portfolio, your corpus, 13F flows, SEC filings, and live X/web data."
+---
+
+The [Ask page](https://auramarkets.io/research/ask) is a research Q&A assistant that **uses your own data first** — your portfolio, your curated Substack/X/YouTube corpus, 13F flows, and SEC filings — then reaches for the live web only when needed. Every answer cites its sources inline.
+
+It's the closest thing to "Google Finance's research sidebar, but integrated with what you actually track."
+
+## How it works
+
+You type a question. The agent decides which tools to call based on the question, gathers data, then synthesizes a cited answer.
+
+There are **two modes**:
+
+| Mode | Model | Best for | Typical cost |
+|---|---|---|---|
+| **Default** | Gemini 2.5 Pro | One-shot questions, quick lookups, fact checks | $0.01–0.10 |
+| **Deep research** | Claude Sonnet 4.6 | Multi-step analysis, theses, bull/bear cases | $0.15–0.30 |
+
+Toggle deep mode with the checkbox below the question box. Some questions auto-upgrade to deep mode (see below).
+
+## Tools available
+
+The agent has 10 tools to choose from per question:
+
+| Tool | Source | When it's called |
+|---|---|---|
+| **get_quote** | Yahoo Finance | "What's X trading at" |
+| **get_price_history** | Yahoo Finance | "How has X performed over Y" |
+| **get_fundamentals** | Yahoo Finance | Revenue, EPS, margins (last 8 quarters) |
+| **get_filings** | SEC EDGAR | 10-K, 10-Q, 8-K with direct links |
+| **search_research_corpus** | Your Substack/YouTube/X library | "What do writers think about X" |
+| **get_thirteenf** | The 34-fund 13F universe | "Who's buying X" |
+| **get_portfolio_context** | Your holdings | "How am I positioned in X" |
+| **get_market_snapshot** | Macro engine | Cross-asset regime, sectors, divergences |
+| **web_search** | Google-grounded (via Gemini) | Static facts, editorial articles |
+| **x_search** | Grok / xAI live search | Real-time X/finTwit sentiment, breaking news |
+
+You'll see each tool call appear in the answer panel as it fires. After the answer is in, the tool log collapses into a one-line summary (`Used 7 tools · 25 sources`); click to expand.
+
+## Auto-upgrade to deep mode
+
+Some questions are obviously thesis-style and benefit from the slower-but-smarter Claude orchestrator. The page auto-flips deep mode on when the question contains any of:
+
+- `deep dive`, `deep-dive`
+- `thesis`
+- `bull case`, `bear case`, `bullish case`, `bearish case`
+- `should I buy / sell / hold / own / short / trim / add`
+- `compare X vs / and / to Y`
+- `valuation analysis`, `valuation breakdown`
+- `do a full / complete / comprehensive analysis`
+
+When this happens, an orange banner appears in the answer: *"Auto-upgraded to deep research — matched 'deep dive'. Uncheck Deep research below for default mode next time."* You stay in control — uncheck the toggle for the next question to override.
+
+## Citations
+
+Every quantitative claim in an answer has a `[N]` chip linking to the source. The agent is instructed not to invent numbers — anything it states should be backed by a tool result.
+
+Two places to find the references:
+- **Card row at the top of the answer** — favicons of the unique domains that contributed (e.g., yahoo, sec.gov, x.com, fool.com). Quick visual check of what was consulted.
+- **Sources panel at the bottom** — full list, one line per source: `[N]  🌐 domain  ·  title`. Defaults to 5 visible with "Show all N sources →" to expand.
+
+## History sidebar
+
+Every Q&A auto-saves to a per-user history (signed-in users only — anonymous Qs aren't persisted). The left sidebar shows:
+
+- **★ Pinned** (coming soon — backend supports it, UI pending)
+- **Today / Yesterday / Last 7 days / Older** date buckets
+- Per-row: title, ticker chip if scoped, ● orange dot for deep-research entries
+
+**Search** the history with the input at the top of the sidebar — filters across title, question, and ticker.
+
+**Click a row** to reload the full Q&A (answer, sources, tool log, cost). Hover a row for a `×` delete button.
+
+**"+ New question"** button at the top clears the thread.
+
+Sidebar can be collapsed via the ◧ button if you want more horizontal space for the answer.
+
+## Cost guardrails
+
+- **Per-request hard cap**: $0.50 default, $1.50 in deep mode. If the agent's running cost would exceed this, it stops and returns whatever it has so far.
+- **Cost line** appears at the bottom of every answer: `claude · $0.282 · 19,876 tokens`. Lets you see what each question cost.
+
+## Suggestion chips
+
+Above the answer area, four sample-question chips kickstart common patterns: "NVDA price + week", "SMCI 13F flows", "30Y yield context", "PLTR corpus take". Click any to drop it into the composer.
+
+## What it's good at
+
+- **Multi-source synthesis** — "give me a deep dive on $X" pulls quote + fundamentals + filings + corpus + 13F + X chatter + web news in one shot, with a structured bull/bear summary.
+- **Real-time sentiment** — "what is finTwit saying about NVDA right now" hits the Grok-powered `x_search` tool for direct X data.
+- **Filing-grounded answers** — "what did MSFT say about AI capex in their last 10-K" pulls the actual filing and quotes from it.
+- **Personalized framing** — when asking about a name you hold, the agent picks up `get_portfolio_context` and weaves your position size and P&L into the answer.
+
+## What it's not good at
+
+- **Live order-book questions** — no L2 data, no market-making signal.
+- **Backtest requests** — the agent doesn't run simulations, just retrieves data.
+- **Predictions** — it can summarize what consensus thinks; it won't tell you where the stock is going.
+
+## Behind the scenes (for the curious)
+
+- Default mode runs through Gemini 2.5 Pro with function-calling. Gemini's `google_search` native tool isn't used because xAI/Google chose mutually-exclusive APIs; web search is implemented as a function call instead.
+- Deep mode runs Claude Sonnet 4.6 with `tool_use` chains up to 8 turns.
+- `x_search` calls xAI's new Responses API (`/v1/responses`) with the Agent Tools framework — the legacy `search_parameters` API was deprecated in May 2026.
+- Streaming uses Server-Sent Events. Tool calls and results stream as they happen; the final answer streams token-by-token; markdown renders on completion.

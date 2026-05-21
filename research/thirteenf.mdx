@@ -1,0 +1,87 @@
+---
+title: "13F Filings"
+description: "What 34 tracked funds bought and sold last quarter — Consensus view, By-Fund view, and per-name drill-downs."
+---
+
+The [13F Filings page](https://auramarkets.io/thirteenf) ingests quarterly SEC 13F-HR filings from a curated list of **34 funds** — long-only equity shops, hedge funds, multi-strats, and quants — and turns them into two views: what the crowd is doing (Consensus) and what each manager is doing (By Fund).
+
+Tracked managers include Tiger Global, Coatue, Lone Pine, Stanley Druckenmiller's Duquesne, Berkshire, Pershing Square, Third Point, Greenlight, Hound Partners, Whale Rock, Citadel, Renaissance, Two Sigma, and more.
+
+## Consensus view
+
+The default view. Two panels side-by-side.
+
+### Cluster Buys & Sells
+
+Cross-fund signal: which CUSIPs the most managers piled into (or out of) last quarter.
+
+Filter tabs:
+- **Top Buys** — net buyer count and dollar flow positive
+- **Top Sells** — net seller count and dollar flow negative
+- **New Positions** — at least 3 funds initiated this quarter
+
+Columns:
+| Column | What it tells you |
+|---|---|
+| Ticker / Issuer | Resolved from CUSIP (foreign issuers via CINS) |
+| Buyers / Sellers | Count of funds that added vs trimmed |
+| New / Exits | Brand-new positions vs full exits |
+| Net $ Δ | Aggregate dollar change across all funds |
+| **Max %** | Highest portfolio weight any single fund assigned to this name |
+
+The **Max %** column is the one to watch when buyer count is misleading. *8 buyers* might sound like consensus — but if the max conviction is only 0.1%, nobody really cares. If max is 3.9% and the rest are 0.15%, it's a single-fund bet wearing a consensus mask.
+
+Click any row to expand a drill-down showing each fund's position, change direction, weight, and dollar delta. The expanded table is sortable.
+
+### Most Held
+
+Same universe, different question: which names are held by the most funds — and where the most aggregate dollars sit. Less about flow, more about consensus exposure.
+
+### Q1 2026 Highlights panel (top of view)
+
+Above the tables, a summary panel shows:
+- **Top buys** — best aggregate-flow names with lead funds named
+- **Top sells** — mirror logic
+- **Cluster new positions** — names ≥3 funds just initiated
+
+Lead funds shown are filtered for conviction: positions ≥0.25% portfolio weight, with quant/multi-strat managers held to a higher 1.0% bar so basis-point market-neutral noise doesn't dominate the picture.
+
+## By Fund view
+
+Switch the top-of-page toggle to **By Fund**. Left sidebar lists all 34 funds; clicking one shows its drill-down:
+
+- **Q/Q highlights** — top new positions, biggest increases, biggest decreases, exits
+- **Full position table** — every name in the fund's filing, sortable by weight, value, share change, etc.
+- **Per-row history** — click a position for a multi-quarter history of that fund × ticker
+
+## Period selector
+
+Top-right dropdown — defaults to the latest quarter where most funds have filed. Drop back to prior quarters to compare flows over time.
+
+## Daily refresh
+
+A Railway cron service polls EDGAR daily for new 13F-HR filings from the tracked CIK list. New filings parsed, CUSIPs resolved (via OpenFIGI), and the views update automatically. There's typically a 30-45 day lag between quarter-end and the bulk of filings appearing, then a long tail of stragglers and amendments.
+
+## What 13F is and isn't
+
+- **Is**: long equity positions ≥ $100M AUM, filed within 45 days of quarter-end.
+- **Is not**: shorts (not required), options exposures (only US-listed derivs are partial), foreign holdings (US-only), or *current* positioning — there's always a quarter-end lag.
+
+Treat 13Fs as *direction* signal, not *timing*. A position you see today was held at some point in the last 4-7 weeks; the manager may have already adjusted.
+
+## What you can do with it
+
+<CardGroup cols={2}>
+  <Card title="Find conviction names" href="https://auramarkets.io/thirteenf">
+    Sort Cluster Buys by Max % to see what funds *really* care about.
+  </Card>
+  <Card title="Compare manager styles" href="https://auramarkets.io/thirteenf">
+    By Fund view side-by-side reveals growth vs value vs macro vs quant signatures.
+  </Card>
+  <Card title="Spot rotation themes" href="https://auramarkets.io/thirteenf">
+    Cluster New Positions surfaces the early-stage consensus before it shows up in price.
+  </Card>
+  <Card title="Track one manager over time" href="https://auramarkets.io/thirteenf">
+    Per-position history reveals when they sized up or trimmed.
+  </Card>
+</CardGroup>
