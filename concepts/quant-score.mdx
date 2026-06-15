@@ -1,9 +1,9 @@
 ---
 title: "Quant score"
-description: "The −1 to +1 number that summarizes how risk-on or risk-off the market is right now."
+description: "The −100 to +100 number that summarizes how risk-on or risk-off the market is right now."
 ---
 
-The **quant score** is one number, between −1 and +1, that summarizes how risk-on or risk-off the market is at a given moment. It updates every five minutes during the trading day.
+The **quant score** is one number, between −100 and +100, that summarizes how risk-on or risk-off the market is at a given moment. It updates every five minutes during the trading day.
 
 It's the spine of the [Daily Recap](/macro/daily-recap), the [Market Pulse](/macro/market-pulse) sidebar, and the [day's arc bar](/concepts/days-arc-bar).
 
@@ -11,11 +11,11 @@ It's the spine of the [Daily Recap](/macro/daily-recap), the [Market Pulse](/mac
 
 | Score | Meaning |
 |---|---|
-| **+0.5 to +1.0** | Strong risk-on — equities up, vol low, credit tight, breadth wide |
-| **+0.2 to +0.5** | Mild risk-on |
-| **−0.2 to +0.2** | Neutral / mixed |
-| **−0.5 to −0.2** | Mild risk-off |
-| **−1.0 to −0.5** | Strong risk-off — equities down, vol up, credit widening, defensives bid |
+| **+50 to +100** | Strong risk-on — equities up, vol low, credit tight, breadth wide |
+| **+20 to +50** | Mild risk-on |
+| **−20 to +20** | Neutral / mixed |
+| **−50 to −20** | Mild risk-off |
+| **−100 to −50** | Strong risk-off — equities down, vol up, credit widening, defensives bid |
 
 ## What goes into it
 
@@ -32,6 +32,10 @@ Eight buckets, weighted and combined:
 
 No AI in the calculation — it's a deterministic weighted average. AI is layered on top later for the written recap.
 
-## Why −1 to +1
+## Why a bounded scale
 
-Bounded scale means today's score is directly comparable to last Tuesday's, last quarter's, last year's. The percentile next to the score (e.g., "57th %ile") tells you where today sits in the historical distribution.
+A bounded scale means today's score is directly comparable to last Tuesday's, last quarter's, last year's. The percentile next to the score (e.g., "57th %ile") tells you where today sits in the historical distribution.
+
+<Note>
+Under the hood the score is computed on a −1 to +1 scale and shown ×100 as a clean integer (e.g. **+42**). Same number, friendlier display — it shares the −100..+100 convention with the sentiment score.
+</Note>
