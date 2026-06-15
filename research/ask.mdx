@@ -29,7 +29,7 @@ Toggle deep mode with the checkbox below the question box. Some questions auto-u
 
 ## Tools available
 
-The agent has 10 tools to choose from per question:
+The agent has 11 tools to choose from per question:
 
 | Tool | Source | When it's called |
 |---|---|---|
@@ -38,6 +38,7 @@ The agent has 10 tools to choose from per question:
 | **get_fundamentals** | Yahoo Finance | Revenue, EPS, margins (last 8 quarters) |
 | **get_filings** | SEC EDGAR | 10-K, 10-Q, 8-K with direct links |
 | **search_research_corpus** | Your Substack/YouTube/X library | "What do writers think about X" |
+| **get_writer_calls** | The [Calls](/research/calls) ledger | "Who's long/short X", positioning + each writer's track record |
 | **get_thirteenf** | The 34-fund 13F universe | "Who's buying X" |
 | **get_portfolio_context** | Your holdings | "How am I positioned in X" |
 | **get_market_snapshot** | Macro engine | Cross-asset regime, sectors, divergences |
@@ -67,6 +68,8 @@ Every quantitative claim in an answer has a `[N]` chip linking to the source. Th
 Two places to find the references:
 - **Card row at the top of the answer** — favicons of the unique domains that contributed (e.g., yahoo, sec.gov, x.com, fool.com). Quick visual check of what was consulted.
 - **Sources panel at the bottom** — full list, one line per source: `[N]  🌐 domain  ·  title`. Defaults to 5 visible with "Show all N sources →" to expand.
+
+When an answer leans on your own corpus or the Calls ledger, a **grounding line** appears above it — e.g. *"Grounded in 15 takes · 9 writers · last 11 days"* — so you can see at a glance how much real, human-sourced research is behind the answer (not just the model's priors). The footer also shows how long the answer took.
 
 ## History sidebar
 

@@ -72,6 +72,7 @@
             "group": "Research",
             "pages": [
               "research/overview",
+              "research/calls",
               "research/browsing",
               "research/confidence-tiers",
               "research/entity-pages",

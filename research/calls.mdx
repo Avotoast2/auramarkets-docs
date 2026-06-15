@@ -1,0 +1,122 @@
+---
+title: "Calls"
+description: "Every directional take from the writers you track, turned into a position and scored against the market. Who's been right, who's loud, and who's bought what — at a glance."
+---
+
+**Calls** turns the Writers corpus into a scoreboard. Every time a tracked writer takes a directional stance on a ticker — long or short, on Substack, X, or YouTube — it becomes a **tracked call**: entered at the price when they said it, scored against SPY ever since.
+
+It's the answer to two questions you can't get from a raw feed:
+
+- **Who's actually been right?** Not who posts the most — who's beaten the market on the calls they made.
+- **Where is everyone positioned?** For any ticker, how many of your writers are long vs short right now, and which of them have a track record worth weighting.
+
+Calls is the **default landing tab** under Research → Writers.
+
+<Note>
+This is a *model*, not anyone's brokerage statement. A call is entered at the close on/after the writer's mention and held — it's a consistent yardstick for comparing takes, not a claim about what anyone actually traded.
+</Note>
+
+## What counts as a call
+
+Each piece of content runs through a stance pass that asks, per primary ticker: is the writer **long**, **short**, or just mentioning it? Only genuine directional views become calls. A passing reference doesn't.
+
+Re-mentions are handled so frequent posters don't get a hundred duplicate "calls" on the same name:
+
+| Event | What happens |
+|---|---|
+| **First mention** | Opens the call (long or short) at that day's close |
+| **Same-direction re-mention** | Reaffirms the open call — bumps a counter, no new position |
+| **Opposite-direction mention** | Closes the call (reversed) and opens the opposite one |
+| **6 months pass** | The call expires — its headline return freezes at the 6-month mark |
+
+## The writers leaderboard (left)
+
+Every tracked writer, ranked. Four columns:
+
+| Column | Meaning |
+|---|---|
+| **CALLS** | Total calls on record |
+| **HIT** | Share of scored calls that beat the market (positive alpha) |
+| **ALPHA** | Median market-beating edge per call — the headline track-record number |
+
+**Click any header to sort**; click again to reverse. The ALPHA and HIT columns keep writers with fewer than 3 scored calls below those with a real sample, so a lucky one-call writer can't top the board.
+
+### The activity dots
+
+A coloured dot on the left edge flags recent activity at a glance:
+
+- **● solid green** — opened a *new* call in the last 3 days (fresh conviction)
+- **○ hollow green** — only *re-mentioned* an existing open call in the last 3 days (still on it, no new position)
+- **no dot** — quiet
+
+The **active / all** toggle (top of the column) floats writers with recent calls to the top by default; switch to **all** for a pure column sort with no activity priority.
+
+## The call list (right)
+
+Every call, newest first — ticker, direction, the writer, the verbatim quote that evidenced it, and live P&L (entry → current, with the return and alpha).
+
+- **newest / top gainers** — sort by recency or by return
+- **Filter ticker** — narrow to a name
+- **macro** checkbox — see [Macro toggle](#macro-toggle) below
+
+**Click a writer** to pull their full call history. **Click a ticker** to focus it.
+
+### Ticker focus
+
+Clicking a ticker opens a focus panel with two things straight out of the "where's everyone positioned" playbook:
+
+- **Positioning tally** — a `N LONG / M SHORT` bar across all open calls on that ticker
+- **Annotated price chart** — the price line with a marker at every writer's entry; hover a marker for who, when, and how the call's done
+
+### Call badges
+
+| Badge | Meaning |
+|---|---|
+| **pre-IPO** | Priced on Hyperliquid perps (see below) |
+| **pending** | Mentioned too recently to price yet — e.g. opened over a weekend; it prices on the next market close |
+| **untracked** | No price source — delisted, foreign-listed, or non-tradeable |
+| **expired** | Hit the 6-month horizon; headline return is frozen |
+| **reversed** | The writer flipped direction; the call closed at the flip |
+| **first close** | The mention predated available price data; entry is the first close we could get |
+
+## Pre-IPO names
+
+When a writer calls a company before it's public — SpaceX, OpenAI, Anthropic — there's no stock to price against. Calls uses **Hyperliquid's pre-IPO perpetual markets** for these, so the call is scored from day one and carries straight through the eventual IPO. These show a **pre-IPO** badge.
+
+## Macro toggle
+
+By default the list shows everything. Uncheck **macro** to hide futures, equity indices, rates, and FX — leaving single-name stocks, pre-IPO names, and crypto. Handy when you only care about single stocks and don't want index/commodity calls in the mix.
+
+## How the numbers work
+
+<AccordionGroup>
+  <Accordion title="Alpha — the edge per call">
+    For each call, alpha is the call's return **minus SPY's return over the same window**, sign-adjusted for direction (a short that falls while the market rises is positive alpha). Each call is scored over its own life — up to its 6-month freeze if closed, or entry-to-today if still open. The **ALPHA** column is the *median* across all of a writer's scored calls. There's no fixed rolling window — it spans their whole track record.
+  </Accordion>
+  <Accordion title="Hit rate">
+    The share of a writer's scored calls with positive alpha — i.e. how often they beat the market, not how often the call simply went up.
+  </Accordion>
+  <Accordion title="Which calls get scored">
+    Closed calls (expired or reversed) always count. Open calls count once they're **at least 30 days old**, so a position opened yesterday doesn't swing the average on noise.
+  </Accordion>
+  <Accordion title="Benchmark">
+    Everything is measured against **SPY**. Raw return in a rising market flatters everyone; alpha vs SPY is the part that's actually skill.
+  </Accordion>
+</AccordionGroup>
+
+## What it's not
+
+- **Not recommendations** — it's a scoreboard of other people's stated views, nothing more
+- **Not anyone's real P&L** — it's a consistent model (enter at mention, hold), not a trade blotter
+- **Not realtime** — calls and prices update on the daily cron
+
+## See also
+
+<CardGroup cols={2}>
+  <Card title="Writers overview" href="/research/overview">
+    The corpus behind the calls — Substack, X, and YouTube.
+  </Card>
+  <Card title="AskAura" href="/research/ask">
+    Ask "who's long NVDA right now?" and get the positioning, cited to each writer.
+  </Card>
+</CardGroup>
