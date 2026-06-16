@@ -47,6 +47,7 @@
             "pages": [
               "indices/overview",
               "indices/reading-cards",
+              "indices/highs-lows",
               "indices/volatility-tickers"
             ]
           },

@@ -1,0 +1,48 @@
+---
+title: "New highs & lows"
+description: "Which single names are printing fresh highs or lows across an index universe."
+---
+
+Below the **Top Gainers / Top Losers** panels on the [Indices](/indices/overview) page sits the **New Highs / New Lows** section — a fast read on which individual stocks are breaking out to (or breaking down from) extremes across a whole index at once.
+
+Two panels, side by side:
+
+- **New Highs** — green, left
+- **New Lows** — red, right
+
+Each header carries a running count (`▲ 23 highs`, `▼ 5 lows`) — a quick breadth read that complements the **Market Breadth** panel up top. Each row shows the ticker, company, a bar scaled to its move on the day, and a badge like `new 52W high · +1.4%`.
+
+## The controls
+
+Four controls live in the New Highs header and drive both panels together:
+
+| Control | Options | What it does |
+|---|---|---|
+| **Universe** | Nasdaq 100 (default), S&P 500, S&P 100, Dow Jones, Russell 1000, Russell 2000, ETFs, All Markets | Which set of stocks to scan |
+| **Window** | 1M · 3M · 6M · YTD · **52W** (default) | The lookback that defines the high/low |
+| **Basis** | **Close** (default) · Intraday | Whether the extreme is measured on closing prices or intraday high/low |
+| **Mode** | **New** (default) · Near | Fresh prints today, or names coiling within 1% of the extreme |
+
+## What "qualifies"
+
+The **Window** sets the lookback and the qualifier is always "did it print that extreme on the latest bar." So **52W** is the classic 52-week-high list; switch to **3M** and you get names making a fresh 3-month high today.
+
+**Basis** decides what value is tested:
+
+- **Close** — today's close vs the prior closes in the window. Cleaner and less noisy; matches how Market Breadth computes.
+- **Intraday** — today's high vs the prior window's highs (and today's low vs prior lows) — the traditional "tagged a new 52W high" definition.
+
+**Mode** decides how close counts:
+
+- **New** — the stock actually made the extreme on the latest bar. Sorted by the biggest move on the day.
+- **Near** — the stock is trading **within 1% of its window extreme** (coiling). A superset of New, sorted by proximity so the names pressing right against the level surface first. Badges read `near 52W high · -0.4%` to show how far off the extreme each one is.
+
+## How most people use it
+
+- **Breakout scan** — Universe = Russell 2000, Window = 52W, Mode = New: where is small-cap leadership printing fresh highs?
+- **Coiling watch** — flip Mode to **Near** to catch names pressing against a high *before* they break, not after.
+- **Breadth gut-check** — the `▲ highs / ▼ lows` counts at a glance: a tape making new index highs while new-high *breadth* thins out is worth a second look.
+
+<Note>
+The lists cap at the most relevant ~25 names per side and scroll if there are more — common in the 3M and All Markets views, where dozens of names can qualify at once.
+</Note>
