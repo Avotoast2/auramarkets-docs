@@ -17,7 +17,7 @@ Three columns:
 
 <CardGroup cols={2}>
   <Card title="Calendar" href="/macro/overview">
-    Upcoming releases (CPI, NFP, FOMC) and recent actuals. Sub-views for **Yield Curve**, **Crude Curve**, **VIX Curve**, **SOFR Curve**.
+    Economic releases, options expiry, Fed events, and Treasury supply — with recent actuals. Sub-views for **Yield Curve**, **Crude Curve**, **VIX Curve**, **SOFR Curve**.
   </Card>
   <Card title="Cross-Asset Scanner" href="/macro/cross-asset">
     Customizable tiles across rates, FX, credit, commodities. Pin what you care about.
@@ -38,6 +38,21 @@ Three columns:
     End-of-day arc, what mattered, cross-asset verdict, tomorrow's setup.
   </Card>
 </CardGroup>
+
+## The economic calendar
+
+The Calendar view tracks the events that move markets, in four buckets:
+
+- **Data releases** — CPI, NFP, FOMC, PCE, GDP, Retail Sales, ISM (Mfg + Services), PPI, JOLTS, consumer sentiment. Recent ones show consensus / previous / actual.
+- **Options & market structure** — **monthly options expiry**, **quad witching** (the quarterly index-and-options expiry), **VIX settlement**, and the annual **Russell reconstitution**.
+- **Fed** — the rate decision, **FOMC minutes**, **Jackson Hole**, and semiannual testimony.
+- **Treasury** — the **quarterly refunding announcement** (issuance sizes / duration supply).
+
+Events are tiered — **Big Three** (NFP / CPI / FOMC), **Tier 1** (high-impact), **Tier 2** (routine) — and colour-coded by category. The recurring ones (expiry, witching, etc.) compute their own dates, so the calendar stays current on its own.
+
+<Note>
+These scheduled catalysts also feed the AI: the **Market Pulse** briefing flags imminent big events ("FOMC tomorrow — binary risk"), and the **Daily Recap**'s *tomorrow's setup* pulls its catalysts straight from the calendar.
+</Note>
 
 ## What's always on the right (Market Pulse)
 
