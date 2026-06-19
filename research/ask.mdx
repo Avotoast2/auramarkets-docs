@@ -70,12 +70,13 @@ Type **`@`** or **`$`** followed by a few letters in the question box to get a t
 
 ## Tools available
 
-The agent has 11 tools to choose from per question:
+The agent has 12 tools to choose from per question:
 
 | Tool | Source | When it's called |
 |---|---|---|
 | **get_quote** | Yahoo Finance | "What's X trading at" |
 | **get_price_history** | Yahoo Finance | "How has X performed over Y" |
+| **render_chart** | Yahoo / Polygon | "Show me a chart of X", "chart A vs B" — draws a real chart inline |
 | **get_fundamentals** | Yahoo Finance | Revenue, EPS, margins (last 8 quarters) |
 | **get_filings** | SEC EDGAR | 10-K, 10-Q, 8-K with direct links |
 | **search_research_corpus** | Your Substack/YouTube/X library | "What do writers think about X" |
@@ -115,9 +116,38 @@ After each answer, three **contextual follow-up chips** appear — specific to w
 
 The composer also shows a few starter chips when the thread is empty, to kickstart common patterns.
 
-## Inline charts
+## Charts
 
-When an answer is about specific tickers, a **strip of mini price charts** (last ~3 months, with % change) renders beneath it for the names it actually discusses. Click one to jump to that name's [entity page](/research/entity-pages). Only genuine tickers are charted — passing mentions of all-caps words are filtered out.
+AskAura renders charts two ways — one automatic, one on request.
+
+### On-demand charts
+
+Just **ask to see one**: *"show me a chart of NVDA,"* *"chart AAPL vs MSFT over 1Y,"* or *"plot the 10Y yield."* The agent draws a real line chart inline, right below the answer:
+
+<CardGroup cols={2}>
+<Card title="Single name" icon="chart-line">
+A price chart over your chosen window, shaded green/red by direction.
+</Card>
+<Card title="Comparison" icon="chart-column">
+Pass more than one ticker and they overlay as a **rebased % comparison** (everything starts at 0%), with a per-name legend showing each one's return.
+</Card>
+<Card title="Macro too" icon="percent">
+Not just stocks — *"plot the 10Y yield"*, oil, gold, the dollar index, or bitcoin all work.
+</Card>
+<Card title="Interactive" icon="arrow-pointer">
+**Hover** for a date + value tooltip, switch the window with the **1M / 3M / 6M / YTD / 1Y / 3Y** toggles, and click a name to open its [entity page](/research/entity-pages).
+</Card>
+</CardGroup>
+
+This is for when you want to *see* the picture. If you just want the numbers or performance facts, a normal "how has X done?" question returns those as text instead.
+
+<Note>
+Charts are saved with the conversation — reopen a past session and they re-render with fresh data.
+</Note>
+
+### Auto "Mentioned" strip
+
+Separately, when an answer *discusses* specific tickers, a compact **strip of mini sparklines** (last ~3 months, with % change) appears beneath it for the names it actually references — no need to ask. Click one to jump to that name's entity page. Only genuine tickers are charted; passing mentions of all-caps words are filtered out.
 
 ## Export & share
 
