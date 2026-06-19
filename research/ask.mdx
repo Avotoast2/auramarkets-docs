@@ -1,31 +1,72 @@
 ---
 title: "AskAura"
-description: "Q&A grounded in your portfolio, your corpus, 13F flows, SEC filings, and live X/web data. Available everywhere via the floating launcher."
+description: "A conversational research assistant grounded in your portfolio, your corpus, 13F flows, SEC filings, and live X/web data — now multi-turn, multimodal, and chart-aware. Available everywhere via the floating launcher."
 ---
 
-**AskAura** is a research Q&A assistant that **uses your own data first** — your portfolio, your curated Substack/X/YouTube corpus, 13F flows, and SEC filings — then reaches for the live web only when needed. Every answer cites its sources inline.
+**AskAura** is a research assistant that **uses your own data first** — your portfolio, your curated Substack/X/YouTube corpus, 13F flows, and SEC filings — then reaches for the live web only when needed. Every answer cites its sources inline.
+
+It's a full conversation, not a one-shot search box: ask a question, then keep digging with follow-ups, attach a chart or a filing, and get mini price charts for the names it discusses.
 
 There are two ways to use it:
 
-- **Floating launcher** (`✦ AskAura` pill, bottom-right corner of every page). Click to open a side panel that works on top of whatever you were doing — useful for quick lookups without losing your place.
-- **[Dedicated page](https://auramarkets.io/research/ask)** under Research → AskAura. Best for long deep-dive sessions, with a full history sidebar.
+- **Floating launcher** (`✦ AskAura` pill, bottom-right of every page). Opens a side panel on top of whatever you were doing — great for quick lookups without losing your place.
+- **[Dedicated page](https://auramarkets.io/research/ask)** under Research → AskAura. Best for long deep-dive sessions, with a full history sidebar and collections.
 
 Both share the same backend, history, and budget.
 
-It's the closest thing to "Google Finance's research sidebar, but integrated with what you actually track."
-
 ## How it works
 
-You type a question. The agent decides which tools to call based on the question, gathers data, then synthesizes a cited answer.
+You type a question. The agent decides which tools to call, gathers data, then synthesizes a cited answer — streaming the tool calls and the answer as it goes.
 
 There are **two modes**:
 
 | Mode | Model | Best for | Typical cost |
 |---|---|---|---|
 | **Default** | Gemini 2.5 Pro | One-shot questions, quick lookups, fact checks | $0.01–0.10 |
-| **Deep research** | Claude Sonnet 4.6 | Multi-step analysis, theses, bull/bear cases | $0.15–0.30 |
+| **Deep research** | Claude Sonnet 4.6 | Multi-step analysis, theses, bull/bear cases, filings | $0.15–0.65 |
 
-Toggle deep mode with the checkbox below the question box. Some questions auto-upgrade to deep mode (see below).
+Toggle deep mode with the checkbox below the question box. Some questions auto-upgrade to deep mode, and **attaching a PDF always uses deep mode** (see below).
+
+## Conversations
+
+AskAura holds a thread. After an answer lands, just keep typing — your follow-up carries the prior turns as context, so *"now compare that to NVDA"* or *"what's the bear case?"* just works.
+
+<CardGroup cols={2}>
+<Card title="Follow-ups" icon="comments">
+The thread and composer stay put after each answer. Ask as many follow-ups as you like; the last several turns travel with each new question.
+</Card>
+<Card title="Stop" icon="circle-stop">
+While an answer is streaming, the **Ask** button becomes **Stop ⏹**. Click it to halt — it stops the work (and the billing), not just the display.
+</Card>
+<Card title="Edit & regenerate" icon="pen-to-square">
+Hover any past question and click it to **edit and re-run from that point**. Resubmit it unchanged and you've effectively regenerated the answer.
+</Card>
+<Card title="New thread" icon="plus">
+**+ New question** (history sidebar) starts a fresh conversation. Clicking a saved session reloads it — and you can continue it.
+</Card>
+</CardGroup>
+
+## Attachments
+
+Bring your own context. Attach files three ways: the **📎 button**, **drag-and-drop** onto the composer, or **paste an image straight in** (Ctrl/Cmd-V a chart screenshot — the fastest path for technical analysis).
+
+<CardGroup cols={3}>
+<Card title="Images" icon="image">
+Charts, screenshots, tables. Up to **4 images**, ≤5MB each. "What's this pattern?"
+</Card>
+<Card title="PDF" icon="file-pdf">
+A 10-K, earnings deck, or research note (≤15MB). **Switches to deep mode automatically** for long-document reasoning.
+</Card>
+<Card title="CSV / TXT" icon="file-csv">
+Holdings, data tables, notes (≤200KB). Read as text and folded into the question.
+</Card>
+</CardGroup>
+
+A PDF and images are mutually exclusive (one PDF *or* up to four images per question), plus an optional small CSV/TXT. Attachments show as chips in the composer before you send and as `📎 name` on the question afterward. (Saved history keeps the filename, not the file.)
+
+## Ticker autocomplete
+
+Type **`@`** or **`$`** followed by a few letters in the question box to get a ticker typeahead from your universe — arrow keys to move, Enter/Tab to accept. It inserts the clean symbol so your question references exactly the name you mean.
 
 ## Tools available
 
@@ -39,85 +80,93 @@ The agent has 11 tools to choose from per question:
 | **get_filings** | SEC EDGAR | 10-K, 10-Q, 8-K with direct links |
 | **search_research_corpus** | Your Substack/YouTube/X library | "What do writers think about X" |
 | **get_writer_calls** | The [Calls](/research/calls) ledger | "Who's long/short X", positioning + each writer's track record |
-| **get_thirteenf** | The 34-fund 13F universe | "Who's buying X" |
+| **get_thirteenf** | The 13F fund universe | "Who's buying X" |
 | **get_portfolio_context** | Your holdings | "How am I positioned in X" |
 | **get_market_snapshot** | Macro engine | Cross-asset regime, sectors, divergences |
 | **web_search** | Google-grounded (via Gemini) | Static facts, editorial articles |
 | **x_search** | Grok / xAI live search | Real-time X/finTwit sentiment, breaking news |
 
-You'll see each tool call appear in the answer panel as it fires. After the answer is in, the tool log collapses into a one-line summary (`Used 7 tools · 25 sources`); click to expand.
+Each tool call appears live in the answer panel as it fires. Once the answer is in, the tool log collapses into a one-line summary (`Used 7 tools · 25 sources`) — click to expand.
 
 ## Auto-upgrade to deep mode
 
-Some questions are obviously thesis-style and benefit from the slower-but-smarter Claude orchestrator. The page auto-flips deep mode on when the question contains any of:
+Thesis-style questions benefit from the slower-but-smarter Claude orchestrator, so the page flips deep mode on automatically when the question contains things like:
 
-- `deep dive`, `deep-dive`
-- `thesis`
-- `bull case`, `bear case`, `bullish case`, `bearish case`
+- `deep dive`, `thesis`, `bull case` / `bear case`
 - `should I buy / sell / hold / own / short / trim / add`
 - `compare X vs / and / to Y`
-- `valuation analysis`, `valuation breakdown`
-- `do a full / complete / comprehensive analysis`
+- `valuation analysis`, `do a full / complete / comprehensive analysis`
 
-When this happens, an orange banner appears in the answer: *"Auto-upgraded to deep research — matched 'deep dive'. Uncheck Deep research below for default mode next time."* You stay in control — uncheck the toggle for the next question to override.
+…and whenever you **attach a PDF**. An orange banner tells you when it happened — uncheck the **Deep research** toggle for the next question to override.
 
-## Citations
+## Citations & sources
 
-Every quantitative claim in an answer has a `[N]` chip linking to the source. The agent is instructed not to invent numbers — anything it states should be backed by a tool result.
+Every quantitative claim has a `[N]` chip linking to its source. The agent is instructed not to invent numbers — anything it states should be backed by a tool result.
 
-Two places to find the references:
-- **Card row at the top of the answer** — favicons of the unique domains that contributed (e.g., yahoo, sec.gov, x.com, fool.com). Quick visual check of what was consulted.
-- **Sources panel at the bottom** — full list, one line per source: `[N]  🌐 domain  ·  title`. Defaults to 5 visible with "Show all N sources →" to expand.
+- **Hover a `[N]` chip** for a quick preview card (favicon, domain, full title).
+- **Card row at the top** of the answer shows the favicons of the unique domains consulted (yahoo, sec.gov, x.com, …).
+- **Sources panel at the bottom** lists every source, `[N]  🌐 domain  ·  title`, with "Show all N →" to expand.
 
-When an answer leans on your own corpus or the Calls ledger, a **grounding line** appears above it — e.g. *"Grounded in 15 takes · 9 writers · last 11 days"* — so you can see at a glance how much real, human-sourced research is behind the answer (not just the model's priors). The footer also shows how long the answer took.
+When an answer leans on your own corpus or the Calls ledger, a **grounding line** appears — e.g. *"Grounded in 15 takes · 9 writers · last 11 days"* — so you can see how much real, human-sourced research is behind it. The footer shows how long the answer took.
 
-## History sidebar
+## Suggested follow-ups
 
-Every Q&A auto-saves to a per-user history (signed-in users only — anonymous Qs aren't persisted). The left sidebar shows:
+After each answer, three **contextual follow-up chips** appear — specific to what you just asked (e.g. *"What's the bear case?"*, *"Who's short this?"*, *"How does it compare to peers?"*). Click one to keep the conversation going.
+
+The composer also shows a few starter chips when the thread is empty, to kickstart common patterns.
+
+## Inline charts
+
+When an answer is about specific tickers, a **strip of mini price charts** (last ~3 months, with % change) renders beneath it for the names it actually discusses. Click one to jump to that name's [entity page](/research/entity-pages). Only genuine tickers are charted — passing mentions of all-caps words are filtered out.
+
+## Export & share
+
+Under every finished answer:
+
+- **⧉ Copy** — plain text (question + answer with `[n]` citations + numbered sources)
+- **⧉ Copy as Markdown** — same, formatting preserved, sources as links
+- **⎙ PDF** — a clean, light-themed print view (question, formatted answer, sources) → Save as PDF
+
+## History & collections
+
+Every Q&A auto-saves to your per-user history (signed-in users; anonymous questions aren't persisted). The left sidebar shows:
 
 - **★ Pinned** (coming soon — backend supports it, UI pending)
-- **Today / Yesterday / Last 7 days / Older** date buckets
-- Per-row: title, ticker chip if scoped, ● orange dot for deep-research entries
+- **📁 Collections** — group related sessions into named spaces (see below)
+- **Today / Yesterday / Last 7 days / Older** for everything else, most-recently-updated first
 
-**Search** the history with the input at the top of the sidebar — filters across title, question, and ticker.
+<Note>
+**Collections / Spaces.** Hover a history row and click the **📁** button to move that session into a named collection (or clear it). Collections show as their own groups at the top of the sidebar — handy for organizing a research thread by theme, ticker, or project.
+</Note>
 
-**Click a row** to reload the full Q&A (answer, sources, tool log, cost). Hover a row for a `×` delete button.
-
-**"+ New question"** button at the top clears the thread.
-
-Sidebar can be collapsed via the ◧ button if you want more horizontal space for the answer.
+- **Search** the history with the input at the top (matches title, question, ticker).
+- **Click a row** to reload the full conversation (all turns, sources, tool log, cost) and continue it.
+- Hover a row for **📁 move** and **× delete** buttons.
+- Collapse the sidebar with the ◧ button for more room.
 
 ## Cost guardrails
 
-- **Per-request hard cap**: $0.50 default, $1.50 in deep mode. If the agent's running cost would exceed this, it stops and returns whatever it has so far.
-- **Cost line** appears at the bottom of every answer: `claude · $0.282 · 19,876 tokens`. Lets you see what each question cost.
-
-## Suggestion chips
-
-Above the answer area, four sample-question chips kickstart common patterns: "NVDA price + week", "SMCI 13F flows", "30Y yield context", "PLTR corpus take". Click any to drop it into the composer.
+- **Per-request hard cap**: $0.50 default, $1.50 in deep mode. If the running cost would exceed it, the agent stops and returns what it has.
+- **Time budget**: deep research finishes within a bounded window and emits a complete answer — or a clearly-labeled partial with a *"cut short — ask a narrower follow-up"* note — rather than ever hanging.
+- **Cost line** under every answer: `claude · $0.282 · 19,876 tokens · answered in 1.4min`.
 
 ## What it's good at
 
-- **Multi-source synthesis** — "give me a deep dive on $X" pulls quote + fundamentals + filings + corpus + 13F + X chatter + web news in one shot, with a structured bull/bear summary.
-- **Real-time sentiment** — "what is finTwit saying about NVDA right now" hits the Grok-powered `x_search` tool for direct X data.
-- **Filing-grounded answers** — "what did MSFT say about AI capex in their last 10-K" pulls the actual filing and quotes from it.
-- **Personalized framing** — when asking about a name you hold, the agent picks up `get_portfolio_context` and weaves your position size and P&L into the answer.
+- **Multi-source synthesis** — "deep dive on $X" pulls quote + fundamentals + filings + corpus + 13F + X chatter + web news in one shot, with a structured bull/bear summary.
+- **Document analysis** — drop a 10-K or paste a chart and ask about it directly.
+- **Real-time sentiment** — "what is finTwit saying about NVDA right now" hits the Grok-powered `x_search` tool for live X data.
+- **Personalized framing** — ask about a name you hold and the agent weaves in your position size and P&L.
 
 ## What it's not good at
 
-- **Live order-book questions** — no L2 data, no market-making signal.
-- **Backtest requests** — the agent doesn't run simulations, just retrieves data.
-- **Predictions** — it can summarize what consensus thinks; it won't tell you where the stock is going.
-
-## Performance & convergence
-
-- **Hard turn cap.** Deep mode runs at most **5 turns** of tool-use, with a soft rule that the agent should stop gathering data after turn 3 and start synthesizing. This bounds answer time to roughly 60-90 seconds and prevents the "Claude is being too thorough" failure mode where complex comparison questions never converge.
-- **Parallel tool fan-out.** For multi-ticker questions ("deep dive on $FCEL vs $BE"), the agent is instructed to batch tool calls in a single turn — `get_quote(A) + get_quote(B) + get_fundamentals(A) + get_fundamentals(B)` all fire together rather than sequentially. This cuts comparison-question latency roughly in half.
-- **Per-request cost cap.** Default mode caps at $0.50, deep mode at $1.50. If the running cost would exceed the cap, the agent stops and returns the partial answer with a note rather than running up an unbounded bill.
+- **Live order-book questions** — no L2 data or market-making signal.
+- **Backtests** — it retrieves and reasons over data; it doesn't run simulations.
+- **Predictions** — it summarizes what consensus thinks; it won't call where a stock is going.
 
 ## Behind the scenes (for the curious)
 
-- Default mode runs through Gemini 2.5 Pro with function-calling. Gemini's `google_search` native tool isn't used because xAI/Google chose mutually-exclusive APIs; web search is implemented as a function call instead.
-- Deep mode runs Claude Sonnet 4.6 with `tool_use` chains, hard-capped at 5 turns.
-- `x_search` calls xAI's new Responses API (`/v1/responses`) with the Agent Tools framework — the legacy `search_parameters` API was deprecated in May 2026.
-- Streaming uses Server-Sent Events. Tool calls and results stream as they happen; the final answer streams token-by-token; markdown renders on completion.
+- Default mode runs **Gemini 2.5 Pro** with function-calling; deep mode runs **Claude Sonnet 4.6** with `tool_use` chains (up to 8 gathering turns, with a reserved final turn that always synthesizes from what it gathered).
+- Follow-ups thread the last several turns as conversation context; tools re-run fresh each turn.
+- Attachments ride on the question as native image/PDF blocks (Claude) or byte parts (Gemini); CSV/TXT is folded into the prompt.
+- `x_search` calls xAI's Responses API with the Agent Tools framework.
+- Streaming uses Server-Sent Events — tool calls/results stream as they happen, the answer streams token-by-token, and markdown renders on completion. **Stop** signals the agent to halt server-side, not just client-side.
