@@ -10,7 +10,7 @@ Two panels, side by side:
 - **New Highs** — green, left
 - **New Lows** — red, right
 
-Each header carries a running count (`▲ 23 highs`, `▼ 5 lows`) — a quick breadth read that complements the **Market Breadth** panel up top. Each row shows the ticker, company, a bar scaled to its move on the day, and a badge like `new 52W high · +1.4%`.
+Each header carries a running count (`▲ 23 highs`, `▼ 5 lows`) — a quick breadth read that complements the **Market Breadth** panel up top. Each row shows the ticker, company, a bar scaled to its move on the day, a badge like `new 52W high · +1.4%`, and — to the right of the day's move — a **z-score** (e.g. `+2.1σ`): how unusual today's move is versus that name's own past year of daily moves. The bigger the σ, the more the move stands out from its normal range.
 
 ## The controls
 
@@ -35,7 +35,7 @@ The **Window** sets the lookback and the qualifier is always "did it print that 
 **Mode** decides how close counts:
 
 - **New** — the stock actually made the extreme on the latest bar. Sorted by the biggest move on the day.
-- **Near** — the stock is trading **within 1% of its window extreme** (coiling). A superset of New, sorted by proximity so the names pressing right against the level surface first. Badges read `near 52W high · -0.4%` to show how far off the extreme each one is.
+- **Near** — the stock is trading **within 1% of its window extreme** (coiling). A superset of New, sorted by the day's move just like the New list, with each badge (`near 52W high · -0.4%`) showing how far that name sits from the extreme.
 
 ## How most people use it
 

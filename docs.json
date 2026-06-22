@@ -48,6 +48,7 @@
               "indices/overview",
               "indices/reading-cards",
               "indices/highs-lows",
+              "indices/moving-averages",
               "indices/volatility-tickers"
             ]
           },

@@ -1,0 +1,65 @@
+---
+title: "On / near moving averages"
+description: "Which single names are testing, crossing, or stretched from a key moving average across an index universe."
+---
+
+Right below the [New Highs / New Lows](/indices/highs-lows) section on the [Indices](/indices/overview) page sits the **Above MA / Below MA** card — the same fast, universe-wide scan, but built around the moving averages traders actually watch instead of 52-week extremes.
+
+Two panels, side by side:
+
+- **Above MA** — green, left: price is sitting above the moving average (the MA acting as support)
+- **Below MA** — red, right: price is below it (the MA acting as overhead resistance)
+
+Each header carries a running count (`▲ / ▼`), and each row shows the ticker, company, a bar scaled to the headline number, the **distance to the MA** (e.g. `+1.8%`), a **z-score** of the day's move, and a badge naming the level (`near 200D MA · $312.40`).
+
+## The controls
+
+Four controls in the **Above MA** header drive both panels together:
+
+| Control | Options | What it does |
+|---|---|---|
+| **Universe** | Nasdaq 100 (default), S&P 500, S&P 100, Dow Jones, Russell 1000, Russell 2000, ETFs, All Markets | Which set of stocks to scan |
+| **MA** | 50D · 150D · **200D** (default) · 30W · 200W | Which moving average to measure against |
+| **Basis** | **Close** (default) · Intraday | Whether distance is measured on the close or the day's high/low |
+| **Mode** | **Near** (default) · Cross · Extended | What relationship to the MA you're hunting for |
+
+### The moving averages
+
+The five MAs are the levels desks actually trade around:
+
+- **50D** — the intermediate-trend line; the fast leg of golden/death crosses.
+- **150D** — the Minervini trend-template line (50 > 150 > 200 = healthy uptrend).
+- **200D** — *the* bull/bear divider, the most-watched level on the board.
+- **30W** — Stan Weinstein's stage-analysis line (≈ 150 days, on weekly closes).
+- **200W** — the long-term secular floor (≈ 4 years), computed on weekly closes.
+
+## The three modes
+
+This is where the MA card differs from highs/lows — proximity and distance are two ends of one ruler, so the mode picks which end you care about:
+
+- **Near** — names trading **within 3% of the MA**, sorted closest-to-the-line first. The "testing the level" view: who's coiling on support, who's pressing into resistance.
+- **Cross** — names that **crossed the MA today**. In the **Above** panel that's a *reclaim* (closed back above); in **Below**, a *loss* (closed under). The discrete-event view — fresh signals, not standing conditions.
+- **Extended** — names **most stretched from the MA**, no cap, ranked by distance. Above = most overbought versus trend; Below = most oversold. The mean-reversion watch.
+
+## Close vs intraday
+
+**Basis** changes what price is compared to the line:
+
+- **Close** — today's close versus the MA. Clean and confirmed.
+- **Intraday** — uses the day's high/low. In **Near** it catches names that *tagged* the MA intraday (a wick to the line counts), in **Cross** it catches an intraday poke through even if the close didn't confirm, and in **Extended** it measures the *furthest* the day reached from the line.
+
+## The numbers in each row
+
+- **Distance** (headline) — the percent the price sits above or below the MA. Green above, red below.
+- **z-score** (the `σ` next to it) — how unusual today's move is versus that name's own past year of daily moves, exactly as on the [highs/lows](/indices/highs-lows) card.
+- **Badge** — names the relationship and the live level, e.g. `near 50D MA · $48.10`, `reclaimed 200D · $312.40`, `above 200W MA · $19.80`.
+
+## How most people use it
+
+- **Support test** — MA = 200D, Mode = Near: which leaders are pulling back into their 200-day, the classic buy-the-dip zone?
+- **Fresh reclaim** — Mode = Cross, watch the **Above** panel: who just won back their 200D today?
+- **Stretched tape** — Mode = Extended: names far above their MA (take-profit / fade candidates) or far below (oversold bounce candidates).
+
+<Note>
+In **Extended** mode the header counts show *every* name above / below the line (since each one is some distance from it) — read that as a breadth gauge. **Near** and **Cross** counts are just the names that qualify.
+</Note>
