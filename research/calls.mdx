@@ -49,24 +49,47 @@ A coloured dot on the left edge flags recent activity at a glance:
 - **○ hollow green** — only *re-mentioned* an existing open call in the last 3 days (still on it, no new position)
 - **no dot** — quiet
 
-The **active / all** toggle (top of the column) floats writers with recent calls to the top by default; switch to **all** for a pure column sort with no activity priority.
+The **Active / All** toggle (top of the column) floats writers with recent calls to the top by default; switch to **All** for a pure column sort with no activity priority.
+
+### Search writers
+
+The **search box** at the top of the column narrows the leaderboard to whoever you type — by name or publication — and stays pinned as you scroll. It uses the same stacked-tag behaviour as the call search ([more below](#stacking-search-tags)), so you can layer terms to home in fast.
+
+### Favorites
+
+Hit the **☆** next to a writer to favorite them. Favorites jump to the very top of the leaderboard — above the activity tiers — with a faint divider separating them from everyone else, so the writers you actually follow are always in view. Favorites are saved to your account and follow you across devices.
 
 ## The call list (right)
 
 Every call, newest first — ticker, direction, the writer, the verbatim quote that evidenced it, and live P&L (entry → current, with the return and alpha).
 
-- **newest / top gainers** — sort by recency or by return
-- **Filter ticker** — narrow to a name
-- **macro** checkbox — see [Macro toggle](#macro-toggle) below
+- **Newest / Top Gainers** — sort by recency or by return
+- **Favorites First** — on by default; floats calls from your favorited writers to the top (your Newest / Top Gainers sort still applies within each group). Untick it for a pure recency/return sort.
+- **Search** — a box at the top of the column narrows the list by ticker, writer, publication, or thesis text ([stacking tags](#stacking-search-tags) below)
+- **Macro** checkbox — see [Macro toggle](#macro-toggle) below
 
 **Click a writer** to pull their full call history. **Click a ticker** to focus it.
+
+### Stacking search tags
+
+Both search boxes — calls (right) and writers (left) — work the same way. Type a term and hit **Enter** and it pins as a little **tag**; stack as many as you like, each with an **✕** to drop it (or **Backspace** on an empty box to pop the last one). Typing also filters live before you commit.
+
+Tags are **AND** — a row has to match **every** tag — so they narrow as you add them. Search `Druckenmiller`, then `NVDA`, and you're left with exactly that writer's NVDA calls. The calls search matches ticker, writer, publication, or thesis text; the writers search matches name or publication.
 
 ### Ticker focus
 
 Clicking a ticker opens a focus panel with two things straight out of the "where's everyone positioned" playbook:
 
 - **Positioning tally** — a `N LONG / M SHORT` bar across all open calls on that ticker
-- **Annotated price chart** — the price line with a marker at every writer's entry; hover a marker for who, when, and how the call's done
+- **Annotated price chart** — the price line with a marker at every writer's entry (**▲** long, **▼** short), plus a permanent label on the single biggest-magnitude call so there's always one headline takeaway
+
+**Hover any marker** for the full call — who made it, the date, the entry price, the return, and the thesis quote. When several writers called the same name on the same day, their markers stack on one point and a single hover lists them all.
+
+When calls bunch up in a busy stretch, **zoom in to pull them apart**:
+
+- **Drag the time axis** left/right to contract/expand the window (it follows your cursor), or **scroll** to zoom toward wherever you're pointing
+- **Drag the chart** to pan across time
+- **Double-click** to snap back to the full range
 
 ### Call badges
 
@@ -85,7 +108,7 @@ When a writer calls a company before it's public — SpaceX, OpenAI, Anthropic �
 
 ## Macro toggle
 
-By default the list shows everything. Uncheck **macro** to hide futures, equity indices, rates, and FX — leaving single-name stocks, pre-IPO names, and crypto. Handy when you only care about single stocks and don't want index/commodity calls in the mix.
+By default the list focuses on single names — single-name stocks, pre-IPO names, and crypto. Check **Macro** to bring in futures, equity indices, rates, and FX when you want the whole picture.
 
 ## How the numbers work
 
