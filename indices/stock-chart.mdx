@@ -1,0 +1,79 @@
+---
+title: "Stock pop-out"
+description: "Click any name on the Equities page and a full pop-out opens — a TradingView-style chart on one side, and a company panel with stats, performance, who's calling it, and a built-in Ask Aura chat on the other."
+---
+
+Anywhere a single stock shows up on the [Equities](/indices/overview) page — **Top Gainers / Top Losers**, [New Highs / Lows](/indices/highs-lows), [Moving Averages](/indices/moving-averages) — there's a little chart icon next to it. Click it and the **stock pop-out** opens: a chart on the right, and a collapsible company panel on the left. It's a mini terminal for that name without leaving the page.
+
+<Note>
+The chart, company panel, and research section are powered by our equity data feeds and cover **US-listed stocks and ETFs** (including ADRs like ASML or MELI). Ratios and indices fall back to a simple line chart.
+</Note>
+
+## The chart
+
+A clean candlestick chart by default, with the price scale on the **right** (TradingView-style).
+
+- **Candle / Line** — flip between candlesticks (with a volume sub-panel) and a simple price line
+- **MA20 / MA50 / MA200** — drop in moving averages; each toggles on independently and wears its own colour
+- **Timeframes** — `1D · 1W · 1M · 3M · 6M · YTD · 1Y · 3Y · 5Y · Custom`
+
+We load five years behind whatever window you pick, so you can always pan back past the chosen range to see more history.
+
+### Navigating the chart
+
+It moves the way you'd expect a real chart to:
+
+- **Scroll** to zoom toward your cursor — the fastest way to dig into a busy stretch
+- **Drag the time axis** left/right to expand or contract the window (it follows your pull)
+- **Drag the chart** to pan around freely
+- **Double-click the price axis** to refit; **double-click the chart** to reset to the full range
+- **Hover** for a crosshair with the date and price
+
+There's also a **TradingView** button up top if you'd rather pull the name up there.
+
+## The company panel
+
+The panel on the left (collapse it with the **‹** chevron to give the chart the full width):
+
+<AccordionGroup>
+  <Accordion title="Key stats">
+    Price, market cap, P/E and EPS (TTM), dividend yield, RSI(14), today's volume and 30-day average — plus a **52-week range bar** showing where the price sits between its yearly high and low.
+  </Accordion>
+  <Accordion title="Performance">
+    A colour-coded grid of returns across `1D · 1W · 1M · 3M · 6M · YTD · 1Y · 3Y`.
+  </Accordion>
+  <Accordion title="About">
+    A short business description, plus employees, headquarters, listing date, and a link to the company's site.
+  </Accordion>
+</AccordionGroup>
+
+### In the Research
+
+This is where the pop-out plugs into the [Writers corpus](/research/overview). When your tracked writers have weighed in on the name, you get:
+
+- **A one-line pulse** — open `▲ long / ▼ short` calls, how many writers, and how many recent mentions
+- **The calls** — each with its direction, the writer (and their track-record badge), the alpha vs SPY, the evidencing quote, and how many times they've reaffirmed it
+- **Recent mentions** — the latest pieces *about* this name across Substack, YouTube, and X
+
+It's the [Calls](/research/calls) positioning view, right next to the price.
+
+### Ask Aura
+
+Pinned to the bottom of the panel is an **Ask Aura** box — ask anything about the name (or markets in general) without leaving the chart. It already knows which ticker you're looking at, so "what's the bull case?" or "why is it moving today?" just work. It's the same engine as the full [AskAura](/research/ask) — streaming answers with cited sources, a **deep** toggle for heavier research, and multi-turn follow-ups.
+
+## See also
+
+<CardGroup cols={2}>
+  <Card title="Reading the cards" href="/indices/reading-cards">
+    The index cards and movers the pop-out opens from.
+  </Card>
+  <Card title="Calls" href="/research/calls">
+    The full positioning scoreboard behind the "In the Research" section.
+  </Card>
+  <Card title="AskAura" href="/research/ask">
+    The research agent powering the in-panel chat.
+  </Card>
+  <Card title="New highs & lows" href="/indices/highs-lows">
+    Another spot the stock pop-out opens from.
+  </Card>
+</CardGroup>

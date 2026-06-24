@@ -47,6 +47,7 @@
             "pages": [
               "indices/overview",
               "indices/reading-cards",
+              "indices/stock-chart",
               "indices/highs-lows",
               "indices/moving-averages",
               "indices/volatility-tickers"
