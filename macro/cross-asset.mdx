@@ -1,54 +1,88 @@
 ---
 title: "Cross-Asset Scanner"
-description: "A customizable grid of rates, FX, credit, and commodities tiles."
+description: "The Scanner — a customizable, category-grouped board of rates, FX, credit, commodities, crypto and equity benchmarks, tuned per account."
 ---
 
-The **Cross-Asset Scanner** is the customizable workspace for everything *not* equity-index — rates, FX, credit, commodities, sector ETFs, anything you want to keep an eye on without cluttering the main views.
+**The Scanner** (the "Cross-asset daily pulse" section at the top of the [Macro](https://auramarkets.io/macro) dashboard) is your customizable read on everything moving — rates, FX, credit, commodities, crypto, and the major equity benchmarks — in one compact board.
 
 Think of it as your personal Bloomberg launch page, dark.
 
-## What's in a tile
+## Layout
 
-Each tile shows:
+The Scanner is grouped into six category blocks:
 
-- **Ticker + name**
-- **Current price / level**
-- **Change (1D, configurable)**
-- **Sparkline** over the active timeframe
-- **Percentile shading** (1Y) — same color logic as the [Indices cards](/indices/reading-cards)
-- **Sigma badge** if the reading is at an extreme
+**Equities · Rates · Currencies · Commodities · Credit · Cryptocurrencies**
 
-Click any tile to open a detail chart with full history.
+Each block is a tight table, one row per instrument. A row shows:
 
-## What's available
+- **Name + ticker**
+- **Sparkline** over the recent window
+- **Current price / level** — yields render as `%`, ratios as `×`, spreads in `bps`
+- **Change cell**, heat-shaded green→red by magnitude, for the active timeframe
 
-The scanner catalog includes (non-exhaustive):
+A few extras show up where they're useful:
 
-- **Rates** — 2Y, 5Y, 10Y, 30Y US Treasuries; 2s10s, 3m10y spreads; SOFR; international 10Y yields
-- **FX** — DXY, major crosses (EURUSD, USDJPY, GBPUSD, USDCNH), EM crosses
-- **Credit** — HYG, LQD, JNK, EMB, IG/HY spread proxies
-- **Commodities** — WTI, Brent, gold, silver, copper, natural gas, agricultural softs
-- **Crypto** — BTC, ETH, total market cap
-- **Sector ETFs** — XLF, XLK, XLE, XLU, XLV, etc.
+- Yields, VIX, and MOVE rows add a **point / bps change** under the price (not just a percentage)
+- A green **● dot** marks a row that's updating **intraday** (~15-min delayed); everything else is end-of-day
+- The little **chart icon** on a row opens the full pop-out — for single names that's the [stock pop-out](/indices/stock-chart) with its company panel and Ask Aura box
 
-If a ticker is on yfinance, it can probably be added.
+## Timeframe pills
 
-## Customizing your scanner
+The row of pills above the board — `1D · 1W · 1M · 3M · 6M · YTD · 1Y` — re-scores every change cell to that lookback. Flip to `1M` to see who's actually trending versus who just had a noisy day.
 
-The scanner remembers your selection per-account.
+## Customizing a category
 
-- **Add a tile** — pick from the catalog, drag into your scanner
-- **Remove a tile** — drag it out, or click the × in edit mode
-- **Reorder** — drag to reorganize
-- **Saves automatically** — no "save" button; your changes persist
+Every category header has a **gear (⚙)**. Click it to open **Customize {category}**:
+
+<Steps>
+  <Step title="Your Items (left)">
+    What's currently on the board for that category. Drag the **☰** handle to reorder, or hit **✕** to remove a row.
+  </Step>
+  <Step title="Available (right)">
+    The rest of the catalog for that category — click **＋** to add anything to your board.
+  </Step>
+  <Step title="Reset to defaults">
+    A one-click link to drop your tweaks and go back to the shipped set for that category.
+  </Step>
+  <Step title="Done">
+    Closes the editor. There's no save button — your layout is stored **per-account** and follows you across devices.
+  </Step>
+</Steps>
+
+## What's in the catalog
+
+Non-exhaustive, but to give you the shape of it:
+
+- **Equities** — US benchmarks (S&P, Nasdaq, Dow, Russell), sector ETFs, and major international indices
+- **Rates** — 2Y / 5Y / 10Y / 30Y US Treasuries, the 2s10s and 3m10y curve spreads, SOFR, and international 10Y yields
+- **Currencies** — DXY plus the major and EM crosses (EURUSD, USDJPY, GBPUSD, AUDUSD…)
+- **Commodities** — WTI, Brent, the Brent/WTI ratio, gold, silver, copper, natural gas, and softs
+- **Credit** — LQD, HYG, JNK, TIP, and related credit proxies
+- **Cryptocurrencies** — BTC, ETH, SOL
+
+<Note>
+Your selections are served from our own warmed data store, so adding a commodity, FX cross, or crypto name to a category shows up reliably — no waiting on a live fetch. Prices refresh on the daily cron, with the intraday **●** rows updated through the session.
+</Note>
 
 ## How most people use it
 
-- **Build a "regime watch" board** — DXY, 10Y, HYG, gold, BTC. When all five move together, regime is shifting.
-- **Build a "single asset deep dive" board** — focus on oil with crude curve, refining margins, USD, and inventory-sensitive equities side by side.
-- **Build a "morning checks" board** — overnight S&P futures, DXY, 10Y, BTC, gold for a 30-second pre-open scan.
+- **A "regime watch" board** — DXY, 10Y, HYG, gold, BTC. When all five move together, regime is shifting.
+- **A "single-asset deep dive" board** — trim Commodities down to oil and its complex, sit it next to USD and the rate-sensitive names.
+- **A "morning checks" board** — overnight equity benchmarks, DXY, 10Y, BTC, gold for a 30-second pre-open scan.
 
 ## Related
 
-- [Treasury yields & curves](/macro/treasury-yields) — the dedicated rates view, more detail than the rates tiles here
-- [Reading the index cards](/indices/reading-cards) — same percentile/sigma logic
+<CardGroup cols={2}>
+  <Card title="Treasury yields & curves" href="/macro/treasury-yields">
+    The dedicated rates view — more detail than the Rates rows here.
+  </Card>
+  <Card title="Reading the index cards" href="/indices/reading-cards">
+    The percentile/sigma read on the equity benchmarks.
+  </Card>
+  <Card title="Stock pop-out" href="/indices/stock-chart">
+    What the row chart icon opens for a single name.
+  </Card>
+  <Card title="Macro overview" href="/macro/overview">
+    Where the Scanner sits on the Macro page.
+  </Card>
+</CardGroup>
