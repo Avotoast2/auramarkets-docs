@@ -11,25 +11,61 @@ The chart, company panel, and research section are powered by our equity data fe
 
 ## The chart
 
-A clean candlestick chart by default, with the price scale on the **right** (TradingView-style).
+A clean candlestick chart by default, with the price scale on the **right** (TradingView-style). The toolbar groups everything into a few tidy dropdowns so it never gets cluttered, each showing a count of what's active.
 
-- **Candle / Line** — flip between candlesticks (with a volume sub-panel) and a simple price line
-- **MA20 / MA50 / MA200** — drop in moving averages; each toggles on independently and wears its own colour
-- **Timeframes** — `1D · 1W · 1M · 3M · 6M · YTD · 1Y · 3Y · 5Y · 10Y · Custom`
+### Timeframes
 
-We load ten years behind whatever window you pick, so you can always pan back past the chosen range to see more history.
+`1D · 1W · 1M · 3M · 6M · YTD · 1Y · 3Y · 5Y · 10Y · Custom`. We load **ten years** of history behind whatever window you pick, so you can always pan back past the chosen range to see more.
+
+### Bar type
+
+The **Candle ▾** menu switches how price is drawn:
+
+- **Candle** — classic candlesticks, with a volume sub-panel
+- **HA** — Heikin-Ashi, the smoothed candles that make trends easier to read
+- **Line** — a simple close line
+- **Area** — the close line with a filled gradient
+
+### Studies
+
+The **Studies ▾** menu holds every technical overlay in one place:
+
+- **Moving averages** — quick-add **SMA** or **EMA** at 20 / 50 / 200, or type any custom period (say `EMA 34`). Each wears its own colour and a removable chip, and they stick across the names you open.
+- **Bollinger Bands** — 20-period, 2σ band edges
+- **VWAP** — anchored volume-weighted average price from the window start
+- **RSI** — 14-period, in its own sub-panel with 30/70 guides
+- **MACD** — 12/26/9 histogram + MACD/signal lines, in its own sub-panel
+
+### Markers
+
+The **Markers ▾** menu drops event flags right on the price:
+
+- **Calls** — your tracked writers' entries as **▲ long / ▼ short**, anchored to the bar they called; hover any marker for the writer, date, and return (same-day calls stack into one popup)
+- **Earnings** — quarterly report flags carrying the reported EPS
+- **Dividends** — ex-dividend dates and per-share amounts
+
+### Scale & compare
+
+- **Log / %** — flip the price axis to logarithmic, or to **% change** from the window start (so a multi-ticker comparison all lines up at 0%)
+- **Compare** — type any US-listed ticker to overlay it; add several, each a coloured chip you can remove, and switch between **separate** price axes or a **shared** one
 
 ### Navigating the chart
 
 It moves the way you'd expect a real chart to:
 
-- **Scroll** to zoom toward your cursor — the fastest way to dig into a busy stretch
+- **Scroll** to zoom toward your cursor
 - **Drag the time axis** left/right to expand or contract the window (it follows your pull)
-- **Drag the chart** to pan around freely
-- **Double-click the price axis** to refit; **double-click the chart** to reset to the full range
-- **Hover** for a crosshair with the date and price
+- **Drag the chart** to pan freely; **double-click the price axis** to refit, **double-click the chart** to reset to the full range
+- **Hover** for a crosshair with the full **OHLC, volume, and Δ%** readout
+- **⊿ Measure** — drag between two points for the Δ price, Δ%, and number of bars / days
 
-There's also a **TradingView** button up top if you'd rather pull the name up there.
+### Snapshot, share & export
+
+Up in the header:
+
+- **Share** — download the chart as a branded **PNG**, copy that image straight to your clipboard, grab a **share link** that reopens the exact view (ticker, timeframe, studies, scale, compares), or **export the visible OHLC to CSV**
+- **Fullscreen** — expand the pop-out to fill the screen
+- **TradingView** — pull the name up in TradingView if you'd rather work there
 
 ## The company panel
 
