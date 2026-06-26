@@ -35,6 +35,7 @@ The **Studies ▾** menu holds every technical overlay in one place:
 - **VWAP** — anchored volume-weighted average price from the window start
 - **RSI** — 14-period, in its own sub-panel with 30/70 guides
 - **MACD** — 12/26/9 histogram + MACD/signal lines, in its own sub-panel
+- **Drawdown** — an "underwater" sub-panel showing how far price sits below its running peak (high-water mark), filled red with the waterline pinned at the top; the depth auto-scales to whatever window you're viewing
 
 ### Markers
 
@@ -43,6 +44,7 @@ The **Markers ▾** menu drops event flags right on the price:
 - **Calls** — your tracked writers' entries as **▲ long / ▼ short**, anchored to the bar they called; hover any marker for the writer, date, and return (same-day calls stack into one popup)
 - **Earnings** — quarterly report flags carrying the reported EPS
 - **Dividends** — ex-dividend dates and per-share amounts
+- **13F** — quarterly **F** flags for when the big institutional funds we track bought or sold the name, coloured green / red / grey for net **buy / sell / mixed**. Hover one for that quarter's funds and each fund's change, plus the stock's **return since that 13F** as of the latest price. *(On by default.)*
 
 ### Scale & compare
 
@@ -88,10 +90,14 @@ The panel on the left (collapse it with the **‹** chevron to give the chart th
 This is where the pop-out plugs into the [Writers corpus](/research/overview). When your tracked writers have weighed in on the name, you get:
 
 - **A one-line pulse** — open `▲ long / ▼ short` calls, how many writers, and how many recent mentions
-- **The calls** — each with its direction, the writer (and their track-record badge), the alpha vs SPY, the evidencing quote, and how many times they've reaffirmed it
+- **The calls** — each with its direction, the writer (and their track-record badge), its **P&L since the call** (signed for shorts, alongside the alpha vs SPY) as of the latest price, the evidencing quote, and how many times they've reaffirmed it. A brand-new call that hasn't seen a full session yet reads **new** rather than a flat 0%.
 - **Recent mentions** — the latest pieces *about* this name across Substack, YouTube, and X
 
-It's the [Calls](/research/calls) positioning view, right next to the price.
+It's the [Calls](/research/calls) positioning view, right next to the price. Hover a call and its **▲/▼ lights up on the chart**; hover a triangle and the matching call highlights here — so it's easy to tie a call to the bar it was made on.
+
+### 13F activity
+
+If the institutional funds we track have moved on the name, the panel also shows the **latest quarter's** buys and sells — who bought, who sold, and the stock's **return since that 13F** — right under the research calls. Hover it to spotlight the **F flag** on the chart, with a guideline dropped down to the price, and click **13F activity ↗** to jump straight to the name's full per-fund breakdown on the [13F page](/research/thirteenf).
 
 ### Ask Aura
 
