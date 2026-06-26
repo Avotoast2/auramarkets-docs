@@ -1,9 +1,9 @@
 ---
 title: "13F Filings"
-description: "What 34 tracked funds bought and sold last quarter — Consensus view, By-Fund view, and per-name drill-downs."
+description: "What 34 tracked funds bought and sold last quarter — Consensus, By-Fund, and Performance views, with per-name drill-downs."
 ---
 
-The [13F Filings page](https://auramarkets.io/thirteenf) ingests quarterly SEC 13F-HR filings from a curated list of **34 funds** — long-only equity shops, hedge funds, multi-strats, and quants — and turns them into two views: what the crowd is doing (Consensus) and what each manager is doing (By Fund).
+The [13F Filings page](https://auramarkets.io/thirteenf) ingests quarterly SEC 13F-HR filings from a curated list of **34 funds** — long-only equity shops, hedge funds, multi-strats, and quants — and turns them into three views: what the crowd is doing (Consensus), what each manager is doing (By Fund), and how each manager's book has actually *performed* since they reported it (Performance).
 
 Tracked managers include Tiger Global, Coatue, Lone Pine, Stanley Druckenmiller's Duquesne, Berkshire, Pershing Square, Third Point, Greenlight, Hound Partners, Whale Rock, Citadel, Renaissance, Two Sigma, and more.
 
@@ -54,9 +54,50 @@ Switch the top-of-page toggle to **By Fund**. Left sidebar lists all 34 funds; c
 - **Full position table** — every name in the fund's filing, sortable by weight, value, share change, etc.
 - **Per-row history** — click a position for a multi-quarter history of that fund × ticker
 
+## Performance view
+
+Switch the top-of-page toggle to **Performance**. This treats each fund's reported long-equity book as a hypothetical **value-weighted, buy-and-hold clone** and tracks how it has done — marked to the latest close — anchored at **two** dates that sit on every filing:
+
+- **Effective date** — the quarter-end the holdings reflect. What the book has done since the snapshot.
+- **Filing date** — when the 13F actually hit EDGAR (~30–45 days later). What a *follower could realistically have captured*, since the holdings weren't public until then.
+
+The gap between the two is **lag decay** — the edge that's already gone by the time you can act on a public filing. That contrast is the whole point of this view.
+
+### Leaderboard
+
+Every tracked fund, ranked. Sortable; click a row to load that fund's detail below.
+
+| Column | What it tells you |
+|---|---|
+| Effective / Filed | The two anchor dates |
+| Since Eff. / Since Filing | Clone return from each date to the latest close |
+| **Lag decay** | Since-Effective minus Since-Filing — return captured during the reporting lag |
+| vs SPY / vs QQQ | Alpha over the benchmark across the filing window |
+| Coverage | % of the reported long book we could actually price |
+| Names | Count of priced holdings in the clone |
+
+Filter pills: **All / Beating / Lagging** the benchmark. The **Benchmark** toggle (top-right of the panel) switches the whole view between **SPY** and **QQQ** — the vs-column, the filter, the detail tiles, and the chart line all re-rank live.
+
+### Fund detail
+
+Clicking a fund opens:
+- **Stat tiles** — Since Effective, Since Filing, alpha vs the benchmark, max drawdown, hit rate (share of names up), and best/worst contributor.
+- **Equity curve** — the clone rebased to 100 at the effective date vs the benchmark, with **E** (effective) and **F** (filed) flag markers and an underwater **drawdown** sub-panel.
+- **Holdings contribution** — each name's weight, price at filing, latest price, return, and contribution (weight × return). Filter to winners or losers.
+- **Quarter chips** — jump between the fund's recent filings to see how older books played out.
+
+### Methodology & caveats
+
+A deliberately honest, hypothetical replica — read it as *direction and decay*, not a live track record:
+
+- **Value-weighted, buy-and-hold** — weights are each name's reported dollar value; no rebalancing.
+- **Long US equity only** — no shorts, options, leverage, or foreign listings; gross of fees and taxes.
+- **Coverage %** is shown because it matters — names we can't price (delisted, foreign, deep tail) are excluded, so concentrated funds read ~95%+ and sprawling multi-strats lower.
+- Prices come from Polygon and are de-spiked against bad single-day ticks; the leaderboard re-marks to the latest close daily.
+
 ## Period selector
 
-Top-right dropdown — defaults to the latest quarter where most funds have filed. Drop back to prior quarters to compare flows over time.
+Top-right dropdown — defaults to the latest quarter where most funds have filed. Drop back to prior quarters to compare flows over time. (In the Performance view, use the per-fund quarter chips instead.)
 
 ## Daily refresh
 
@@ -83,5 +124,8 @@ Treat 13Fs as *direction* signal, not *timing*. A position you see today was hel
   </Card>
   <Card title="Track one manager over time" href="https://auramarkets.io/thirteenf">
     Per-position history reveals when they sized up or trimmed.
+  </Card>
+  <Card title="See whose picks actually worked" href="https://auramarkets.io/thirteenf">
+    The Performance view ranks every fund's clone return and shows how much edge decays in the reporting lag.
   </Card>
 </CardGroup>
