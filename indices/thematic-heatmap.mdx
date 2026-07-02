@@ -33,8 +33,21 @@ In the Thematic view, a second toggle controls how each tile's return is compute
 
 The two can disagree sharply: on a day small-cap semis get hit hard while NVDA shrugs, AI › Compute might read **−5%** equal-weighted but **−2%** cap-weighted. That gap is information.
 
+## % vs Z
+
+A third toggle switches the color scale itself:
+
+| Mode | What it shows |
+|---|---|
+| **%** (default) | Raw return. "Where are the big moves?" |
+| **Z** | The move divided by that tile's *own* historical volatility, in σ. "Where is something **unusual** happening?" |
+
+Raw % has a built-in bias: high-beta themes (Crypto, Uranium, Space) are always vivid and low-vol themes (Utilities, Staples) are always gray — a −2% day in Utilities is a genuine event, but in % mode you'll never see it light up. Z mode fixes exactly that: every tile is measured against its own normal. Tiles read like **+2.1σ**, and the color scale is a fixed ±3σ at every timeframe (z is self-normalizing, so no rescaling needed). Hover any tile to see both readings.
+
+Z works in both views (per-theme sigmas in Thematic, per-stock in Sectors) and every timeframe except YTD, which has no fixed horizon to measure "normal" against.
+
 <Note>
-Your view, weighting, and timeframe choices all persist — the map reopens exactly how you left it.
+Your view, weighting, %/Z, and timeframe choices all persist — the map reopens exactly how you left it.
 </Note>
 
 ## Controls
