@@ -50,6 +50,7 @@
               "indices/stock-chart",
               "indices/highs-lows",
               "indices/moving-averages",
+              "indices/thematic-heatmap",
               "indices/volatility-tickers"
             ]
           },

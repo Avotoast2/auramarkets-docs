@@ -1,0 +1,47 @@
+---
+title: "Thematic heatmap"
+description: "A finviz-style treemap of the market — by theme (AI, Space Tech, Quantum…) or by classic S&P 500 sectors."
+---
+
+At the bottom of the [Equities](https://auramarkets.io/indices) page sits a full-market treemap. One glance answers *where* the market is moving — not just how much.
+
+It has two personalities, switched with the **Thematic / Sectors** toggle:
+
+<CardGroup cols={2}>
+  <Card title="Thematic" icon="layer-group">
+    **40 themes, ~270 sub-themes, ~940 stocks.** Artificial Intelligence › Compute, Space Tech › Launch, Quantum Computing › Hardware… a curated thematic taxonomy, not GICS. Each tile is a *sub-theme*, aggregating its member stocks.
+  </Card>
+  <Card title="Sectors" icon="table-cells-large">
+    **The classic S&P 500 map.** One tile per stock, grouped by sector — NVDA, AAPL, JPM sized by market cap. Hover any tile for the company name, industry, and market cap.
+  </Card>
+</CardGroup>
+
+## Reading the tiles
+
+- **Size = market cap.** In the Sectors view that's simply the stock's cap. In the Thematic view, a stock's cap is *split across every sub-theme it belongs to* — so a mega cap that's tagged in 30 themes (looking at you, Microsoft) doesn't dominate all 30 tiles, and pure-play tiles keep their visual weight.
+- **Color = return** over the selected timeframe. Green up, red down, deeper = bigger move. The color scale widens with the timeframe (±3% saturates a 1D view; a 1Y view needs ±30%), so the map stays readable at any horizon.
+- **Hover a tile** — thematic tiles show their top constituents with each stock's return; sector tiles show the company, its industry, and market cap.
+
+## Equal vs Cap
+
+In the Thematic view, a second toggle controls how each tile's return is computed:
+
+| Mode | What it shows | When to use it |
+|---|---|---|
+| **Equal** (default) | Simple average of every member's return | *Breadth* — is the whole theme moving, or just its giants? |
+| **Cap** | Market-cap-weighted return | *Dollars* — what the theme did in index-weight terms |
+
+The two can disagree sharply: on a day small-cap semis get hit hard while NVDA shrugs, AI › Compute might read **−5%** equal-weighted but **−2%** cap-weighted. That gap is information.
+
+<Note>
+Your view, weighting, and timeframe choices all persist — the map reopens exactly how you left it.
+</Note>
+
+## Controls
+
+- **Timeframes** — 1D, 1W, 1M, 3M, 6M, YTD, 1Y.
+- **Expand ⤢** — takes the map full-screen right on the page (controls included). Close with the **✕** button or `Esc`.
+
+## Freshness
+
+Tile colors refresh on a ~15-minute cycle during the session. The theme and sector memberships themselves are refreshed daily.
