@@ -25,6 +25,7 @@
             "group": "Getting Started",
             "pages": [
               "getting-started/welcome",
+              "getting-started/today",
               "getting-started/quick-tour"
             ]
           },
