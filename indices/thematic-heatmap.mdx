@@ -48,21 +48,42 @@ Z works in both views (per-theme sigmas in Thematic, per-stock in Sectors) and e
 
 ## Bars view
 
-A **▦ / ☰** toggle swaps the treemap for a **ranked horizontal bar chart** — one bar per theme (or per sector in the Sectors view), sorted by the active metric. Everything above still applies: Equal/Cap, %/Z, and every timeframe re-rank the bars exactly as they recolor the tiles. Treemap answers *where's the weight*; bars answer *who's first*.
+The **▦ / ☰ / ✛** toggle picks the chart mode. **☰** swaps the treemap for a **ranked horizontal bar chart** — one bar per theme (or per sector in the Sectors view), sorted by the active metric. Everything above still applies: Equal/Cap, %/Z, and every timeframe re-rank the bars exactly as they recolor the tiles. Treemap answers *where's the weight*; bars answer *who's first*.
 
 Two things the bars can do that tiles can't:
 
 - **Click a bar to drill down.** A theme opens its sub-themes as their own ranked bars (in Sectors view, a sector opens its ranked stocks). A breadcrumb — or `Esc` — pops you back up.
 - **Hover a bar** to see its internal **min→max sub-theme range** drawn as a whisker. A small **◆** diamond marks themes whose internal spread sits in the top quartile — a flat-looking average hiding a rotation, with sub-themes moving in opposite directions. The diamond is your cue to hover or drill.
 
+## Rotation view
+
+The third mode (**✛**) replaces tiles and bars with an **RRG-style quadrant scatter**: every theme (or sector) plotted by its relative strength and momentum **vs SPY**, landing in one of four quadrants:
+
+| | Momentum up | Momentum down |
+|---|---|---|
+| **Strong vs SPY** | **Leading** — winning and accelerating | **Weakening** — still ahead, losing steam |
+| **Weak vs SPY** | **Improving** — behind, but turning up | **Lagging** — losing and decelerating |
+
+The classic rotation clock runs Leading → Weakening → Lagging → Improving → Leading. Catching a theme as it crosses from Improving into Leading is the whole point of the view.
+
+- **Dots are sized by market cap**, each dragging an **8-week fading trail** — the trail's shape tells you whether the move is a steady drift or a whipsaw.
+- **Right-side legend**, grouped by quadrant, with **two-way hover**: hover a legend row to light up its dot, hover a dot to light up its row.
+- **Click a dot to drill down** — a theme opens its sub-themes on the same quadrant grid (a sector opens its stocks). Breadcrumb or `Esc` to pop back up.
+- **Equal/Cap applies** (it changes how each theme's relative strength is computed). **%/Z and the timeframes don't** — RRG math runs on its own fixed lookback windows, so those controls dim in this mode.
+
 <Note>
-Your view, weighting, %/Z, timeframe, and treemap/bars choices all persist — the map reopens exactly how you left it.
+The quadrant *crossings* from this view — newly leading, turning up, rolling over — feed the **Rotation watch** card on [Today](/getting-started/today).
+</Note>
+
+<Note>
+Your view, weighting, %/Z, timeframe, and chart-mode choices all persist — the map reopens exactly how you left it.
 </Note>
 
 ## Controls
 
 - **Timeframes** — 1D, 1W, 1M, 3M, 6M, YTD, 1Y.
 - **Expand ⤢** — takes the map full-screen right on the page (controls included). Close with the **✕** button or `Esc`.
+- **Snapshot 📷** — exports the current chart in any of the three modes: **Download PNG** or **Copy image** straight to the clipboard. Snapshots get a branded header (view, mode, weighting, metric, timeframe) and an auramarkets.io watermark with the timestamp, so they're paste-ready for a chat or a post.
 
 ## Freshness
 

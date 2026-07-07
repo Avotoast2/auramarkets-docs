@@ -1,44 +1,75 @@
 ---
 title: "Market Pulse"
-description: "The right-rail live snapshot, available from every Macro view."
+description: "The right-rail live snapshot — a price-derived regime engine, plus the AI that explains it."
 ---
 
 The **Market Pulse** sidebar is the right rail of the [Macro page](/macro/overview). It's pinned — no matter which view you have open in the center, Pulse stays visible.
 
 It's designed for the question "what's actually happening right now?"
 
-## What's in it
+## The regime badge
 
-### Header
-- **Day's quant score** at the top — the same [score](/concepts/quant-score) you see in the Daily Recap, but live, updating through the session.
-- **Recap badge** — when a Daily Recap is published (after 4:30 PM ET on weekdays), a link appears here to jump straight to it.
+At the top sits the market's current state. (A **Recap badge** also appears here once the [Daily Recap](/macro/daily-recap) publishes after 4:30 PM ET.) This is **not AI sentiment** — it's a deterministic engine that reads only prices and classifies the tape into one of six states:
 
-### Key signal commentary
+| State | The tape it describes |
+|---|---|
+| **RISK ON** | Trend, breadth, vol, and credit agree — risk is being bought |
+| **RISK OFF** | The same components agree the other way |
+| **ROTATIONAL** | The averages look flat but the insides are violent — money moving *between* sectors, not out |
+| **RANGE-BOUND** | Realized vol compressed, price pinned near the 50-day — nothing resolved yet |
+| **BREAKOUT** | New 52-week-high territory with new-high breadth *expanding* — the move is confirmed, not just the index |
+| **DISLOCATION** | Something broke: a VIX spike, gold and the dollar ripping together, credit cracking while equities shrug, or rates stress vol hasn't priced |
 
-A one-sentence headline above the briefing, surfaced from the cross-asset state. The commentary engine prioritizes:
+### How it's computed
 
-1. **Multi-year extremes first** — when any tracked instrument hits a level not seen for ≥1 year (e.g., "30Y yield at 5.05%, highest since Aug 2007 — long-end repricing the term premium, not a single-day move"). All-time highs/lows take top billing.
-2. **52-week highs/lows** — secondary triggers when not at a longer-window extreme.
-3. **Cross-asset divergences** — splits that don't reconcile with the dominant theme: credit/equity, equity/vol, gold/dollar, size (small vs large caps), rates/vol (MOVE vs yields), yield-curve shape (bear-steepening / bull-flattening), and stocks/bonds dislocations. Each is annotated with how statistically extreme the move is (z-score, plus 1-week and 1-month context); divergences where nothing moved more than ~1σ are flagged as noise and dimmed.
-4. **Notable single-day moves** — only when ≥2σ on a 60-day baseline and tied to the dominant regime.
+Seven components, each measured from real prices and **normalized against its own trailing year** (so "high" always means high *for that instrument*, not high in the abstract):
 
-The long-lens fetch covers all yields, broad indices, DXY, gold, BTC, VIX, MOVE, TLT — these are the instruments where "highest since YYYY" is a real signal. Other instruments get a 1-year window only.
+- **Trend** — SPY vs its 200-day, plus 21-day momentum
+- **Breadth** — % of ~1,600 tracked names above their 50-day
+- **Vol** — VIX level plus the VIX/VIX3M term structure (inversion = stress)
+- **Credit** — HYG/LQD relative strength
+- **Dollar/gold** — haven stress (both bid together is the bad kind)
+- **MOVE** — rates vol, especially when equity vol is asleep
+- **Cross-sector dispersion** — how far apart the sectors are trading (this is what catches ROTATIONAL)
 
-### Two view modes
+**Hover the badge** for the confidence % and the ranked anomalies — the specific components most out of line with their own history, so you can see *why* the engine reads what it reads.
+
+The state labels aren't vibes: the engine is **backtested on 2+ years of real history**, with each state's forward returns measured. (In-sample, ROTATIONAL was the one forward-*bearish* state — flat averages hiding violent insides tend to resolve down.)
+
+## Two view modes
+
 A toggle near the top lets you switch between:
 
-- **AI Briefing** — a written paragraph, refreshed every ~15 minutes during market hours. Synthesized by Claude using the live cross-asset state. Good for "summarize what's going on" without reading raw tiles.
+- **AI Briefing** — a written paragraph, refreshed every ~15 minutes during market hours. The AI's job changed in V2: it **explains the engine's read** — why the state is what it is, what's unusual today, and what historical analogs imply (a nearest-neighbor pattern matcher finds the most similar past days and what happened next). It is explicitly **forbidden from asserting its own sentiment** — the engine calls the regime; Claude narrates it.
 - **Raw Feed** — chronological list of recent updates: notable headlines, model alerts, regime flips. Good for the moment-by-moment.
 
-### Key Events
-Curated list of events moving the tape — earnings beats/misses, headline news, big macro prints. Each entry shows tickers affected and an impact tag.
+## The equities read
 
-### Notable Calls
-Sell-side and notable analyst calls (upgrades, downgrades, big price target revisions). Filtered to ones likely to actually move price.
+The equities section of the briefing now leads with **computed observations**, not leader/lagger lists. The engine scans the tape for the things a human would circle:
+
+- **Divergences** — credit vs equity, small vs large, vol vs price
+- **Rotation inside the averages** — a flat index masking sector-level violence
+- **Concentration attribution** — "78% of Tech's gain today is two names"
+- **σ-ranked anomalies** — moves measured against each instrument's own normal
+- **Tape-vs-writer conflicts** — when the [writers corpus](/research/overview) leans one way and the tape is doing the opposite
+
+## Key signal commentary
+
+A one-sentence headline above the briefing, surfaced from the cross-asset state. Priority order:
+
+1. **Multi-year extremes first** — any tracked instrument at a level not seen for ≥1 year (all-time highs/lows take top billing)
+2. **52-week highs/lows**
+3. **Cross-asset divergences** — annotated with how statistically extreme the move is; sub-1σ splits are flagged as noise and dimmed
+4. **Notable single-day moves** — only when ≥2σ and tied to the dominant regime
+
+## Key Events & Notable Calls
+
+- **Key Events** — curated list of events moving the tape: earnings beats/misses, headline news, big macro prints, each with tickers and an impact tag.
+- **Notable Calls** — sell-side upgrades/downgrades and big price-target revisions, filtered to ones likely to actually move price.
 
 ## How often it updates
 
-- **Score and tiles**: every 5 minutes during market hours (8 AM – 6 PM ET, weekdays)
+- **Engine and tiles**: every 5 minutes during market hours (8 AM – 6 PM ET, weekdays)
 - **AI Briefing**: every 15 minutes during market hours
 - **Events / Calls**: as they're picked up from the feeds (within minutes)
 
@@ -46,7 +77,7 @@ Off-hours and weekends, you'll see the last cached state.
 
 ## How to use it
 
-- **Glance check** — score color and one-liner sentiment ("cautious," "complacent," etc.) tell you the regime in two seconds.
-- **Why is the score moving?** — switch to Raw Feed; the most recent events explain it.
-- **Pre-market briefing** — open before the cash open, read the AI Briefing, scan Key Events for overnight catalysts.
+- **Glance check** — the regime badge is the two-second read; hover for confidence and what's anomalous.
+- **"Why does it say that?"** — the hover anomalies first, then the AI Briefing for the full explanation and historical analogs.
+- **Pre-market briefing** — open before the cash open, read the briefing, scan Key Events for overnight catalysts.
 - **End-of-day** — when the Recap badge appears, click straight to the [Daily Recap](/macro/daily-recap).

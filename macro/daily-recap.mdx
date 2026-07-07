@@ -26,22 +26,23 @@ Right under the header — the gradient bar showing how the [quant score](/conce
 
 ## The sections
 
-Each recap follows the same structure, in this order:
+The recap is forensic: everything it asserts is measured, not remembered. Each one follows the same structure, in this order:
 
 | Section | What's in it |
 |---|---|
 | **The Day's Arc** | The session as a story: how it opened, where it inflected, how it closed. The "what happened" narrative. |
-| **What Actually Mattered** | Separates **signal** (the events that drove price) from **noise** (the events that got headlines but didn't actually move things). |
-| **Cross-Asset Verdict** | What credit, vol, gold, FX, and rates were saying — especially when they disagreed with equities. |
+| **Regime Path (engine)** | The day as the [regime engine](/macro/market-pulse#the-regime-badge) saw it — intraday state pills showing every flip (e.g., RANGE-BOUND → ROTATIONAL → RISK OFF) and when it happened. Computed, not narrated. |
+| **Signal vs Noise** | Separates **signal** from **noise** by *measuring each event's actual tape reaction* — the events that got headlines but moved nothing get called out as noise. |
+| **Cross-Asset Check** | What credit, vol, gold, FX, and rates were saying — specifically **which engine components dissented** from the equity read. |
 | **Structural Shifts** | Concentration, factor rotations, sector dispersion, breadth health. |
 | **Equity Internals** | [Breadth](/concepts/breadth), factor excess, sector leadership, vol term structure detail. |
 | **The Score Story** | A walk-through of how the quant score itself moved — peaks, troughs, what they coincided with. |
-| **Tomorrow Setup** | Bias, key levels, catalysts, regime-shift triggers, historical edge from similar days. |
+| **Tomorrow's Setup** | Bias, catalysts, regime-shift triggers, historical edge from similar days — and key levels **cited from computed numbers** (52-week high/low, 50-day, 200-day, prior day's range), never invented. |
 | **Bottom Line** | One-paragraph summary if you're skimming. |
 
 ## How it's generated
 
-- A **deterministic engine** ([quant score](/concepts/quant-score), breadth, factor excess, divergences) produces the structured features.
+- A **deterministic engine** ([quant score](/concepts/quant-score), the [regime engine](/macro/market-pulse#the-regime-badge)'s intraday path, breadth, factor excess, divergences, per-event tape reactions) produces the structured features.
 - **Claude** writes the prose by reading those features plus the day's quant timeline, the Pulse events, and historical context for similar days.
 - The AI never invents numbers — it only narrates the structured data.
 
