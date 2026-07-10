@@ -1,29 +1,65 @@
 ---
 title: "Welcome to auramarkets"
-description: "A bird's-eye view of markets — macro, single names, and your portfolio in one place."
+description: "A market intelligence system: live dashboards, a research corpus that reads everything you follow, writer track records, and a daily synthesis built around your positions."
 ---
 
-auramarkets is a personal markets dashboard. It pulls together the things I find myself checking every day — macro signals, single-name research, my own portfolio's risk — in one place, dark and dense, no fluff.
+auramarkets is a **market intelligence system** — not another dashboard with quotes on it.
 
-Right now it's free and invite-only. If you're reading this, you probably know me — let me know what you think.
+The idea: the inputs that actually drive your thinking are scattered across a dozen places. Prices and vol live on one screen, macro context on another, the sharpest research is buried in Substack posts, X threads, YouTube interviews, and subscriber chats — and none of it knows what you own. auramarkets pulls all of it into **one system where the pieces talk to each other**, and then points the whole thing at *your* positions.
+
+## The loop
+
+Everything on the site is one flywheel:
+
+<Steps>
+  <Step title="Ingest — everything you'd want to read, read for you">
+    Every day the system ingests **Substack** (free and paid — full archives *and* subscriber chats), **X**, and **YouTube** from curated writers. Each piece is fully read: thesis extracted, tickers tagged, claims pulled out, embedded for semantic search. Hundreds of pieces become a **queryable research memory** instead of a firehose you feel guilty about.
+  </Step>
+  <Step title="Score — opinions become track records">
+    Every directional take becomes a **tracked call** — entered at the price when the writer said it, scored against SPY ever since. Over time that produces something no feed gives you: **who's actually been right**, who's loud, and who's a reliable contrary indicator. Writers earn FOLLOW/FADE grades that travel with every call they make.
+  </Step>
+  <Step title="Watch — the market side, live">
+    Dashboards cover the tape itself: **Market Pulse** (a regime engine plus a live event feed), 25 world indices, the volatility shelf, breadth, CTA/VRP positioning models, the cross-asset scanner, a 40-theme **thematic map with rotation tracking**, and quarterly **13F flows** from 34 funds.
+  </Step>
+  <Step title="Connect — every view drills into every other">
+    Nothing is a dead end. A theme drills to its sub-themes, a sub-theme to its stocks, a stock to its chart — with your writers' **calls drawn on the price** and the institutions' 13F flags next to them. A call links back to the exact sentence it came from. A macro event links into the names it touches.
+  </Step>
+  <Step title="Personalize & push — it comes to you">
+    All of it is intersected with **your portfolio and watchlists**. The [Today](/getting-started/today) page answers "what happened to *my* names and why" every morning, and the **Pre-Market Brief** email pushes the same synthesis before the open — fresh calls, position flips, consensus forming, earnings on deck.
+  </Step>
+  <Step title="Ask — the whole system is queryable">
+    [AskAura](/research/ask) sits on top of everything: the corpus, the call ledger, 13F filings, your portfolio, and live web/X data. "What are my writers saying about semis?" or "who flipped short recently?" — answered with citations, charts inline.
+  </Step>
+</Steps>
+
+The compounding part: the longer it runs, the better it gets. The corpus deepens, track records sharpen, and questions that once meant an hour of tab-hopping become one query.
+
+## What that looks like in practice
+
+- A theme lights up on the rotation view → drill to the sub-theme → see which of its stocks your writers have live calls on → open the chart with those calls marked at their entry bars.
+- A name in your portfolio gaps down → Today already shows *why*: the writer who flipped short yesterday, the 13F sellers last quarter, the earnings print behind it.
+- You vaguely remember someone making the bull case for uranium → semantic search finds the piece, its extracted thesis, and how that writer's calls have scored since.
 
 ## What's inside
 
 <CardGroup cols={2}>
+  <Card title="Today" icon="sun" href="/getting-started/today">
+    The synthesis page — everything above, intersected with your names, every morning.
+  </Card>
   <Card title="Macro" icon="chart-line" href="/macro/overview">
     Market Pulse, Daily Recap, CTA & VRP models, cross-asset scanner, treasury curves.
   </Card>
   <Card title="Indices" icon="globe" href="/indices/overview">
-    25 world indices and the volatility shelf (VIX, MOVE, SKEW, and friends).
+    25 world indices, the volatility shelf, movers, highs/lows, and the thematic rotation map.
+  </Card>
+  <Card title="Research" icon="book-open" href="/research/overview">
+    The corpus: Substack + chats + X + YouTube, scored calls, writer grades, AskAura.
   </Card>
   <Card title="Single Names" icon="magnifying-glass" href="/single-names/overview">
     Watchlists, heatmaps, ticker-level deep dives, phase-change screens.
   </Card>
   <Card title="Portfolio" icon="briefcase" href="/portfolio/connect">
-    Connect via Plaid. See performance, factor exposure, CVaR, stress scenarios.
-  </Card>
-  <Card title="Research" icon="book-open" href="/research/overview">
-    Substack + X + YouTube ingested daily, scored, searchable by ticker.
+    Connect via Plaid. Performance, factor exposure, CVaR, stress scenarios.
   </Card>
 </CardGroup>
 
@@ -35,6 +71,6 @@ Right now it's free and invite-only. If you're reading this, you probably know m
 
 ## A few notes
 
-- **Data lag.** Right now most data comes from free feeds (yfinance), delayed roughly 15–20 minutes. The plan is to move to near-real-time paid feeds once the site is more bootstrapped. For now, use auramarkets for context, not execution.
-- **Active development.** Features ship fast and occasionally need polish — your feedback is the fastest way to make the next version better.
-- **One developer.** Built by me. Send bugs, ideas, and feature requests straight to me.
+- **Data lag.** Most prices currently come from free feeds, delayed roughly 15–20 minutes. Near-real-time paid feeds are on the roadmap. For now, use auramarkets for context, not execution.
+- **Active development.** Features ship fast — your feedback directly shapes what comes next.
+- **Free and invite-only.** If you're reading this, you probably know me — tell me what you think.
