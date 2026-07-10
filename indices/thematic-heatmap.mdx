@@ -52,7 +52,7 @@ The **▦ / ☰ / ✛** toggle picks the chart mode. **☰** swaps the treemap f
 
 Two things the bars can do that tiles can't:
 
-- **Click a bar to drill down.** A theme opens its sub-themes as their own ranked bars (in Sectors view, a sector opens its ranked stocks). A breadcrumb — or `Esc` — pops you back up.
+- **Click a bar to drill down.** A theme opens its sub-themes as their own ranked bars (in Sectors view, a sector opens its ranked stocks). A breadcrumb — or `Esc` — pops you back up. Click a *sub-theme* bar and you keep going — its [constituents panel](#down-to-single-names) opens below the chart.
 - **Hover a bar** to see its internal **min→max sub-theme range** drawn as a whisker. A small **◆** diamond marks themes whose internal spread sits in the top quartile — a flat-looking average hiding a rotation, with sub-themes moving in opposite directions. The diamond is your cue to hover or drill.
 
 ## Rotation view
@@ -68,11 +68,28 @@ The classic rotation clock runs Leading → Weakening → Lagging → Improving 
 
 - **Dots are sized by market cap**, each dragging an **8-week fading trail** — the trail's shape tells you whether the move is a steady drift or a whipsaw.
 - **Right-side legend**, grouped by quadrant, with **two-way hover**: hover a legend row to light up its dot, hover a dot to light up its row.
-- **Click a dot to drill down** — a theme opens its sub-themes on the same quadrant grid (a sector opens its stocks). Breadcrumb or `Esc` to pop back up.
+- **Click a dot to drill down** — a theme opens its sub-themes on the same quadrant grid (a sector opens its stocks). Breadcrumb or `Esc` to pop back up. From there, clicking a sub-theme dot (or its legend row) opens the [constituents panel](#down-to-single-names).
 - **Equal/Cap applies** (it changes how each theme's relative strength is computed). **%/Z and the timeframes don't** — RRG math runs on its own fixed lookback windows, so those controls dim in this mode.
 
 <Note>
 The quadrant *crossings* from this view — newly leading, turning up, rolling over — feed the **Rotation watch** card on [Today](/getting-started/today).
+</Note>
+
+## Down to single names
+
+Every sub-theme is clickable — from a **treemap tile**, a **drilled bar**, or a **drilled rotation dot** (or its legend row). Clicking one opens a **constituents panel** right below the chart: one row per member stock, with a centered return bar over the active timeframe, the exact %, and — where your research corpus knows the name — two badges:
+
+- **🎯 n** — tracked [calls](/research/calls) on the stock. Hover for the top ones: direction · writer · date.
+- **📄 n** — research pieces covering it, across Substack, X, and YouTube.
+
+A **Return / Research** toggle re-sorts the rows: Return ranks by performance, Research ranks by corpus activity — "which names in this sub-theme are writers actually talking about?" Names with *no* badges are signal too: nobody's covering them yet.
+
+**Click any row** and the full [stock pop-out](/indices/stock-chart) opens — price chart with the call markers drawn right on it, studies, the company panel, and Ask Aura. That's the whole path in three clicks: theme → sub-theme → the single name and what your writers said about it.
+
+In the **Sectors** view a leaf already *is* a stock, so clicking it skips the panel and opens the pop-out directly.
+
+<Note>
+The panel follows the timeframe pills, closes with **✕**, `Esc`, or the breadcrumb, and works in the embedded map and fullscreen alike.
 </Note>
 
 <Note>
