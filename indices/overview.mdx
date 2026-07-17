@@ -61,14 +61,24 @@ The **Volatility** and **Market Breadth** panels each have a **gear icon** in th
 
 ## The comparison chart
 
-Up top, one chart overlays your chosen indices as **% change from the window's start** — S&P vs NASDAQ 100 vs Russell vs Dow out of the box, with the **+** picker to add any index, sector, or industry group to the mix.
+Up top, one chart overlays your chosen series as **% change from the window's start** — S&P vs NASDAQ 100 vs Russell vs Dow out of the box.
+
+The **+** picker adds anything to the mix, organized in four groups:
+
+- **Indices** — the 25 world indices
+- **Sectors** — the 11 US sector ETFs
+- **Factors** — equal-weight S&P (RSP), large growth/value, momentum, low volatility, quality, high beta, dividend
+- **Industry Groups** — ~35 groups from software and semis through uranium, copper miners, and cloud
+- **Any stock** — type a ticker or company name in the picker's search box and an **Add stock** entry appears; picking it fetches that name's history and drops it on the chart as a normal series. Your additions persist across visits.
 
 It runs on the same engine as the [stock pop-out](/indices/stock-chart), so all the TradingView-style moves work here too:
 
-- **Hover** — crosshair with a per-index readout, each value colored green/red
+- **Hover** — crosshair with a per-index readout, each value colored green/red (with time-of-day on intraday views)
 - **Scroll** — zoom the time axis, anchored at your cursor; **drag the plot** to pan
 - **Drag the x- or y-axis strip** to stretch that axis; **double-click** to reset
 - **Timeframes** — 1D through 3Y, plus **Custom** with start/end date pickers. The 1D view anchors to the prior close, so overnight gaps show.
+
+Short windows plot at **sub-daily resolution**: 1D uses 5-minute bars, **1W uses 15-minute bars, and 1M is hourly** — so a week actually looks like a week of tape, not five dots. 3M and longer stay daily. (Custom-added stocks are daily-only; if one is selected on 1W/1M the whole chart falls back to daily so the lines stay aligned.)
 
 The legend below doubles as the scoreboard — each index's current window % lives next to its name, and clicking a legend entry toggles that line on or off.
 
@@ -80,7 +90,15 @@ On panels with a chart view (the movers, Sectors, and Industry Groups), the **1D
 
 ### Today's Earnings
 
-Two cards — **Before Open** and **After Close** — listing the day's reporters sorted by size, each with sector, market cap, and EPS estimate. A **Notable / All** toggle keeps it tight (Notable shows the ≥$10B names), and clicking any row opens that name's [stock pop-out](/indices/stock-chart). A **Full calendar →** link jumps to the macro earnings calendar.
+Two cards — **Before Open** and **After Close** — listing the day's reporters sorted by size, each with sector, market cap, implied move, and EPS estimate. A **Notable / All** toggle keeps it tight (Notable shows the ≥$10B names), and clicking any row opens that name's [stock pop-out](/indices/stock-chart). A **Full calendar →** link jumps to the macro earnings calendar.
+
+**The panel updates live as results land.** Once a name reports, its row flips to results mode:
+
+- A **BEAT / MISS / IN LINE** pill
+- The **actual price reaction** replaces the implied move (hover to compare against what options had priced)
+- The estimate line becomes `EPS 6.14 vs 5.59 est (+5.9%)`
+
+Before-open names show their tape reaction from 9:30; the EPS numbers join within minutes-to-an-hour of each print as they're published. The panel refreshes itself every few minutes — no reload needed. After-hours reporters never show a same-day "reaction" (theirs isn't visible until the next session).
 
 → [Which names are at new highs / lows](/indices/highs-lows)
 

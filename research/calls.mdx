@@ -83,7 +83,7 @@ Each call is also tagged **TA**, **FA**, or **MIXED** by the extraction model �
 
 ## The call list (right)
 
-Every call, newest first — ticker, direction, the writer, the verbatim quote that evidenced it, and live P&L (entry → current, with the return and alpha).
+Every call, newest first — company logo, ticker, direction, the writer, the verbatim quote that evidenced it, and live P&L (entry → current, with the return and alpha).
 
 - **Newest / Top Gainers** — sort by recency or by return
 - **Favorites First** — on by default; floats calls from your favorited writers to the top (your Newest / Top Gainers sort still applies within each group). Untick it for a pure recency/return sort.
@@ -96,7 +96,13 @@ Every call, newest first — ticker, direction, the writer, the verbatim quote t
 
 Both search boxes — calls (right) and writers (left) — work the same way. Type a term and hit **Enter** and it pins as a little **tag**; stack as many as you like, each with an **✕** to drop it (or **Backspace** on an empty box to pop the last one). Typing also filters live before you commit.
 
+As you type, a **suggestion dropdown** offers matches — tickers (with company names and call counts) and writers — so typing `intel` finds INTC even when no call text contains the word "intel". Pick one with a click or ↑/↓ + Enter; plain Enter with nothing highlighted still commits your raw text as a free-text tag.
+
 Tags are **AND** — a row has to match **every** tag — so they narrow as you add them. Search `Druckenmiller`, then `NVDA`, and you're left with exactly that writer's NVDA calls. The calls search matches ticker, writer, publication, or thesis text; the writers search matches name or publication.
+
+<Note>
+A **writer or ticker tag pulls that name's complete history** from the server — same as clicking their leaderboard row — so a writer with 89 calls shows all 89, not just the ones recent enough to be in the default list. Free-text tags (thesis words like "foundry") filter whatever's loaded.
+</Note>
 
 ### Ticker focus
 
@@ -106,6 +112,8 @@ Clicking a ticker opens a focus panel with two things straight out of the "where
 - **Annotated price chart** — the price line with a marker at every writer's entry (**▲** long, **▼** short), plus a permanent label on the single biggest-magnitude call so there's always one headline takeaway
 
 **Hover any marker** for the full call — who made it, the date, the entry price, the return, and the thesis quote. When several writers called the same name on the same day, their markers stack on one point and a single hover lists them all.
+
+It works the other way too: **hover a call row in the list below** and its marker lights up on the chart (with a guideline down to the date), so you can match a specific call to its spot on the price path without hunting.
 
 When calls bunch up in a busy stretch, **zoom in to pull them apart**:
 

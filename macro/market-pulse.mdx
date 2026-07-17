@@ -36,6 +36,12 @@ Seven components, each measured from real prices and **normalized against its ow
 
 The state labels aren't vibes: the engine is **backtested on 2+ years of real history**, with each state's forward returns measured. (In-sample, ROTATIONAL was the one forward-*bearish* state — flat averages hiding violent insides tend to resolve down.)
 
+### Regime vs. today — climate and weather
+
+The regime answers "*what market have we been in for weeks?*" — which is deliberately **not** the same question as "how's today going." A −1% session inside an intact uptrend doesn't flip the regime; if it did, the badge would just be a daily up/down light.
+
+When the two genuinely disagree — a risk-off tape inside a RISK ON regime — the badge says so: an amber **"risk-off session today"** note appears on the sub-line beneath it (hover for the day's tape score). On those days the sentiment gauge is also pulled toward neutral rather than parroting the regime, and the AI briefing is instructed to frame the day explicitly as a counter-regime session — including what would actually have to deteriorate (vol, credit, trend, breadth) to flip the regime for real.
+
 ## Two view modes
 
 A toggle near the top lets you switch between:
@@ -43,9 +49,19 @@ A toggle near the top lets you switch between:
 - **AI Briefing** — a written paragraph, refreshed every ~15 minutes during market hours. The AI's job changed in V2: it **explains the engine's read** — why the state is what it is, what's unusual today, and what historical analogs imply (a nearest-neighbor pattern matcher finds the most similar past days and what happened next). It is explicitly **forbidden from asserting its own sentiment** — the engine calls the regime; Claude narrates it.
 - **Raw Feed** — chronological list of recent updates: notable headlines, model alerts, regime flips. Good for the moment-by-moment.
 
-## The equities read
+## The Macro card
 
-The equities section of the briefing now leads with **computed observations**, not leader/lagger lists. The engine scans the tape for the things a human would circle:
+The macro commentary is one card of **tagged bullet reads** — 2-3 discrete observations, one idea per bullet, most important first:
+
+> • **Long-end repricing** — 30Y at 5.05%, highest since Aug 2007…
+> • **Regime** — RISK ON at 55% confidence, breadth balanced; likely persists while credit stays firm…
+> ➡ **Looking ahead** — CPI 8:30am; the specific levels that would change the picture
+
+The lead bullet is the **key signal** — the single thing a trader needs to know that isn't obvious from prices, chosen by priority: multi-year extremes first, then 52-week levels, then statistically meaningful cross-asset divergences (sub-1σ splits are flagged as noise, not narrated), then ≥2σ single-day moves. One bullet always carries the plain-language regime explanation, and the **➡ Looking ahead** line closes the card with what to watch in the next few hours.
+
+## The Equities card
+
+Same format — **tagged bullets, one observation each** — and it leads with **computed observations**, not leader/lagger lists. The intelligence layer scans the tape for the things a human would circle:
 
 - **Divergences** — credit vs equity, small vs large, vol vs price
 - **Rotation inside the averages** — a flat index masking sector-level violence
@@ -53,14 +69,7 @@ The equities section of the briefing now leads with **computed observations**, n
 - **σ-ranked anomalies** — moves measured against each instrument's own normal
 - **Tape-vs-writer conflicts** — when the [writers corpus](/research/overview) leans one way and the tape is doing the opposite
 
-## Key signal commentary
-
-A one-sentence headline above the briefing, surfaced from the cross-asset state. Priority order:
-
-1. **Multi-year extremes first** — any tracked instrument at a level not seen for ≥1 year (all-time highs/lows take top billing)
-2. **52-week highs/lows**
-3. **Cross-asset divergences** — annotated with how statistically extreme the move is; sub-1σ splits are flagged as noise and dimmed
-4. **Notable single-day moves** — only when ≥2σ and tied to the dominant regime
+Below the bullets, **Key names** lists the 3-4 single stocks that matter most today, each with a one-line why.
 
 ## Key Events & Notable Calls
 

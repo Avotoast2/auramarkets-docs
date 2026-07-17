@@ -33,18 +33,32 @@ In the Thematic view, a second toggle controls how each tile's return is compute
 
 The two can disagree sharply: on a day small-cap semis get hit hard while NVDA shrugs, AI › Compute might read **−5%** equal-weighted but **−2%** cap-weighted. That gap is information.
 
-## % vs Z
+## % vs Z vs MA
 
-A third toggle switches the color scale itself:
+A third toggle switches what the color *means*:
 
 | Mode | What it shows |
 |---|---|
 | **%** (default) | Raw return. "Where are the big moves?" |
 | **Z** | The move divided by that tile's *own* historical volatility, in σ. "Where is something **unusual** happening?" |
+| **MA** | **Breadth**: the % of the tile's constituents trading above a moving average. "Which themes have internal support — and which are hollow?" |
 
 Raw % has a built-in bias: high-beta themes (Crypto, Uranium, Space) are always vivid and low-vol themes (Utilities, Staples) are always gray — a −2% day in Utilities is a genuine event, but in % mode you'll never see it light up. Z mode fixes exactly that: every tile is measured against its own normal. Tiles read like **+2.1σ**, and the color scale is a fixed ±3σ at every timeframe (z is self-normalizing, so no rescaling needed). Hover any tile to see both readings.
 
-Z works in both views (per-theme sigmas in Thematic, per-stock in Sectors) and every timeframe except YTD, which has no fixed horizon to measure "normal" against.
+Z works in both views (per-theme sigmas in Thematic, per-stock in Sectors) and every timeframe except YTD and Custom, which have no fixed horizon to measure "normal" against.
+
+### MA breadth
+
+Picking **MA** reveals a window picker — **20D / 50D / 200D** — and recolors every tile by the share of its constituents above that moving average. The scale pivots at 50%: deep red at 0%, neutral at 50%, deep green at 100%. Tiles read like **82%** instead of a return.
+
+The killer read: a theme that's **green on return but red on breadth** — one mega cap dragging the cap-weighted return up while most constituents sit below their 50DMA. Invisible in % mode, obvious here. It's the same "hollow leadership" lens the Market Pulse applies to RSP/SPY, per theme.
+
+Details worth knowing:
+
+- **Every tile's tooltip carries the breadth line in all modes** — `above MA: ›20D 88% · ›50D 94% · ›200D 75%` — so you rarely need to flip the toggle to check.
+- In the **Sectors** view a tile is a single stock, so it goes binary: full green above the MA, full red below — the classic above/below map.
+- In the [constituents panel](#down-to-single-names), each stock row gets a **▲50 / ▼50** marker (tracking your selected window), so you see exactly *which* names are holding a theme up.
+- Timeframe and Equal/Cap dim in MA mode — breadth is a fixed daily metric, refreshed each session. Names younger than a window (a recent IPO with no 200 sessions) simply drop out of that MA's denominator.
 
 ## Bars view
 
@@ -98,7 +112,7 @@ Your view, weighting, %/Z, timeframe, and chart-mode choices all persist — the
 
 ## Controls
 
-- **Timeframes** — 1D, 1W, 1M, 3M, 6M, YTD, 1Y.
+- **Timeframes** — 1D, 1W, 1M, 3M, 6M, YTD, 1Y, plus **Custom**: pick any past date and the whole map recolors to the **return since that date** (measured from the last trading session on or before it). Anchor it to an event — "what's actually outperformed since CPI day" — instead of approximating with the nearest preset. The color scale auto-widens with the horizon length, and the drill-down panel re-ranks by the same window.
 - **Expand ⤢** — takes the map full-screen right on the page (controls included). Close with the **✕** button or `Esc`.
 - **Snapshot 📷** — exports the current chart in any of the three modes: **Download PNG** or **Copy image** straight to the clipboard. Snapshots get a branded header (view, mode, weighting, metric, timeframe) and an auramarkets.io watermark with the timestamp, so they're paste-ready for a chat or a post.
 
