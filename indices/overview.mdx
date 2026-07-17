@@ -68,6 +68,7 @@ The **+** picker adds anything to the mix, organized in four groups:
 - **Indices** — the 25 world indices
 - **Sectors** — the 11 US sector ETFs
 - **Factors** — equal-weight S&P (RSP), large growth/value, momentum, low volatility, quality, high beta, dividend
+- **Baskets (L/S)** — auramarkets' own factor baskets (below)
 - **Industry Groups** — ~35 groups from software and semis through uranium, copper miners, and cloud
 - **Any stock** — type a ticker or company name in the picker's search box and an **Add stock** entry appears; picking it fetches that name's history and drops it on the chart as a normal series. Your additions persist across visits.
 
@@ -81,6 +82,22 @@ It runs on the same engine as the [stock pop-out](/indices/stock-chart), so all 
 Short windows plot at **sub-daily resolution**: 1D uses 5-minute bars, **1W uses 15-minute bars, and 1M is hourly** — so a week actually looks like a week of tape, not five dots. 3M and longer stay daily. (Custom-added stocks are daily-only; if one is selected on 1W/1M the whole chart falls back to daily so the lines stay aligned.)
 
 The legend below doubles as the scoreboard — each index's current window % lives next to its name, and clicking a legend entry toggles that line on or off.
+
+### The factor baskets
+
+The **Baskets (L/S)** group carries five series auramarkets computes in-house — the same kind of custom baskets banks publish behind Bloomberg licensing, rebuilt transparently on a ~900-name liquid universe:
+
+| Basket | Construction |
+|---|---|
+| **Momentum L/S** | 12-minus-1-month winners minus losers (top vs bottom quintile, equal-weighted legs) |
+| **High Beta L/S** | Highest- vs lowest-beta quintiles (1-year OLS beta vs SPY) |
+| **Low Vol L/S** | Lowest- vs highest-volatility quintiles |
+| **Non-Profitable Tech** | Tech names with negative trailing-12-month GAAP EPS (point-in-time by SEC filing date), cap-weighted with a 5% single-name cap |
+| **Most Shorted** | Top decile by short interest as a share of shares outstanding, from FINRA's bi-monthly publications, equal-weighted |
+
+All are point-in-time month-end rebalances with buy-and-hold drift in between, and each is validated against a reference ETF (the momentum long leg runs ~0.91 daily correlation to MTUM; high beta ~0.95 to SPHB; low vol ~0.97 to SPLV). The L/S spreads are market-neutral; the two long baskets are the classic squeeze/de-grossing gauges.
+
+Why they exist: extreme moves in these spreads mark **positioning events** — a momentum unwind, a short squeeze, a de-grossing day — that index-level charts hide. When one moves ≥2σ against its own history, it surfaces automatically as an observation in the [Market Pulse equities read](/macro/market-pulse#the-equities-card). Daily series (no intraday), so they plot at daily resolution on any timeframe.
 
 ## Below the index map
 
