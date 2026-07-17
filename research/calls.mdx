@@ -83,14 +83,39 @@ Each call is also tagged **TA**, **FA**, or **MIXED** by the extraction model �
 
 ## The call list (right)
 
-Every call, newest first — company logo, ticker, direction, the writer, the verbatim quote that evidenced it, and live P&L (entry → current, with the return and alpha).
+Every call, newest first — company logo, ticker, direction, badges, then the writer on their own line (with their [FOLLOW/FADE grade](#writer-grades) when they have one), the verbatim quote that evidenced it, and live P&L (entry → current, with the return and alpha).
 
 - **Newest / Top Gainers** — sort by recency or by return
-- **Favorites First** — on by default; floats calls from your favorited writers to the top (your Newest / Top Gainers sort still applies within each group). Untick it for a pure recency/return sort.
+- **Filters** — everything else lives in one popover; see [Filtering & drill-downs](#filtering--drill-downs)
 - **Search** — a box at the top of the column narrows the list by ticker, writer, publication, or thesis text ([stacking tags](#stacking-search-tags) below)
-- **Macro** checkbox — see [Macro toggle](#macro-toggle) below
 
-**Click a writer** to pull their full call history. **Click a ticker** to focus it.
+## Filtering & drill-downs
+
+### The Filters popover
+
+One button next to the sort tabs holds every list filter; a **count badge** on it shows how many are active, so a narrowed list is never mistaken for the full one. **Reset filters** clears the lot.
+
+| Filter | Options | What it does |
+|---|---|---|
+| **Direction** | All / Longs / Shorts | Only one side of the book |
+| **Status** | All / Open / Closed | Closed = expired + reversed |
+| **Result** | All / Winners / Losers / **α+** | Winners/Losers by headline return; **α+** keeps only calls beating SPY over their own window, direction-adjusted — up isn't enough |
+| **Opened** | All / 7d / 30d / 90d | Recency window on the open date |
+| **Writer tier** | All / FOLLOW / FADE | Only calls from writers with that [grade](#writer-grades) — FADE is the "take the other side" screen |
+| **Macro calls** | on/off | See [Macro toggle](#macro-toggle) |
+| **Favorites first** | on/off (default on) | Floats your favorited writers' calls to the top; the sort still applies within each group |
+| **Reaffirmed only (×2+)** | on/off | Only calls the writer has re-mentioned while open — conviction, not a drive-by |
+| **Tracked only** | on/off | Hides untracked and pending rows |
+
+Filters combine with each other and with search tags — *FOLLOW-tier + Shorts + Open* is three clicks and a genuinely interesting list.
+
+### Three clicks per row
+
+Each call row routes clicks by where you land:
+
+- **The ticker** → the [ticker focus panel](#ticker-focus) — positioning tally + annotated chart across *all* writers
+- **The writer's name** → that writer's complete call history (same as clicking their leaderboard row; click again to clear)
+- **Anywhere else on the row** → the **call modal**: the thesis blown up with a stats strip (entry price and date, last or frozen price, return, α vs SPY, running return, status and re-mentions) above the ticker's full price chart with **▲/▼ entry triangles for every call on that name** — this call's own triangle highlighted — so one writer's entry is always seen in the context of everyone else's
 
 ### Stacking search tags
 
@@ -138,7 +163,7 @@ When a writer calls a company before it's public — SpaceX, OpenAI, Anthropic �
 
 ## Macro toggle
 
-By default the list focuses on single names — single-name stocks, pre-IPO names, and crypto. Check **Macro** to bring in futures, equity indices, rates, and FX when you want the whole picture.
+By default the list focuses on single names — single-name stocks, pre-IPO names, and crypto. Flip **Macro calls** on in the [Filters popover](#the-filters-popover) to bring in futures, equity indices, rates, and FX when you want the whole picture.
 
 ## How the numbers work
 
