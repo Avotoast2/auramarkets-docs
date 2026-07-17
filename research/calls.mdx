@@ -150,7 +150,7 @@ By default the list focuses on single names — single-name stocks, pre-IPO name
     The share of a writer's scored calls with positive alpha — i.e. how often they beat the market, not how often the call simply went up.
   </Accordion>
   <Accordion title="Which calls get scored">
-    Closed calls (expired or reversed) always count. Open calls count once they're **at least 30 days old**, so a position opened yesterday doesn't swing the average on noise.
+    Every priced call counts from day one — closed calls at their frozen value, open calls at their running value. A brand-new call contributes near-zero alpha until the market actually moves, so fresh positions barely move the averages on their own.
   </Accordion>
   <Accordion title="Benchmark">
     Everything is measured against **SPY**. Raw return in a rising market flatters everyone; alpha vs SPY is the part that's actually skill.
