@@ -90,6 +90,7 @@
           {
             "group": "Concepts",
             "pages": [
+              "concepts/notation",
               "concepts/quant-score",
               "concepts/day-type",
               "concepts/breadth",

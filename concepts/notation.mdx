@@ -1,0 +1,29 @@
+---
+title: "σ and p — the stats notation"
+description: "How auramarkets quotes statistical context: z-scores as σ, percentiles as p-notation."
+---
+
+Numbers across the site — scoreboard cells, volatility badges, pulse observations — carry two compact statistical qualifiers. Both answer the same underlying question: *is this reading unusual, or normal for this instrument?*
+
+## σ — the z-score
+
+**How far the move sits from its own average, in standard deviations.** `−3.3σ` means 3.3 standard deviations below what this particular series typically does over this particular horizon — measured against *its own* history, never a generic benchmark. That's the point: a 2% day is nothing for a crypto basket and a genuine event for Utilities; σ makes them comparable.
+
+Rough calibration: |σ| < 1 is ordinary (don't dramatize it), 1–2 is notable, **≥ 2 is genuinely unusual** — that's the threshold where cells get flagged and pulse observations fire.
+
+## p — the percentile
+
+**Where today's reading ranks against that series' own history.** `p97` = higher than 97% of comparable past readings; `p0` = the most extreme low on record for that window. Same convention as latency metrics (p50, p99).
+
+The percentile rides alongside the z-score on purpose: returns are **fat-tailed**, so a σ figure alone can exaggerate or undersell — the percentile keeps the z honest. A `−3.3σ · p0` cell says both "statistically extreme" *and* "literally never been worse in this sample."
+
+## Where you'll see them
+
+- **[Factors scoreboard](/indices/factors#scoreboard)** — every cell: `−3.3σ · p0`
+- **Volatility shelf** — `p62` badges ranking VIX/MOVE/SKEW against their trailing year
+- **Breadth Regime** — RSP/SPY at `p47` of its 2-year range (`>p85` EXPANSIVE, `<p15` HOLLOW)
+- **Market Pulse / Daily Recap** — generated commentary quotes the same notation ("VIX +1.5pt but only 1Y p30 — a twitch off a calm base, not panic")
+
+<Note>
+One nuance: percentile windows differ by surface — the vol shelf ranks against the trailing **1 year**, Breadth Regime against **2 years**, factor cells against each series' own full history. Hover any badge for the exact definition.
+</Note>
