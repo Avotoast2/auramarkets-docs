@@ -23,6 +23,8 @@ The L/S spreads are **market-neutral by construction**; the two long baskets are
 
 All five baskets on one chart, rebased % over the selected window (1M – All), with the standard engine moves — crosshair, scroll-zoom, pan. **Click a legend entry** to hide/show a basket (the rotation quadrant follows). The legend doubles as a scoreboard with each basket's window return.
 
+The **Line / Bars** toggle switches to a Bloomberg-style daily-change histogram — green up days, red down days — for a single basket (click a legend name to pick which). Bars are where clustering jumps out: a de-grossing episode reads as a run of deep red bars, and you can eyeball whether today's move is routine noise or one of the biggest prints in the window.
+
 ## Scoreboard
 
 One row per basket × 1D / 5D / 1M / 3M / 6M / full-history: the return, plus **z and percentile against that series' own overlapping history** — fat-tail honest, exactly the math the pulse detector uses. Cells read like `−3.3σ · p0` — see [σ and p notation](/concepts/notation). Cells at |z| ≥ 2 get an amber flag. A whole row lighting up is a de-grossing or squeeze day.
