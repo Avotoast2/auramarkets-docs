@@ -59,6 +59,14 @@ The part no external dashboard can do. Expand any basket for its full membership
 - **Market Pulse & Daily Recap** — a computed factor table feeds both prompts every cycle, and extreme moves fire as [detector observations](/macro/market-pulse#the-equities-card) ("Momentum L/S −17.9% over 1M — most extreme on record")
 - **Writers × books** — a FOLLOW-graded writer taking a fresh position against a basket leg is its own pulse observation
 
+## Survivorship
+
+Survivorship bias is measured and corrected, not assumed away:
+
+- **Going forward** — each month's universe screen inputs (market caps, sector classification) are frozen at month-end, so every future rebalance is fully point-in-time: a name that later dies stays in the history it earned.
+- **The backfill** — names that **delisted inside the window** are re-included from Polygon's delisted reference: ~660 dead companies (each worth ≥$1B at some point in the window) re-enter the rebalances they were alive for, with their full price collapse and point-in-time market caps. Hundreds of them pass through the momentum, high-beta, and low-vol books — exactly where survivorship flattered the short legs before.
+- **The audit** — the page footer reports the live counts, and validation is sliced per year: momentum's 2023 slice runs *lower* vs MTUM than other years precisely because MTUM only ever held survivors — the divergence is the correction showing up.
+
 <Note>
-Honest limits: the universe is today's constituents, so the ~4-year backfill carries survivorship bias — and it compounds the further back you look (the momentum short leg especially: names that went to zero aren't in it). Treat the series as a live regime gauge, not an academic backtest, and don't read the earliest segment as one at all. Series are daily (no intraday). Most-Shorted updates on FINRA's bi-monthly publication cycle, same as the bank versions.
+Honest residual limits: pre-2026 rebalances still screen survivors with today's market caps (dead names use adjusted close × last-known shares); Most Shorted can't recover dead names (their FINRA short-interest history wasn't archived); dead-company filing coverage for Non-Profitable Tech is patchy. Series are daily (no intraday). Most-Shorted updates on FINRA's bi-monthly publication cycle, same as the bank versions. Still a live regime gauge first, a backtest second.
 </Note>
