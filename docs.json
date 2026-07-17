@@ -52,6 +52,7 @@
               "indices/highs-lows",
               "indices/moving-averages",
               "indices/thematic-heatmap",
+              "indices/factors",
               "indices/volatility-tickers"
             ]
           },

@@ -1,0 +1,62 @@
+---
+title: "Factors page"
+description: "auramarkets' own factor baskets — L/S spreads and squeeze baskets with a scoreboard, rotation quadrant, correlation matrix, monthly quilt, and the full membership books."
+---
+
+The [Factors page](https://auramarkets.io/factors) (nav: **Markets → Factors**) is the home of auramarkets' in-house factor baskets — the same kind of custom baskets banks publish behind Bloomberg licensing, rebuilt transparently and sliced five ways.
+
+## The baskets
+
+| Basket | Construction |
+|---|---|
+| **Momentum L/S** | 12-minus-1-month winners minus losers — top vs bottom quintile, equal-weighted legs |
+| **High Beta L/S** | Highest- vs lowest-beta quintiles (1-year OLS beta vs SPY) |
+| **Low Vol L/S** | Lowest- vs highest-volatility quintiles |
+| **Non-Profitable Tech** | Tech names with negative trailing-12-month GAAP EPS — membership is point-in-time by SEC *filing* date, cap-weighted with a 5% single-name cap |
+| **Most Shorted** | Top decile by short interest as a share of shares outstanding, from FINRA's bi-monthly publications, equal-weighted |
+
+Common rules: a ~900-name liquid universe (≥$2B market cap, ≥$5), **point-in-time month-end rebalances** (a rebalance only uses information available on its date), buy-and-hold drift between rebalances — no daily re-ranking, which would leak turnover-free alpha. Each construction is validated against a reference ETF: the momentum long leg runs ~0.91 daily correlation to MTUM, high beta ~0.95 to SPHB, low vol ~0.97 to SPLV.
+
+The L/S spreads are **market-neutral by construction**; the two long baskets are measured **vs SPY** wherever a relative read matters (the *vs SPY / Abs* toggle switches this on the chart).
+
+## Performance
+
+All five baskets on one chart, rebased % over the selected window (1M – All), with the standard engine moves — crosshair, scroll-zoom, pan. **Click a legend entry** to hide/show a basket (the rotation quadrant follows). The legend doubles as a scoreboard with each basket's window return.
+
+## Scoreboard
+
+One row per basket × 1D / 5D / 1M / 3M / 6M / full-history: the return, plus **z and percentile against that series' own overlapping history** — fat-tail honest, exactly the math the pulse detector uses. Cells at |z| ≥ 2 get an amber flag. A whole row lighting up is a de-grossing or squeeze day.
+
+## Rotation
+
+Two views of the same question, side by side:
+
+- **Ranked bars** — trailing 21-session returns, best to worst, plus confirmed **leadership flips** and **rank jumps** (bottom-2 → top-2 or the reverse). Both use anti-flicker rules: a flip must hold 3 consecutive sessions before it counts, and flags persist 10 sessions.
+- **The rotation quadrant (RRG)** — each basket plotted by **relative strength vs its own trend** (x) and **momentum** (y), with an 8-week fading trail. Same math and vocabulary as the [thematic rotation view](/indices/thematic-heatmap#rotation-view): the clock runs Leading → Weakening → Lagging → Improving. The trail is the story — a momentum unwind shows as a dot marching from Leading down through Weakening into Lagging while Low Vol traces the mirror path. Watching a dot curl from Lagging toward Improving is the early re-risk tell.
+
+## Correlations
+
+Trailing-60-session correlations of the baskets' daily returns, color-coded — blue moves together, red opposes. This is the "is it one trade?" check: when momentum|high-beta reads 0.8+, an unwind in one *is* an unwind in the other.
+
+## Monthly quilt
+
+Calendar-month returns ranked best → worst per column, trailing 13 months. Monthly on purpose — a daily quilt reshuffles too much to read; the daily action lives in the scoreboard and rotation views.
+
+## The books
+
+The part no external dashboard can do. Expand any basket for its full membership:
+
+- **Long and short legs** with company logos, tenure ("in this book since March" — a name that survived four rebalances is a different animal from one that just rotated in), and last-rebalance **turnover**
+- **▲/▼ 50DMA marker** per name and a **breadth stat per leg** — a factor rally where the long book is 26% above its 50-day while the short book sits at 68% is an unwind with its own confirmation
+- **Corpus badges** — 🎯 tracked [calls](/research/calls) and 📄 research pieces on each member, so you can see which basket names your writers are actually talking about
+- **Click any name** → the full [stock pop-out](/indices/stock-chart)
+
+## Where else the baskets show up
+
+- **Equities page** — the [Factor Rotation panel](/indices/overview) runs on these baskets (bars, line chart, and correlation-matrix views), and they're selectable on the main comparison chart under **Baskets (L/S)**
+- **Market Pulse & Daily Recap** — a computed factor table feeds both prompts every cycle, and extreme moves fire as [detector observations](/macro/market-pulse#the-equities-card) ("Momentum L/S −17.9% over 1M — most extreme on record")
+- **Writers × books** — a FOLLOW-graded writer taking a fresh position against a basket leg is its own pulse observation
+
+<Note>
+Honest limits: the universe is today's constituents, so the ~19-month backfill carries survivorship bias — treat the series as a live regime gauge, not an academic backtest. Series are daily (no intraday). Most-Shorted updates on FINRA's bi-monthly publication cycle, same as the bank versions.
+</Note>
