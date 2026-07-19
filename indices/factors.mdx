@@ -23,6 +23,12 @@ The L/S spreads are **market-neutral by construction**; the two long baskets are
 
 A regime-classified executive summary at the top of the page — **computed from the page's own tables, never an LLM**. The banner color is the severity: green (*Quiet tape* — nothing beyond 2σ), amber (*Elevated moves / Rotation in motion / Vol regime shift* — a 2σ move, a confirmed flip, or a 2σ vol reading), red (a 3σ or record-percentile move, labeled by what's actually moving: *Momentum unwind*, *De-grossing*, *Squeeze on*, *Risk-off bid*). Each row fires only when its threshold is met: the most extreme move (1D–1Y) vs that series' own 4-year survivorship-corrected history, a **Vol** row when a basket's 21d vol runs ≥2σ vs its own vol history, leadership and confirmed rotation events, crowding (strongest correlation pair), a **Quality** row when a basket's 1Y Sharpe or drawdown goes ≥2σ extreme (the "good year, ugly ride" read), the widest long/short breadth split in the books, and the calendar-YTD standings.
 
+## Analogs — the expectancy layer
+
+When a basket's 5-day or 1-month move crosses the 2σ detector bar, the daily compute runs an **event study** over that basket's own history: every prior print at least as extreme in the same direction (declustered to one event per episode, with the current episode excluded — it doesn't get to grade itself), and the median forward return 5 / 21 / 63 sessions later, with the up-count. The result shows up as the **Analogs** row in The Read, inside the pulse's FACTOR observations, and in the factor table the daily briefings read — all quoting the same persisted numbers.
+
+The sample sizes are small by construction (a 2σ bar over ~4 years yields a handful of episodes), so every quote carries its n and reads as **context, not conviction**. That's deliberate: "the last 4 unwinds this deep kept bleeding" is decision-relevant even when it isn't statistically bulletproof.
+
 ## Performance
 
 All five baskets on one chart, rebased % over the selected window (1M – All), with the standard engine moves — crosshair, scroll-zoom, pan. **Click a legend entry** to hide/show a basket (the rotation quadrant follows). The legend doubles as a scoreboard with each basket's window return.
