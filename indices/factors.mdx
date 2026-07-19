@@ -36,7 +36,7 @@ Each strip has TradingView-style pane controls in its top-right corner: **▾ co
 
 ## Scoreboard
 
-One row per basket × 1D / 5D / 1M / 3M / 6M / full-history: the return, plus **z and percentile against that series' own overlapping history** — fat-tail honest, exactly the math the pulse detector uses. Cells read like `−3.3σ · p0` — see [σ and p notation](/concepts/notation). Cells at |z| ≥ 2 get an amber flag. A whole row lighting up is a de-grossing or squeeze day.
+One row per basket × 1D / 5D / 1M / 3M / 6M / full-history, plus a **Vol** column — the current 21-day realized vol (annualized) ranked against that basket's own vol history, the "trading fat or calm?" read. Every cell carries the return (or vol level) plus **z and percentile against that series' own overlapping history** — fat-tail honest, exactly the math the pulse detector uses. Cells read like `−3.3σ · p0` — see [σ and p notation](/concepts/notation). Cells at |z| ≥ 2 get an amber flag. A whole row lighting up is a de-grossing or squeeze day.
 
 ## Rotation
 
@@ -51,7 +51,7 @@ Trailing-60-session correlations of the baskets' daily returns, color-coded — 
 
 ## Monthly quilt
 
-Calendar-month returns ranked best → worst per column, across the baskets' full ~4-year history (the row scrolls, landing on the newest months), with a pinned **calendar-YTD** column at the right. **Hover any cell** to trace that basket across every month — the rest dim, so one basket's year reads as a path instead of a scavenger hunt. Monthly on purpose — a daily quilt reshuffles too much to read; the daily action lives in the scoreboard and rotation views.
+Calendar-month returns ranked best → worst per column, across the baskets' full ~4-year history (the row scrolls, landing on the newest months), with a pinned **calendar-YTD** column at the right. **Hover any cell** to trace that basket across every month — the rest dim, so one basket's year reads as a path instead of a scavenger hunt. **Click a cell to pin the trace** (it survives moving the mouse away); click the same basket again to unpin, or another basket to switch. Monthly on purpose — a daily quilt reshuffles too much to read; the daily action lives in the scoreboard and rotation views.
 
 ## The books
 
