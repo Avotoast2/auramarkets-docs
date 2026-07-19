@@ -36,7 +36,7 @@ Each strip has TradingView-style pane controls in its top-right corner: **▾ co
 
 ## Scoreboard
 
-One row per basket × 1D / 5D / 1M / 3M / 6M / full-history, plus a **Vol** column — the current 21-day realized vol (annualized) ranked against that basket's own vol history, the "trading fat or calm?" read. Every cell carries the return (or vol level) plus **z and percentile against that series' own overlapping history** — fat-tail honest, exactly the math the pulse detector uses. Cells read like `−3.3σ · p0` — see [σ and p notation](/concepts/notation). Cells at |z| ≥ 2 get an amber flag. A whole row lighting up is a de-grossing or squeeze day.
+One row per basket × 1D / 5D / 1M / 3M / 6M / 1Y / calendar-YTD, plus three stat columns: **Sharpe** (trailing-1Y annualized return ÷ vol), **MaxDD** (worst peak-to-trough inside the trailing year), and **Vol** (current 21-day realized vol, annualized — the "trading fat or calm?" read). Each stat is ranked against that basket's own rolling history of the same stat, so their σ·p lines mean the same thing the return ones do. There's deliberately no since-inception column — the backfill's start date is a data-provider artifact, not an economic anchor. Every cell carries the return (or vol level) plus **z and percentile against that series' own overlapping history** — fat-tail honest, exactly the math the pulse detector uses. Cells read like `−3.3σ · p0` — see [σ and p notation](/concepts/notation). Cells at |z| ≥ 2 get an amber flag. A whole row lighting up is a de-grossing or squeeze day.
 
 ## Rotation
 
