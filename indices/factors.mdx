@@ -27,7 +27,12 @@ A regime-classified executive summary at the top of the page — **computed from
 
 All five baskets on one chart, rebased % over the selected window (1M – All), with the standard engine moves — crosshair, scroll-zoom, pan. **Click a legend entry** to hide/show a basket (the rotation quadrant follows). The legend doubles as a scoreboard with each basket's window return.
 
-The **Line / Bars** toggle switches to a Bloomberg-style daily-change histogram — green up days, red down days — for a single basket (click a legend name to pick which). Bars are where clustering jumps out: a de-grossing episode reads as a run of deep red bars, and you can eyeball whether today's move is routine noise or one of the biggest prints in the window.
+Two **strips** ride under the price pane, sharing its crosshair, zoom, and timeframe:
+
+- **Realized vol** — rolling 21-session volatility, annualized, one line per visible basket. This is the "when did the regime shift" read: an unwind week lights up as a synchronized vol spike.
+- **1D %** — a Bloomberg-style daily-change histogram (green up days, red down days) for one basket at a time; **click the strip** to cycle through baskets. Clustering jumps out here — a de-grossing episode reads as a run of deep red bars.
+
+Each strip has TradingView-style pane controls in its top-right corner: **▾ collapses** it to a header line, and the **square maximizes** it to fill the whole chart (click again to restore).
 
 ## Scoreboard
 
