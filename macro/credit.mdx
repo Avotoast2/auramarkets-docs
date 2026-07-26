@@ -1,0 +1,77 @@
+---
+title: "Credit Monitor"
+description: "Is credit telling you something equities aren't? A verdict-first read of corporate bond spreads."
+---
+
+The **Credit Monitor** watches corporate bond spreads — the price of corporate credit risk in basis points — and answers exactly one question: **is credit telling you something the equity screens aren't?**
+
+Credit is a quiet instrument. Most days it agrees with equities and adds nothing — and the monitor says so plainly. Its job is the rare day when spreads start moving and the stock tape hasn't noticed yet.
+
+## Three layers
+
+<CardGroup cols={3}>
+  <Card title="Ambient" icon="gauge">
+    A one-row strip on the Macro page, always visible: verdict, key spreads, ladder heat, tripwire count.
+  </Card>
+  <Card title="Push" icon="bell">
+    When the verdict *changes* or a tripwire trips, credit shows up on [Today](/getting-started/today) and in the [Pre-Market Brief](/macro/daily-digest) — and only then.
+  </Card>
+  <Card title="Deep dive" icon="magnifying-glass-chart">
+    The full panel: pressure map, tripwires, divergence checks, 40 years of history, and what happened to stocks the last N times credit looked like this.
+  </Card>
+</CardGroup>
+
+## The verdict
+
+The banner at the top is a six-state machine computed from spread **levels** (percentile vs history) and **velocity** (how fast they're repricing, in σ):
+
+| State | Meaning |
+|---|---|
+| **Asleep** | Tight, not moving. The default. Nothing here your other screens don't show. |
+| **Priced for perfection** | Asleep *and* pinned near multi-decade tights. Not a timing signal — a regime statement: no stress, but no cushion. From here credit can only hurt. |
+| **Stirring** | An early widening off the tights with real velocity. The state the monitor exists to catch. |
+| **Decompression** | The weakest credits (CCC) blowing out while quality sits still. Distress concentrated, not systemic — yet. |
+| **Risk-off** | Broad widening across the stack. By now everyone knows; the job is measuring intensity. |
+| **Healing** | Tightening from wide levels — credit giving the all-clear before the headlines do. |
+
+Under the verdict sits the **event study**: the same level-and-velocity setup is matched against every comparable episode since 1986, and the banner reports what the S&P did over the following three months — median and worst decile, with the sample size. Numbers, not vibes.
+
+## Pressure map
+
+The hero chart. Every credit segment (IG, HY, the AAA→CCC rating buckets, EM) is one dot:
+
+- **x-axis** — how expensive the segment is vs its own history (level percentile)
+- **y-axis** — how fast it's repricing (one-month move in σ)
+- **trail** — the dot's path over the past month
+
+The corners tell the story: bottom-left is **complacency**, top-right is **stress**, bottom-right is **healing** — and top-left, *tight but widening*, is the early-warning corner. A segment migrating there is the picture worth watching. Hover any dot for its level, percentile, and velocity.
+
+## Tripwires
+
+Five explicit thresholds that would flip the verdict, each drawn as a distance-to-trigger bar: the HY spread level, HY velocity, IG joining a widening, CCC−BB tail decompression, and credit diverging from equities. The nearest one tells you what to watch; a tripped one turns red and pushes to Today and the brief.
+
+## Divergence checks
+
+Credit's only unique information is *disagreement*, so three checks run permanently:
+
+- **Credit vs equity** — spreads widening while stocks make highs is the classic warning
+- **Tail vs quality** — CCC decoupling from BB means distress is being repriced in isolation
+- **Credit vs vol** — spreads moving without the VIX (or vice versa) means one market is asleep
+
+Each shows a ✓ confirms / ⚠ diverging chip with a sparkline and a one-line explanation.
+
+## Episodes
+
+Forty years of the Moody's Baa spread with every named stress regime shaded — S&L, LTCM, dotcom, GFC, the euro crisis, COVID, the 2022 hiking cycle — and a "you are here" marker. The long history is the context the headline spread numbers can't give.
+
+## The story
+
+The differentiated layer: the monitor searches the [research corpus](/research/overview) for recent credit coverage — when tracked writers are talking about spreads, issuance, or high yield, their pieces appear as chips linking into Research. A slot is reserved for the **hyperscaler bond basket** (issuer-level spreads on the AI-capex borrowers) — in the pipeline.
+
+<Note>
+The rating and maturity ladders — every bucket's level, percentile, and range — live in a collapsed **Detail** section at the bottom. Reference tables, one click away when you want them.
+</Note>
+
+## Honest limits
+
+Spread data publishes with a one-to-two day lag, so the as-of date trails the equity tape. Percentiles for the ICE series are measured against a multi-year archive that deepens daily. And credit mostly *confirms* equities — this monitor earns its keep on the days it doesn't.
