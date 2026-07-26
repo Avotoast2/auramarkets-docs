@@ -1,50 +1,52 @@
 ---
-title: "Vol richness & term structure"
+title: "Vol regime & term structure"
 description: "How to tell when options are cheap, when they're expensive, and when the market is pricing tail risk."
 ---
 
 These are the tools for reading what the **options market** is saying — separate from what the cash equity market is doing. Often the two disagree, and that's where the signal is.
 
-## Vol richness (0–100)
+## The vol regime verdict
 
-A score that compares **implied vol** (what options are pricing) to **realized vol** (what actually happened recently).
+The Volatility panel on [Equities](/indices/overview) opens with a **verdict**, not a score — five states derived from explicit rules, in strict priority order:
 
-- **0–25** = options unusually **cheap** vs realized — protection is on sale
-- **75–100** = options unusually **expensive** — market is pricing future pain
-- **40–60** = fair
+| State | What it means |
+|---|---|
+| **Panic** | The VIX curve is inverted (backwardation). A vol event is in progress — hedges are paying now; don't sell vol into it. |
+| **Underpriced risk** | Realized vol is outrunning implied. The market is under-pricing delivered risk — the cheapest honest moment to hedge. |
+| **Rich premium** | Options are paying sellers well above delivered vol. Protection is overpriced — favor covered calls or trimming hedges over buying puts. |
+| **Cheap protection** | Low VIX *and* thin premium — insurance is genuinely cheap, not just optically low. |
+| **Normal** | Vol is priced about right for what the tape is delivering. |
 
-When equities are calm but vol richness is climbing, somebody is paying up for hedges before the crowd notices.
+The spine of the verdict is the **IV−RV premium**: VIX minus 20-day realized S&P volatility — the actual price of protection. A low VIX is not the same as cheap options (2017: VIX 11 vs realized 6 = expensive), and a high VIX is not the same as expensive ones (2020: VIX 30 vs realized 60 = cheap). Comparing implied to *delivered* is what separates a pricing read from a fear gauge.
+
+Under the verdict sit four dimension rows — premium, term structure, VIX level, vol-of-vol — each with its percentile strip and sparkline. There's deliberately **no composite 0–100 score**: any weighting of those dimensions would be arbitrary, so the panel states its rules and shows its inputs instead.
 
 ## VIX term structure
 
 VIX (1-month implied vol) divided by VIX3M (3-month).
 
-- **Ratio < 1** — *backwardation*. Near-term fear is elevated. Often a stress signal; sometimes the panic low.
-- **Ratio > 1** — *contango*. Normal — longer-dated vol is higher than spot, market expects calm to persist.
-- **Steepening contango** = complacency building
-- **Flattening or inverting** = stress building
+- **Ratio > 1** — *backwardation*. Near-term fear exceeds longer-dated — traders are paying up for immediate protection. The structural panic signal; it overrides everything else in the verdict.
+- **Ratio < 1** — *contango*. Normal — longer-dated vol is higher than spot, the market expects calm to persist.
+- **Rising toward 1** = stress building; **falling deeper below 1** = calm reasserting.
 
 ## SKEW
 
 A separate gauge: **how much OTM puts cost relative to ATM** options. Tracked as a percentile.
 
 - **High SKEW (90th+ %ile)** = market is paying up for tail-risk protection. Either a real worry or a smart-money hedge.
-- **Low SKEW (10th–) %ile)** = complacency about the left tail. Historically, this has preceded sharp drawdowns more often than the headline VIX has.
+- **Low SKEW (10th– %ile)** = complacency about the left tail.
 
-SKEW being elevated while VIX is calm is one of the most-cited "smart hedge" signals.
+<Note>
+SKEW is shown in the volatility table but carries **no weight in the verdict** — it's constructed from thinly-traded deep-OTM quotes and is too noisy to trust as a signal on its own. Read it as color, not conviction.
+</Note>
 
-## How to use them together
+## Vol of vol (VVIX)
 
-| VIX | SKEW | Vol richness | Read |
-|---|---|---|---|
-| Low | Low | Cheap | Pure complacency. Downside is mispriced. |
-| Low | **High** | Mid | Hidden hedging. Smart money is positioning for something. |
-| High | High | Expensive | Stress in the price. Often closer to a low than a high. |
-| **Spiking** | High | Spiking | Active panic. Don't sell vol here. |
+The implied volatility of VIX options. A **VVIX spike while spot vol sleeps** — someone bidding for VIX calls into a calm tape — is the classic early warning, and it appends a ⚠ chip to the verdict whenever VVIX runs 2σ above its yearly norm, regardless of the state.
 
 ## Where you see it
 
-- [VRP Vol Harvesting](/macro/vrp) model — uses these to flip between *harvest* and *hibernate* regimes
-- [QFI](/macro/qfi) dashboard — vol richness and SKEW are core inputs
+- The **Volatility panel** on [Equities](/indices/overview) — the verdict lives here
+- [VRP Vol Harvesting](/macro/vrp) model — the deep-dive on the same premium, with harvest/hibernate regimes and strategy simulations
 - **Cross-Asset Verdict** section of the [Daily Recap](/macro/daily-recap)
-- The volatility shelf at the bottom of the [Indices](/indices/overview) page
+- The Market Pulse briefing reads the verdict directly
