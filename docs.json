@@ -55,6 +55,7 @@
               "indices/moving-averages",
               "indices/thematic-heatmap",
               "indices/factors",
+      "indices/earnings-monitor",
               "indices/volatility-tickers"
             ]
           },

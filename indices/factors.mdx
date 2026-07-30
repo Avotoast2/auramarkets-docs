@@ -44,6 +44,8 @@ Each strip has TradingView-style pane controls in its top-right corner: **▾ co
 
 One row per basket × 1D / 5D / 1M / 3M / 6M / 1Y / calendar-YTD, plus three stat columns: **Sharpe** (trailing-1Y annualized return ÷ vol), **MaxDD** (worst peak-to-trough inside the trailing year), and **Vol** (current 21-day realized vol, annualized — the "trading fat or calm?" read). Each stat is ranked against that basket's own rolling history of the same stat, so their σ·p lines mean the same thing the return ones do. There's deliberately no since-inception column — the backfill's start date is a data-provider artifact, not an economic anchor. Every cell carries the return (or vol level) plus **z and percentile against that series' own overlapping history** — fat-tail honest, exactly the math the pulse detector uses. Cells read like `−3.3σ · p0` — see [σ and p notation](/concepts/notation). Cells at |z| ≥ 2 get an amber flag. A whole row lighting up is a de-grossing or squeeze day.
 
+The panel shares its row with the Performance chart, so the stat columns sit behind a horizontal scroll on most screens — the **Expand →** link in the header stacks the layout and gives the table the full page width, all ten columns at once. **Collapse ←** restores the side-by-side view, and the choice is remembered.
+
 ## Rotation
 
 Two views of the same question, side by side:
@@ -81,6 +83,20 @@ Book membership travels to every place a single name is judged:
 - **Equities page** — the [Factor Rotation panel](/indices/overview) runs on these baskets (bars, line chart, and correlation-matrix views), and they're selectable on the main comparison chart under **Baskets (L/S)**
 - **Market Pulse & Daily Recap** — a computed factor table feeds both prompts every cycle, and extreme moves fire as [detector observations](/macro/market-pulse#the-equities-card) ("Momentum L/S −17.9% over 1M — most extreme on record")
 - **Writers × books** — a FOLLOW-graded writer taking a fresh position against a basket leg is its own pulse observation
+
+## Composition & Story
+
+A second tab that answers two questions the Overview can't: *what are these baskets actually made of*, and *how much of a theme's move is really its own story*?
+
+### Composition
+
+One block per basket: stacked **sector bars for the long and short legs** (count-share of the current members), the **drift vs six rebalances ago**, and the basket's top **theme-coverage chips** (which thematic-taxonomy themes its members cluster in — Momentum's long book reading `Semiconductors 18% · Commodities Metals 15%` tells you what the momentum trade *is* right now). A **Corpus Lens** strip up top shows how your writers' coverage tilts across the books.
+
+When an extreme basket's top sector crosses ~40% of the book, The Read on the Overview tab gains a **Makeup** line — "this extreme is concentrated sector risk, not diversified factor risk."
+
+### Story premium
+
+Every theme's equal-weight daily returns regressed on **SPY + the three L/S factor spreads** over the trailing six months. The table splits each theme's 21-day and 63-day return into the **factor-explained part** and the **residual** — the residual is what the theme's own story earned after stripping out market beta and factor exposure. `Electric Vehicles +17.2% actual = −6.9% factor + 24.1% story` is a genuinely idiosyncratic theme move; a theme whose gain is all factor is just the momentum trade wearing a costume. The same decomposition rides the [thematic heatmap's](/indices/thematic-heatmap) tile tooltips, along with each theme's factor-book fingerprint.
 
 ## Survivorship
 
