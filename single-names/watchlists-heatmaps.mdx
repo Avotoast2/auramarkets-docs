@@ -31,7 +31,7 @@ The default rendering of a watchlist is a heatmap grid — one tile per ticker, 
 
 The heatmap uses the same scheme as the [Indices cards](/indices/reading-cards):
 
-- **Bright green** = top performers (95th+ percentile of today's distribution)
+- **Bright green** = top performers (`p95+` of today's distribution)
 - **Light green** = upper quartile
 - **Neutral** = middle
 - **Light red** = lower quartile
@@ -44,7 +44,7 @@ Toggle in the controls:
 - **% mode** — color encodes raw percentage move
 - **σ (sigma) mode** — color encodes the move relative to the ticker's own volatility
 
-Sigma mode is more useful for comparing across tickers with very different normal volatility (a 5% move in a utility is very different from a 5% move in a small-cap biotech).
+σ mode is more useful for comparing across tickers with very different normal volatility (a 5% move in a utility is very different from a 5% move in a small-cap biotech).
 
 ### Timeframes
 
@@ -52,7 +52,7 @@ The "usual timeframes" toggle works the same as on Indices: 1D, 1W, 1M, 3M, 6M, 
 
 ## The performance table view
 
-For lists where you want numbers rather than colors, switch to the table view. Sortable by any column — return, vol, sigma, current price, etc.
+For lists where you want numbers rather than colors, switch to the table view. Sortable by any column — return, vol, σ, current price, etc.
 
 ## History view
 
@@ -66,5 +66,5 @@ The history tab shows how the watchlist itself has performed over time, treating
 
 - **One watchlist per theme** — not one giant list. AI, energy, EM, crypto-related, etc.
 - **Heatmap first, table second** — heatmaps catch outliers in 2 seconds; tables answer the follow-up
-- **Sigma mode when comparing across cap sizes** — keeps the eye honest
+- **σ mode when comparing across cap sizes** — keeps the eye honest
 - **History view weekly** — to see if your theses are actually playing out

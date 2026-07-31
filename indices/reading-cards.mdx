@@ -12,7 +12,7 @@ Every index card on the [Indices](/indices/overview) page packs a lot of signal 
 - **Change %** — color-coded green/red against the active timeframe
 - **Sparkline** — the price path over the active timeframe
 - **Percentile shading** — background tint based on where today sits in the trailing 1-year distribution
-- **Sigma badge** — appears only at extremes (`+2σ`, `+1.5σ`, `−1.5σ`, `−2σ`)
+- **σ badge** — appears only at extremes (`+2σ`, `+1.5σ`, `−1.5σ`, `−2σ`)
 
 ## Timeframes
 
@@ -35,24 +35,24 @@ Switch the timeframe to ask different questions — 1D for "what happened today,
 
 The card background is tinted based on the **1-year percentile** of today's reading.
 
-- **Deep green** = top decile (95th+ percentile)
+- **Deep green** = top decile (`p95+`)
 - **Light green** = upper quartile
 - **Neutral** = middle 50%
 - **Light red** = lower quartile
-- **Deep red** = bottom decile (5th– percentile)
+- **Deep red** = bottom decile (`p5–`)
 
 Useful for spotting outliers in a glance — a deep-red card on a green tape is asking why.
 
-## Sigma badges
+## σ badges
 
 Appear only when the reading is statistically extreme on its 1-year distribution:
 
 | Badge | Meaning |
 |---|---|
-| **+2σ** | 95th+ percentile — multi-month high |
-| **+1.5σ** | 84th+ percentile — elevated |
-| **−1.5σ** | 16th– percentile — depressed |
-| **−2σ** | 5th– percentile — multi-month low |
+| **+2σ** | `p95+` — multi-month high |
+| **+1.5σ** | `p84+` — elevated |
+| **−1.5σ** | `p16–` — depressed |
+| **−2σ** | `p5–` — multi-month low |
 
 These are mean-reversion flags, not trade signals. They tell you the reading is unusual, not that it's about to revert.
 
@@ -65,6 +65,6 @@ Click any index card to open a detail view with:
 
 ## How most people use the cards
 
-- **Eye sweep** — scan all 25 for outlier shading and sigma badges
+- **Eye sweep** — scan all 25 for outlier shading and σ badges
 - **Cross-region** — compare same-timeframe shading across Americas / Europe / Asia
 - **Click in** — when a card stands out, click to see the chart and ask why

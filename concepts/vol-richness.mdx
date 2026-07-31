@@ -33,8 +33,8 @@ VIX (1-month implied vol) divided by VIX3M (3-month).
 
 A separate gauge: **how much OTM puts cost relative to ATM** options. Tracked as a percentile.
 
-- **High SKEW (90th+ %ile)** = market is paying up for tail-risk protection. Either a real worry or a smart-money hedge.
-- **Low SKEW (10th– %ile)** = complacency about the left tail.
+- **High SKEW (`p90+`)** = market is paying up for tail-risk protection. Either a real worry or a smart-money hedge.
+- **Low SKEW (`p10–`)** = complacency about the left tail.
 
 <Note>
 SKEW is shown in the volatility table but carries **no weight in the verdict** — it's constructed from thinly-traded deep-OTM quotes and is too noisy to trust as a signal on its own. Read it as color, not conviction.
