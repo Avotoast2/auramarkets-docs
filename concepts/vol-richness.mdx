@@ -11,7 +11,7 @@ The Volatility panel on [Equities](/indices/overview) opens with a **verdict**, 
 
 | State | What it means |
 |---|---|
-| **Panic** | The VIX curve is inverted (backwardation). A vol event is in progress — hedges are paying now; don't sell vol into it. |
+| **Panic** | The VIX curve is inverted (backwardation) — or the fast leg is: the 9-day trading over the 30-day counts even while VIX/VIX3M sits in contango, and the read says which one fired. A vol event is in progress — hedges are paying now; don't sell vol into it. |
 | **Underpriced risk** | Realized vol is outrunning implied. The market is under-pricing delivered risk — the cheapest honest moment to hedge. |
 | **Rich premium** | Options are paying sellers well above delivered vol. Protection is overpriced — favor covered calls or trimming hedges over buying puts. |
 | **Cheap protection** | Low VIX *and* thin premium — insurance is genuinely cheap, not just optically low. |
@@ -19,7 +19,9 @@ The Volatility panel on [Equities](/indices/overview) opens with a **verdict**, 
 
 The spine of the verdict is the **IV−RV premium**: VIX minus 20-day realized S&P volatility — the actual price of protection. A low VIX is not the same as cheap options (2017: VIX 11 vs realized 6 = expensive), and a high VIX is not the same as expensive ones (2020: VIX 30 vs realized 60 = cheap). Comparing implied to *delivered* is what separates a pricing read from a fear gauge.
 
-Under the verdict sit four dimension rows — premium, term structure, VIX level, vol-of-vol — each with its percentile strip and sparkline. There's deliberately **no composite 0–100 score**: any weighting of those dimensions would be arbitrary, so the panel states its rules and shows its inputs instead.
+Under the verdict sit five dimension rows — premium, term structure, VIX level, implied correlation, vol-of-vol — each with its percentile strip and sparkline. There's deliberately **no composite 0–100 score**: any weighting of those dimensions would be arbitrary, so the panel states its rules and shows its inputs instead.
+
+The one-line read follows the same shape as every verdict panel on the site: **the state, then the evidence for it, then an outlier only when one clears a threshold** — if nothing qualifies, nothing is appended. The two gated outliers here are the VVIX early warning (below) and a fragile-calm flag from implied correlation.
 
 ## VIX term structure
 
@@ -28,6 +30,14 @@ VIX (1-month implied vol) divided by VIX3M (3-month).
 - **Ratio > 1** — *backwardation*. Near-term fear exceeds longer-dated — traders are paying up for immediate protection. The structural panic signal; it overrides everything else in the verdict.
 - **Ratio < 1** — *contango*. Normal — longer-dated vol is higher than spot, the market expects calm to persist.
 - **Rising toward 1** = stress building; **falling deeper below 1** = calm reasserting.
+
+Both legs of every ratio come from the same session — a stale leg can never fabricate an inversion.
+
+## Implied correlation (COR3M)
+
+CBOE's 3-month implied correlation index — **why index vol is where it is**. Index variance is roughly average single-stock variance times average correlation, so when VIX is low *because* correlation is priced near record lows, the calm is dispersion-driven and fragile: a correlation spike lifts index vol mechanically, even if no single stock gets more volatile.
+
+The row's percentile ranks against the index's **full ~20-year history** (these extremes are generational — a 1-year window would hide them). It never drives the verdict; it colors it. At a bottom-decile extreme the read appends the fragile-calm outlier: *"Index calm rests on p1 implied correlation — dispersion-priced; a correlation spike lifts index vol mechanically."*
 
 ## SKEW
 
@@ -42,7 +52,7 @@ SKEW is shown in the volatility table but carries **no weight in the verdict** �
 
 ## Vol of vol (VVIX)
 
-The implied volatility of VIX options. A **VVIX spike while spot vol sleeps** — someone bidding for VIX calls into a calm tape — is the classic early warning, and it appends a ⚠ chip to the verdict whenever VVIX runs 2σ above its yearly norm, regardless of the state.
+The implied volatility of VIX options. A **VVIX spike while spot vol sleeps** — someone bidding for VIX calls into a calm tape — is the classic early warning. When VVIX runs 2σ above its yearly norm it appends a ⚠ chip and a warning clause to the read — except during Panic, where an elevated VVIX is expected rather than an outlier.
 
 ## Where you see it
 

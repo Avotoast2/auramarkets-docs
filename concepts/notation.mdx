@@ -28,6 +28,17 @@ The percentile rides alongside the z-score on purpose: returns are **fat-tailed*
 - **Breadth Regime** — RSP/SPY at `p47` of its 2-year range (`>p85` EXPANSIVE, `<p15` HOLLOW)
 - **Market Pulse / Daily Recap** — generated commentary quotes the same notation ("VIX +1.5pt but only 1Y p30 — a twitch off a calm base, not panic")
 
+## The color language
+
+Colors on cockpit rows — the percentile chips, gradient strips, banner dots, ▲/▼ change arrows, and sparklines on the Volatility, Market Breadth, and Credit panels — encode **risk meaning, not raw position**:
+
+- **Green** = supportive of risk assets — tight credit spreads, low VIX, broad breadth participation
+- **Red** = a warning — wide spreads, an inverted vol curve, washed-out breadth
+- **Amber** = a fragile or noteworthy extreme — record-low implied correlation, a rich premium pricing event risk, a mild breadth lean
+- **Gray** = neutral / context
+
+Each indicator declares which direction is which, so the same reading always means the same thing: HY spreads at p27 render green (tight = pro-risk) even though “low” might look alarming on a naive scale, a falling VIX arrow is green (calming), and a term-structure ratio rising toward 1.0 is red (stress building) even though “up” usually reads positive.
+
 <Note>
 One nuance: percentile windows differ by surface — the vol shelf ranks against the trailing **1 year**, Breadth Regime against **2 years**, factor cells against each series' own full history. Hover any badge for the exact definition.
 </Note>

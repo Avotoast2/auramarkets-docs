@@ -47,7 +47,7 @@ When the two genuinely disagree — a risk-off tape inside a RISK ON regime — 
 A toggle near the top lets you switch between:
 
 - **AI Briefing** — a written paragraph, refreshed every ~15 minutes during market hours. The AI's job changed in V2: it **explains the engine's read** — why the state is what it is, what's unusual today, and what historical analogs imply (a nearest-neighbor pattern matcher finds the most similar past days and what happened next). It is explicitly **forbidden from asserting its own sentiment** — the engine calls the regime; Claude narrates it.
-- **Raw Feed** — chronological list of recent updates: notable headlines, model alerts, regime flips. Good for the moment-by-moment.
+- **Raw Feed** — chronological list of recent updates: news from the deduplicated multi-source wire (last 8 hours, timestamped ET — the same curated feed the [Newswire](/indices/overview#top-stories) runs on), model alerts, regime flips. Good for the moment-by-moment.
 
 ## The Macro card
 
@@ -67,7 +67,7 @@ Same format — **tagged bullets, one observation each** — and it leads with *
 - **Rotation inside the averages** — a flat index masking sector-level violence
 - **Concentration attribution** — "78% of Tech's gain today is two names"
 - **σ-ranked anomalies** — moves measured against each instrument's own normal
-- **Factor-basket extremes** — auramarkets' in-house [momentum / high-beta / low-vol L/S spreads and squeeze baskets](/indices/overview#the-factor-baskets) moving ≥2σ against their own history, reported with their σ · p line and empirical rank ("worst 1M run on record") — the de-grossing/squeeze-day detector
+- **Factor-basket extremes** — auramarkets' in-house [momentum / high-beta / low-vol L/S spreads and squeeze baskets](/indices/overview#the-factor-baskets) moving ≥2σ against their own history, reported with their σ · p line and empirical rank ("worst 1M run on record") — the de-grossing/squeeze-day detector. During market hours the factor input also carries a **“today so far”** line — the books repriced live — so intraday commentary describes the day in progress instead of narrating yesterday’s close
 - **Tape-vs-writer conflicts** — when the [writers corpus](/research/overview) leans one way and the tape is doing the opposite
 - **Writers × factor books** — a FOLLOW-graded writer taking a fresh position against a basket leg (long a name sitting in the momentum short book), or the corpus crowding into the squeeze baskets
 
