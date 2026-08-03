@@ -1,0 +1,41 @@
+---
+title: "Chart"
+description: "The standalone charting page — type any ticker, compare anything against anything, with the full research context alongside."
+---
+
+The [Chart page](https://auramarkets.io/chart) (nav: **Markets → Chart**) is the app's blank-canvas chart: instead of following a chart link out of a table, you start from a search box. Type a symbol or company name, pick from the typeahead, and it renders full-page with the complete chart toolbar.
+
+## What you can chart
+
+- **US stocks and ETFs** — the full universe, with candles, volume, and markers
+- **World indices** — S&P 500, Nikkei, DAX, FTSE MIB, Shanghai Composite and ~20 more (`^GSPC`, `^N225`…)
+- **Volatility indices** — VIX, VIX3M, VVIX, SKEW, MOVE, VXN, implied correlation (COR3M)
+- **The in-house [factor baskets](/indices/factors)** — Momentum L/S, High Beta L/S, Low Vol L/S, Most Shorted, Non-Profitable Tech, so you can chart your own factor spreads against anything
+
+Non-equity series plot as lines (there's no intraday or OHLC for them — the page doesn't fake candles), and index points and basket levels render as plain numbers, not dollars.
+
+## Compare
+
+After the first symbol, further picks become **chips** next to the search box — several names at once plot as **% change from the start of the window**; a single name shows its actual price. Mix families freely: a basket vs its reference ETF (`MOM/LS` vs `MTUM`), a stock vs its sector, VIX vs an equity.
+
+## The toolbar
+
+Everything from the standard chart engine: presets **1D → 5Y + Custom dates**, Line/Area/Candle/Heikin-Ashi, studies (SMA/EMA, Bollinger, VWAP, RSI, MACD, drawdown, volume), log/% scale, the ⊿ measure tool, and Share (PNG / copy / CSV / link). **1D** shows the last session in 15-minute bars (equities only, delayed).
+
+Markers draw on daily views exactly as in the stock pop-out — tracked-call ▲▼ triangles, earnings, dividends, splits, and 13F flags. **Hover a triangle** for the call behind it (writer, date, performance since); click to pin the tooltip.
+
+## The info panel
+
+The right-hand panel carries the same research context as the [stock pop-out](/indices/stock-chart): key stats, 52-week range, performance, factor-book membership, the About blurb, and **In the Research** — every tracked [call](/research/calls) on the name with its writer, direction, and return-since, plus recent mentions and 13F activity. Hovering a call in the panel rings its marker on the chart, and vice versa. The `‹` handle collapses it; your choice is remembered.
+
+At the bottom of the panel sits **Ask Aura** — the same per-ticker research chat as everywhere else, with conversation history shared across the pop-out and [AskAura](/research/ask).
+
+A **TV** button above the chart swaps in a TradingView view of the same symbol and back.
+
+## Links that keep working
+
+The URL always reflects the chart — symbols and timeframe (`/chart?t=NVDA,AMD&tf=1Y`) — so any chart you build is shareable and bookmarkable. Share → Copy link does the same in one click. Your last ten charted symbols appear as **Recent** chips whenever the search box is empty.
+
+<Note>
+Honest limits: intraday (1D) and last prices are 15-minute delayed; non-US-listed names (`.SS`, `.MI` suffixes) chart as lines without the company panel; basket series are base-100 index levels, not prices.
+</Note>
