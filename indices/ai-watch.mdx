@@ -1,0 +1,56 @@
+---
+title: "AI Watch"
+description: "The AI trade on one page — hyperscalers, Mag 7, semis, and memory, with the signals price charts don't carry: single-name CDS, H100 rental prices, DRAM/NAND spot, and token demand."
+---
+
+[AI Watch](https://auramarkets.io/ai) (nav: **Markets → AI Watch**) is a dedicated dashboard for the defining trade of this market. The premise: the AI complex can't be judged from equity prices alone — the earliest signals live in **credit** (what default insurance costs on the borrowers funding the buildout), **hardware markets** (what compute and memory actually cost), and **usage** (whether inference demand keeps growing). AI Watch puts all of it beside the stocks.
+
+Several of these series exist nowhere else as charts. Their sources publish *today's value only* — so auramarkets records them daily, and the charts deepen permanently from here.
+
+## The Complex
+
+Every name in the universe — hyperscalers (MSFT, GOOGL, AMZN, META, ORCL, CoreWeave), the Mag 7, the major semis (NVDA, AVGO, AMD, TSM, ASML, the equipment makers), and memory (Micron, SanDisk, WDC, SK Hynix, Samsung) — in one table: price, returns, **forward P/E** against live analyst consensus, the **30-day revision** in that consensus, and a **Market focus** column: the 2–4 metrics coverage actually cites for each name right now, distilled from the [research corpus](/research/overview) plus a poll of X. Any ticker opens the standard [stock pop-out](/indices/stock-chart).
+
+## Baskets
+
+Equal-weight indices for Hyperscalers, Semis, Memory (including the Korean listings), and the Mag 7, rebased against SPY over your chosen window. The divergence between them *is* the story — memory and semis versus flat hyperscalers tells you where the cycle's profits are actually landing.
+
+## Credit — single-name CDS
+
+Daily 5-year CDS settlement levels for fourteen AI-complex names, from ICE's clearing house. Quoted as a price per 100 par — **lower = more stress**. Two tiles lead the panel:
+
+- **The MSFT − ORCL gap** — Microsoft is the market's safest tech credit; Oracle is funding AI capex with debt. The gap between their CDS is the cleanest daily read on whether credit believes the buildout pays for itself.
+- **CoreWeave's level** — the pure-play AI-infrastructure borrower, quoted on the high-yield convention.
+
+<Note>
+Names on different coupon conventions (100bp vs 500bp) aren't directly comparable — the table tags the exceptions. And leveraged loans (where private AI-datacenter lending lives) are invisible to every public feed; the panel says so rather than pretending otherwise.
+</Note>
+
+## Capex engine
+
+Straight from quarterly SEC filings — fact, not consensus: trailing-twelve-month **capex** per hyperscaler, the aggregate **capex-to-operating-cash-flow ratio** (the "how much of the cash machine goes straight back out" number), each name's **free cash flow**, and **RPO** — contracted backlog, the metric the market-focus poll ranked #1. Oracle's negative FCF and its RPO running at multiples of annual revenue sit side by side here, which is the whole debate in two numbers.
+
+## Compute & memory
+
+- **Cost of compute** — H100 rental $/GPU/hr from three markets daily: RunPod (spot and on-demand), Shadeform (the neocloud median, with a live-availability count), and Vast (the marketplace floor). The spot-vs-on-demand spread and availability are genuine tightness signals no vendor publishes as a series.
+- **Memory spot** — daily DRAM (DDR5/DDR4), NAND wafer, and GDDR prices, rebased for comparison, with the trend arrows from the source. HBM has no spot market anywhere — its story shows up through the memory equities and contract-price headlines instead.
+
+## Token demand
+
+Daily tokens routed through OpenRouter (about 19 months of history), with the **China share** of attributed tokens as a sub-panel — a usage-weighted read on whether Chinese open-weight models are taking inference share. Source: OpenRouter (openrouter.ai/rankings).
+
+<Note>
+OpenRouter is a router, not the whole market — it undercounts first-party traffic (ChatGPT, Gemini) and over-represents open-weight models. The *trend* is the signal, not the level.
+</Note>
+
+## Taiwan risk premium
+
+TAIEX ÷ KOSPI, rebased — both are AI-supply-chain markets, so the ratio isolates Taiwan-specific geopolitical discount from the common semis beta. A falling ratio = the Taiwan discount widening versus Korea.
+
+## News & wrap
+
+Wire headlines tagged with universe names over the last 48 hours, plus the **AI wrap** — a nightly synthesis of the day's AI-complex news in a handful of bullets, each naming its tickers.
+
+## Honest limits
+
+The hardware and CDS charts start thin — recording began August 2026, and depth accrues daily (token history backfills to early 2025; capex and consensus data carry their own history). Forward P/E uses current-fiscal-year consensus, not a blended next-twelve-months. And the Market focus labels are a snapshot of the narrative, refreshed by re-running the poll — not a live feed.

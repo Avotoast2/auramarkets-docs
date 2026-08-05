@@ -2,7 +2,7 @@
   "$schema": "https://mintlify.com/docs.json",
   "theme": "mint",
   "name": "auramarkets",
-  "description": "A bird's-eye view of markets \u00e2\u20ac\u201d macro, single names, and your portfolio in one place.",
+  "description": "A bird's-eye view of markets â€” macro, single names, and your portfolio in one place.",
   "colors": {
     "primary": "#5c6bc0",
     "light": "#7986cb",
@@ -57,6 +57,7 @@
               "indices/thematic-heatmap",
               "indices/factors",
               "indices/earnings-monitor",
+              "indices/ai-watch",
               "indices/volatility-tickers"
             ]
           },

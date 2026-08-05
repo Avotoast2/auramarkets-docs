@@ -19,9 +19,9 @@ The Volatility panel on [Equities](/indices/overview) opens with a **verdict**, 
 
 The spine of the verdict is the **IV−RV premium**: VIX minus 20-day realized S&P volatility — the actual price of protection. A low VIX is not the same as cheap options (2017: VIX 11 vs realized 6 = expensive), and a high VIX is not the same as expensive ones (2020: VIX 30 vs realized 60 = cheap). Comparing implied to *delivered* is what separates a pricing read from a fear gauge.
 
-Under the verdict sit five dimension rows — premium, term structure, VIX level, implied correlation, vol-of-vol — each with its percentile strip and sparkline. There's deliberately **no composite 0–100 score**: any weighting of those dimensions would be arbitrary, so the panel states its rules and shows its inputs instead.
+Under the verdict sit six dimension rows — premium, term structure, VIX level, implied correlation, dispersion, vol-of-vol — each with its percentile strip and sparkline. There's deliberately **no composite 0–100 score**: any weighting of those dimensions would be arbitrary, so the panel states its rules and shows its inputs instead.
 
-The one-line read follows the same shape as every verdict panel on the site: **the state, then the evidence for it, then an outlier only when one clears a threshold** — if nothing qualifies, nothing is appended. The two gated outliers here are the VVIX early warning (below) and a fragile-calm flag from implied correlation.
+The one-line read follows the same shape as every verdict panel on the site: **the state, then the evidence for it, then an outlier only when one clears a threshold** — if nothing qualifies, nothing is appended. The gated outliers here are the VVIX early warning (below) and the fragile-calm flag from implied correlation and dispersion — and since those last two are one phenomenon in two framings, when both are at their extremes they collapse into a single combined sentence rather than repeating themselves.
 
 ## VIX term structure
 
@@ -38,6 +38,12 @@ Both legs of every ratio come from the same session — a stale leg can never fa
 CBOE's 3-month implied correlation index — **why index vol is where it is**. Index variance is roughly average single-stock variance times average correlation, so when VIX is low *because* correlation is priced near record lows, the calm is dispersion-driven and fragile: a correlation spike lifts index vol mechanically, even if no single stock gets more volatile.
 
 The row's percentile ranks against the index's **full ~20-year history** (these extremes are generational — a 1-year window would hide them). It never drives the verdict; it colors it. At a bottom-decile extreme the read appends the fragile-calm outlier: *"Index calm rests on p1 implied correlation — dispersion-priced; a correlation spike lifts index vol mechanically."*
+
+## Dispersion (VIXEQ − VIX)
+
+The same story in **vol points**: Cboe's equal-weight single-stock implied vol index (VIXEQ) minus the VIX. It answers "how much wilder are individual stocks than the index?" — which is exactly what a low implied correlation *buys*. The row's percentile ranks against the full VIXEQ history (Cboe's backcast reaches 2014), because dispersion extremes, like correlation extremes, are generational.
+
+Where implied correlation tells you the *assumption* (stocks will offset), dispersion tells you the *magnitude* riding on it — at record readings, single-stock vol can run 30+ points over the index, meaning index calm rests entirely on winners and losers continuing to cancel. Like implied correlation, it colors the verdict but never votes: they're two framings of one phenomenon, and one phenomenon gets one vote.
 
 ## SKEW
 
