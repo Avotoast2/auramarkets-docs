@@ -1,0 +1,47 @@
+---
+title: "Search"
+description: "The omnibox in the top nav — one box for tickers, pages, metrics, writers, research, and news, with a Bloomberg-style command grammar."
+---
+
+The search bar lives in the top nav on every page. Click it, or press **`/`** or **`Ctrl+K`** from anywhere. `Esc` closes. Arrow keys move, `Enter` opens.
+
+## Tickers → instant charts
+
+Type any symbol or company name — stocks, ETFs, world indices, the vol complex, even the in-house factor baskets (`MOM`, `SHRT`…). **Enter opens the chart in place** as the standard [stock pop-out](/indices/stock-chart) wherever the page hosts it, and lands on the [Chart page](/indices/chart) otherwise. `Ctrl+Enter` (or the ↗ on any row) always goes to the full Chart page.
+
+Ranking is deliberate: exact symbol beats prefix beats name match, big names beat small ones, and `vix` gives you **^VIX** — not a VIX-futures ETF. An unrecognized-but-ticker-shaped query still charts on Enter.
+
+## The grammar: ticker → function
+
+Highlight a ticker and press **`Tab`** — it locks in as a chip, and the list becomes *functions* scoped to that name:
+
+| Function | Where it goes |
+|---|---|
+| `CHART` | the pop-out, right here |
+| `FULL` | the full Chart page |
+| `RES` | its research entity page — every article and mention |
+| `CALLS` | tracked writer calls on the name |
+| `ASK` | AskAura, pre-scoped to it |
+
+Type a few letters to filter, `Enter` runs it. `Esc` (or Backspace on an empty box) drops the chip. So *"what are writers saying about NVDA"* is: `/` `nvda` `Tab` `res` `Enter`.
+
+## Your own shortcuts
+
+On any page, type **`+code`** (say, `+aiw`) and Enter — the current page, with its exact view and scroll position, is saved under that code. Type `aiw` later and it's the starred top result. `-aiw` deletes it. Shortcuts are the fastest path to the views *you* keep returning to.
+
+## Metrics and panels
+
+Named indicators are searchable as their own class: `dispersion`, `hy oas`, `ig tape`, `h100`, `rpo`, `china token share`, `taiwan premium`… each jumps to the exact panel that charts it, scrolled into view.
+
+## Writers, research, and news
+
+- A **writer's name** (`citrini`) goes to their filtered feed, with their call count on the row.
+- A **phrase** (`oracle debt problems`) — pause a beat, and two more groups stream in: **Research**, semantic matches from the corpus (meaning, not keywords), and **News**, recent wire headlines. These wait for a typing pause on purpose — the ticker path is never blocked by the slow stuff.
+
+## The full-results page
+
+Every query's last row is **"See all results →"** — the [/search](https://auramarkets.io/search) page with every group expanded. Enter on an empty highlight gets you there too.
+
+<Note>
+The empty state is useful on its own: focus the box with nothing typed and you get your recent symbols plus jump-to suggestions. The footer always shows the keyboard legend.
+</Note>
