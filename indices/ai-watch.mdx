@@ -16,16 +16,22 @@ The heart of the page: one module, **two levels of depth**, toggled in the heade
 
 Each level offers **four layouts** and shares the [thematic map's](/indices/thematic-heatmap) control language:
 
-- **Table** — The Complex shows every name with price, returns, **forward P/E** against live analyst consensus, the **30-day revision** in that consensus, and the **Market focus** column (the metrics coverage actually cites, from the [research corpus](/research/overview) + X). Value Chain shows the 33 segments as aggregate rows under their layer headers — expand any segment to see its constituents.
+- **Table** — The Complex shows every name with price, returns, **forward P/E** against live analyst consensus, the **30-day revision** in that consensus, **RPO** (contracted backlog in $B with its quarter-over-quarter change, straight from SEC filings), and the **Market focus** column (the metrics coverage actually cites, from the [research corpus](/research/overview) + X). Value Chain shows the 33 segments as aggregate rows under their layer headers, with **breadth (% above the 50-day)** and each segment's **best/worst name over the week** inline — expand any segment to see its constituents. In both tables the **category bands carry their own aggregates**: equal-weight returns per group or layer, the group's median forward P/E and summed RPO (the Hyperscalers band totals ~$1.9T of contracted backlog), so the strips read as summary rows, not dividers.
 - **Treemap** — tiles sized by cap class, colored by the selected measure; hover for detail, click for the standard [stock pop-out](/indices/stock-chart).
 - **Bars** — segments/groups ranked by the selected measure, with min–max constituent whiskers showing dispersion inside each; click a bar to drill into its members.
 - **RRG** — relative rotation vs SPY (the same math as the thematic and factor RRGs): which groups/segments are leading, weakening, lagging, or improving.
 
-And three **measures** across the full lookback set (1D → 3Y plus a custom start date): raw **% change**, **z-score** (the move against that entity's own volatility — a +2% day means nothing for CoreWeave and everything for Microsoft), and **MA breadth** (% of members above the 20/50/200-day average). Private names (SpaceX) sit grey throughout.
+And three **measures** across the full lookback set (1D → 3Y plus a custom start date): raw **% change**, **z-score** (the move against that entity's own volatility — a +2% day means nothing for CoreWeave and everything for Microsoft), and **MA breadth** (% of members above the 20/50/200-day average). Private names (SpaceX) sit grey throughout. Company **logos** render on the treemap tiles, table rows, and drilled bars.
+
+The camera icon in the header **exports any view**: download a PNG or copy the image to your clipboard (branded, ready to paste into a chat), and in table views also **Copy CSV** — the visible rows, expansion state included, ready for a spreadsheet.
 
 ## Baskets
 
-Equal-weight rebased indices that follow the level toggle: the five groups at The Complex, the eight chain layers at Value Chain, always against SPY. The divergence between the lines *is* the story — memory and semis versus flat hyperscalers tells you where the cycle's profits are actually landing.
+Equal-weight rebased indices that follow the level toggle — the five groups at The Complex, the eight chain layers at Value Chain, always against SPY — with the same control language as the [sector monitor](/indices/overview): a lookback dropdown (1D → 2Y, YTD, custom dates), a **% vs Zσ** toggle, and three views — ranked **bars** around a zero line, the rebased **lines**, and a **correlation matrix** of the baskets' daily returns over the selected window (which baskets are actually the same trade right now, and which diversify). The divergence between them *is* the story — memory and semis versus flat hyperscalers tells you where the cycle's profits are actually landing.
+
+## Universe movers
+
+Beside Baskets: the **top and bottom five single names** across whichever level is active — all ~30 core names at The Complex, all ~220 at Value Chain. Each row carries the full company name, its layer · segment address, a centered-zero bar, and the **% / Zσ pair** (the toggle picks which ranks; names without enough history drop out of the σ ranking). Any lookback from 1D to 3Y plus a custom date, and a **line view** that plots the current ten movers' rebased paths over the window. This is where the chain's tails surface — the Japanese substrate maker up 24% on the day, or the neo-cloud down 13% — names that would otherwise hide inside segment aggregates.
 
 ## Credit — single-name CDS
 
