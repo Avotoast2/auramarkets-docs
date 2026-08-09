@@ -7,6 +7,18 @@ The [Smart Money page](https://auramarkets.io/thirteenf) (nav: **Research → Sm
 
 Tracked managers include Tiger Global, Coatue, Lone Pine, Stanley Druckenmiller's Duquesne, Berkshire, Pershing Square, Third Point, Greenlight, Hound Partners, Whale Rock, Citadel, Renaissance, Two Sigma, and more.
 
+## Filing-season strip
+
+The top of the page tracks the season itself:
+
+- **Deadline countdown** — 13Fs are due 45 days after quarter-end (rolled to the next business day); the tile counts down to the next deadline and flips to the following season once it passes.
+- **Season progress** — how many of the 34 tracked funds have filed for the current period, with the outstanding names on hover. Worth knowing: this roster files *late* — Q1 2026 went 29-of-34 on deadline day itself, so a low count mid-season is normal, and deadline day is the day to watch.
+- **Recent filings** — the latest filings as chips (fund + date, freshly-filed ones highlighted), each clicking through to that fund's By Fund view. Amendments never count as new filings.
+
+## Search
+
+Every table has a search box — Cluster Buys & Sells and Most Held filter on ticker, company name, sector, or industry; the By Fund sidebar and the Performance leaderboard filter on fund, manager, or category. Filters compose with the tabs and column sorts, and searching surfaces names beyond the visible top-40 cut.
+
 ## Consensus view
 
 The default view. Two panels side-by-side.
@@ -23,7 +35,7 @@ Filter tabs:
 Columns:
 | Column | What it tells you |
 |---|---|
-| Ticker / Issuer | Resolved from CUSIP (foreign issuers via CINS) |
+| Ticker / Issuer | Resolved from CUSIP (foreign issuers via CINS), with the company's **Sector · Industry** beneath |
 | Buyers / Sellers | Count of funds that added vs trimmed |
 | New / Exits | Brand-new positions vs full exits |
 | Net $ Δ | Aggregate dollar change across all funds |
@@ -31,7 +43,7 @@ Columns:
 
 The **Max %** column is the one to watch when buyer count is misleading. *8 buyers* might sound like consensus — but if the max conviction is only 0.1%, nobody really cares. If max is 3.9% and the rest are 0.15%, it's a single-fund bet wearing a consensus mask.
 
-Click any row to expand a drill-down showing each fund's position, change direction, weight, and dollar delta. The expanded table is sortable.
+Click any row to expand a drill-down showing each fund's position, change direction, weight, and dollar delta. The expanded table is sortable. The **ticker itself is a chart link** — it turns blue on hover and opens the standard [stock pop-out](/indices/stock-chart) without expanding the row; tickers behave the same way in the highlights panel, the By Fund tables, and the Performance holdings-contribution table.
 
 ### Most Held
 
@@ -44,7 +56,7 @@ Above the tables, a summary panel shows:
 - **Top sells** — mirror logic
 - **Cluster new positions** — names ≥3 funds just initiated
 
-Lead funds shown are filtered for conviction: positions ≥0.25% portfolio weight, with quant/multi-strat managers held to a higher 1.0% bar so basis-point market-neutral noise doesn't dominate the picture.
+Lead funds shown are filtered for conviction: positions ≥0.25% portfolio weight, with quant/multi-strat managers held to a higher 1.0% bar so basis-point market-neutral noise doesn't dominate the picture. **Fund names are clickable** — each jumps straight to that manager's By Fund view.
 
 ## By Fund view
 
