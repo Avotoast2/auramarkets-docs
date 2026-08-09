@@ -5,7 +5,28 @@ description: "The season's full calendar and scoreboard — every reporter enric
 
 The [Earnings Monitor](https://auramarkets.io/earnings) (nav: **Markets → Earnings**) is the season-level view of earnings: who reports next, what the market has priced for the move, what your writers and the 13F crowd think going in — and once the prints land, how the season is actually scoring.
 
-Two tabs: **Calendar** (forward-looking) and **Scoreboard** (the season so far, graded as prints land).
+Two tabs: **Calendar** (forward-looking) and **Scoreboard** (the season so far, graded as prints land). Above both sits the **Season vs History** strip — the long-term context layer.
+
+## Season vs History
+
+The scoreboard tells you how *this* season is scoring; the strip above it tells you whether that's *unusual*. It tracks the S&P 500 season against its own 5- and 10-year history, sourced from **FactSet Earnings Insight** (the weekly S&P 500 earnings scorecard used across the industry) and refreshed automatically as new editions publish.
+
+One composed read leads — e.g. *"Record-scale beats (+29.2% vs +7.0% 5y avg) — but beats are being sold (+0.4% vs +1.0% 5y avg)"* — followed by six chips, each showing the current value against its 5-year average with a deviation arrow:
+
+| Chip | Why it's the one that matters |
+|---|---|
+| **EPS surprise** | The aggregate beat *magnitude* — the headline "how strong is this season" number. The tooltip carries the ex-one-off version (a single mega-cap mark-to-market gain can own the aggregate) and the 10-year average. |
+| **Beat rate** | Displayed as deviation from its norm. Beat rates are managed — ~75–80% of companies "beat" in a normal quarter — so the level means little; the gap vs history is the signal. |
+| **Reaction beat / miss** | The average price move around beats and around misses vs their 5-year norms. The only chip measuring *positioning* rather than fundamentals: beats rewarded less than usual means good news was already in the price. Shown amber, not green, when beats are being sold. |
+| **Negative guidance** | Share of guiders guiding below consensus vs the 5-year average — the season's forward-looking output, and a metric almost nobody retail-side watches. |
+| **EPS growth YoY** | Blended growth today next to what was expected at quarter start — how much the season itself moved the number. |
+| **Net margin** | The durability read: a season of beats on collapsing margins reads very differently from one on record margins. |
+
+Each chip carries a **mini sparkline of its full quarterly history** (back to 2019), and **clicking a chip opens the full chart** — every quarter as a line, the 5-year average as a dashed reference, tooltips labeled by fiscal quarter. An **amber dot** marks any quarter whose numbers were snapshotted mid-season (FactSet skipped publication for a stretch of 2022, so Q2 2022 reflects ~56% of companies reported — the chart says so rather than presenting it as final).
+
+<Note>
+The strip is deliberately a different lens from the scoreboard below it: the strip is **S&P 500 vs its own history** (FactSet's universe and methodology, with real 5-year baselines); the scoreboard is **every $1B+ reporter, this season** (auramarkets' own universe). Keeping them separate is what makes each honest.
+</Note>
 
 ## Calendar
 
