@@ -59,6 +59,7 @@
               "indices/factors",
               "indices/earnings-monitor",
               "indices/ai-watch",
+              "indices/fund-flows",
               "indices/volatility-tickers"
             ]
           },

@@ -1,0 +1,50 @@
+---
+title: "Fund Flows"
+description: "Where the money is actually moving — daily ETF creations and redemptions, computed from primary issuer data, with decades of history behind every number."
+---
+
+The [Fund Flows page](https://auramarkets.io/flows) (nav: **Markets → Fund Flows**) tracks net money moving into and out of ETFs — the hot thematic funds up top, then the whole cross-section: asset classes, sectors, regions, and crypto.
+
+Unlike price, flow is a *decision*: someone chose to add or pull capital. auramarkets computes it from the primary source — **daily shares outstanding × NAV from the issuers themselves** (iShares, State Street, VanEck), which is exact to the creation unit. Funds whose issuers don't publish daily share counts use FactSet-derived series instead, and each fund's card says which it is.
+
+## The read
+
+A verdict line and three labeled lanes summarize the tape in ten seconds:
+
+- **HOT** — the strongest flow in the hot-money tier, plus how much the semis/AI complex as a whole has absorbed over 13 weeks
+- **TAPE** — divergence patterns: *exhaustion* (heavy buying into falling prices) and *capitulation* (outflows persisting after a deep drawdown)
+- **BROAD** — equity-fund vs bond-fund flows, the classic risk-appetite gauge
+
+<Note>
+Flow signals mean different things at different horizons, and the page is deliberate about this: short-window numbers (1–4 weeks) are described, not editorialized — the research says short-term flow *follows* returns and continues. Only the slow, cumulated reads (13 weeks to a year of money piling into one theme) carry a cautionary tone, because that's the horizon where crowding has historically mattered.
+</Note>
+
+## Hot Money
+
+Tiles for the theme funds that matter right now — semis (SOXX, SMH, SOXL), software (IGV), memory (DRAM), tech (XLK), and the mega-cap complex (QQQ, MAGS). Each shows the 4-week flow as a percent of assets, a year of weekly history as a sparkline, and flags when they're earned:
+
+- **z-chip** — this fund's current flow is unusually large vs its own history
+- **EXHAUSTION / CAPITULATION** badges — the flow/price divergence patterns
+- **synthetic** — DRAM holds swaps and T-bills rather than only physical shares, so its flows behave differently
+
+## The flows table
+
+Every tracked fund, grouped by tier, across five windows: **1W · 4W · 13W · YTD · YTD $ · AUM**. Percentages are *organic growth rates* — flow relative to the fund's assets at the window start — because a $1B flow means something entirely different to a $20B fund than to a $800B one. The strongest and weakest two in each column are tinted. Click any column to sort; click any row for that fund's full weekly flow history as a chart.
+
+## Movers, crypto, and history
+
+- **Movers** — the five biggest dollar inflows and outflows of the past four weeks, as diverging bars
+- **Crypto** — the Bitcoin and Ethereum spot-ETF complex, per issuer, daily (source: Farside Investors), with cumulative totals since launch
+- **History** — every fund chart reaches back as far as its issuer's records go: SPY and the sector funds to 2006, the major iShares funds to their inceptions around 2000–2002, SMH to 2011
+
+## Where the numbers come from
+
+| Layer | Source | Nature |
+|---|---|---|
+| iShares funds (SOXX, IGV, IVV, TLT, HYG…) | BlackRock daily records | exact shares outstanding, back to inception |
+| SPDR funds (SPY, sectors, GLD) | State Street daily records | exact shares outstanding, back to 2006 |
+| SMH | VanEck daily records | derived from AUM and NAV, back to 2011 |
+| QQQ, MAGS, DRAM, SOXL, VOO | FactSet-derived series | daily net flows, ~11 years |
+| Bitcoin / Ethereum ETFs | Farside Investors | per-issuer daily, since launch |
+
+Data refreshes several times a day as issuers post their files (typically next-morning for the prior session). A handful of data-quality guards run automatically — share-count jumps from fund splits are excluded (a split doubles shares without moving a dollar), and issuer misprints are cross-checked against published assets.
