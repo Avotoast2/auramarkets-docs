@@ -5,6 +5,14 @@ description: "The front door — one page that answers what happened across ever
 
 [Today](https://auramarkets.io/today) is where auramarkets opens. It's the synthesis page: research coverage, tracked calls, 13F flows, earnings, macro events, and unusual price action — intersected with **your** portfolio and watchlists, refreshed every ~15 minutes.
 
+## What changed
+
+The page now leads with an answer, not a feed: **material changes only**, pushed from the app's verdict engines. A row appears for exactly three reasons — a monitor's **verdict changed state** (credit went Asleep → Stirring, vol flipped into Underpriced risk, breadth entered Washout), a **tripwire fired**, or a **loud state is persisting** (re-mentioned at most every few days, never daily). Sources today: the credit monitor, the vol regime verdict, the breadth cockpit, fund flows, and weekly rotation crossings. Each row carries its severity (colored left rail), the STATE — evidence line, and clicks through to the owning monitor.
+
+Two honesty rules worth knowing: a verdict that's been flip-flopping gets labeled *"flip #3 this week — a borderline verdict, not a fresh regime"* instead of alerting every flip; and when nothing material happened the section says so — *"All quiet — 5 monitors watching. Last change: Credit Asleep → Priced for perfection (Aug 5)."* Quiet is an answer.
+
+The **Today tab in the nav shows a dot** when the stack has items you haven't seen; visiting the page clears it.
+
 ## Your names
 
 The centerpiece. Every name you follow (portfolio + watchlists) that had something happen recently gets a row — logo, ticker, company, the day's move with its σ-context, and **pills explaining exactly why it surfaced**:
@@ -30,11 +38,11 @@ Rows are ranked by how much happened; the first five pills show and the rest sit
 ## The rest of the page
 
 - **Writer signal** — first-ever corpus mentions, new deep-dives, fresh calls, and cross-writer consensus, each track scrolling independently with its item count. Tickers show their **logo and company name** (same look as Your names), and **hovering any deep-dive or fresh-call item** pops the same preview card as the pills above — the piece's thesis, or the call quoted verbatim, with both links.
-- **Smart money** — the 13F cluster consensus: per name, logo, the 1-day move, a buyer/seller bar, and the net dollar flow across funds.
+- **Smart money** — the 13F cluster consensus, compact: the top eight names with logo, the 1-day move, a buyer/seller bar, and the net dollar flow across funds. The full table lives on [Smart Money (13F)](/research/thirteenf).
 - **On deck** — today's macro releases with tier badges and actual / consensus / previous, plus who reports earnings (logos inline, your held names starred ★).
-- **Rotation watch** — quadrant-crossing events from the [rotation view](/indices/thematic-heatmap#rotation-view): themes **newly leading ↗**, **turning up ⤴**, or **rolling over ↘** vs SPY this week. These are *crossings*, not standings — a theme only appears when it just changed quadrant. Click through to the rotation view to see the full picture.
-- **Market color** — the live overnight tape (ES/NQ futures, DXY, 10Y, gold, WTI, BTC), yesterday's closes, and the full **Market Pulse** briefing rendered by the same component as the macro page.
-- **Wire** — a rolling multi-source headline feed (Bloomberg, WSJ, CNBC, MarketWatch, FT, NYT), deduplicated across outlets and filtered to market-relevant stories, each with its outlet tag and timestamp. Ticker chips on subject-of-the-story names open the stock pop-out. It's the same newswire behind the Equities page's **Top Stories** panel — this is the raw stream, that's the ranked cut.
+- **Rotation watch** — the top quadrant-crossing events from the [rotation view](/indices/thematic-heatmap#rotation-view): themes **newly leading ↗**, **turning up ⤴**, or **rolling over ↘** vs SPY this week. These are *crossings*, not standings — a theme only appears when it just changed quadrant. New crossings also surface in **What changed**; this rail is the detail view.
+- **Pulse** — the full **Market Pulse** briefing, rendered by the same component as the macro page.
+- **Wire** — a rolling multi-source headline feed (Bloomberg, WSJ, CNBC, MarketWatch, FT, NYT), deduplicated across outlets, **ticker-tagged stories first**, each with its outlet tag and timestamp. Ticker chips on subject-of-the-story names open the stock pop-out. It's the same newswire behind the Equities page's **Top Stories** panel — this is the stream, that's the ranked cut.
 - **Credit alert** — an amber strip at the very top that exists only when the [Credit Monitor](/macro/credit)'s verdict changed or a tripwire tripped. Most days you won't see it — that's the design. When you do, spreads are moving in a way worth a click through to the full monitor.
 - **Regime badge** — the current market state, top right, sourced from the [regime engine](/macro/market-pulse#the-regime-badge) (not AI sentiment). Hover for the confidence % and the ranked anomalies behind the read.
 - **30-day regime strip** — right under the badge: one colored cell per trading day showing the engine's state over the past month. Hover any cell for that day's state — a glance tells you whether today's read is a fresh flip or week three of the same regime.
