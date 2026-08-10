@@ -43,7 +43,6 @@ Rows are ranked by how much happened; the first five pills show and the rest sit
 - **Rotation watch** — the top quadrant-crossing events from the [rotation view](/indices/thematic-heatmap#rotation-view): themes **newly leading ↗**, **turning up ⤴**, or **rolling over ↘** vs SPY this week. These are *crossings*, not standings — a theme only appears when it just changed quadrant. New crossings also surface in **What changed**; this rail is the detail view.
 - **Pulse** — the full **Market Pulse** briefing, rendered by the same component as the macro page.
 - **Wire** — a rolling multi-source headline feed (Bloomberg, WSJ, CNBC, MarketWatch, FT, NYT), deduplicated across outlets, **ticker-tagged stories first**, each with its outlet tag and timestamp. Ticker chips on subject-of-the-story names open the stock pop-out. It's the same newswire behind the Equities page's **Top Stories** panel — this is the stream, that's the ranked cut.
-- **Credit alert** — an amber strip at the very top that exists only when the [Credit Monitor](/macro/credit)'s verdict changed or a tripwire tripped. Most days you won't see it — that's the design. When you do, spreads are moving in a way worth a click through to the full monitor.
 - **Regime badge** — the current market state, top right, sourced from the [regime engine](/macro/market-pulse#the-regime-badge) (not AI sentiment). Hover for the confidence % and the ranked anomalies behind the read.
 - **30-day regime strip** — right under the badge: one colored cell per trading day showing the engine's state over the past month. Hover any cell for that day's state — a glance tells you whether today's read is a fresh flip or week three of the same regime.
 
@@ -53,7 +52,7 @@ The header's **Layout** button [rearranges the page](/getting-started/customize)
 
 ## Time travel
 
-The **◀ ▶ arrows** by the date step through archived snapshots — each day's final payload is preserved, so you can re-read any past morning exactly as it stood (history accumulates from July 3, 2026). The overnight tape hides on archived days, since it's inherently live.
+The **◀ ▶ arrows** by the date step through archived snapshots — each day's final payload is preserved, so you can re-read any past morning exactly as it stood (history accumulates from July 3, 2026).
 
 <Note>
 The [Pre-Market Brief](/macro/daily-digest) email is the push version of this page — same engine, delivered ~6:30am ET.
