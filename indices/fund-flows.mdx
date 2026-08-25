@@ -3,39 +3,81 @@ title: "Fund Flows"
 description: "Where the money is actually moving — daily ETF creations and redemptions, computed from primary issuer data, with decades of history behind every number."
 ---
 
-The [Fund Flows page](https://auramarkets.io/flows) (nav: **Markets → Fund Flows**) tracks net money moving into and out of ETFs — the hot thematic funds up top, then the whole cross-section: asset classes, sectors, regions, and crypto.
+The [Fund Flows page](https://auramarkets.io/flows) (nav: **Markets → Fund Flows**) tracks net money moving into and out of ETFs — the hot thematic funds up top, then the whole cross-section: asset classes, sectors, regions, the levered complex, and crypto.
 
-Unlike price, flow is a *decision*: someone chose to add or pull capital. auramarkets computes it from the primary source — **daily shares outstanding × NAV from the issuers themselves** (iShares, State Street, VanEck), which is exact to the creation unit. Funds whose issuers don't publish daily share counts use FactSet-derived series instead, and each fund's card says which it is.
+Unlike price, flow is a *decision*: someone chose to add or pull capital. auramarkets computes it from the primary source — **daily shares outstanding × NAV from the issuers themselves** (iShares, State Street, VanEck), which is exact to the creation unit. Funds whose issuers don't publish daily share counts use FactSet-derived series instead, and each fund's chart says which it is.
 
 ## The read
 
 A verdict line and three labeled lanes summarize the tape in ten seconds:
 
-- **HOT** — the strongest flow in the hot-money tier, plus how much the semis/AI complex as a whole has absorbed over 13 weeks
-- **TAPE** — divergence patterns: *exhaustion* (heavy buying into falling prices) and *capitulation* (outflows persisting after a deep drawdown)
+- **HOT** — the strongest flow in your hot-money tier, plus how much the semis/AI complex as a whole has absorbed over 13 weeks
+- **TAPE** — divergence patterns: *exhaustion* (price still rising while money leaves) and *capitulation* (outflows persisting deep into a drawdown)
 - **BROAD** — equity-fund vs bond-fund flows, the classic risk-appetite gauge
 
 <Note>
 Flow signals mean different things at different horizons, and the page is deliberate about this: short-window numbers (1 day to 1 month) are described, not editorialized — the research says short-term flow *follows* returns and continues. Only the slow, cumulated reads (13 weeks to a year of money piling into one theme) carry a cautionary tone, because that's the horizon where crowding has historically mattered.
 </Note>
 
+## One lookback, every panel
+
+The pill row in the Hot Money header — **1W · 1M · 3M · YTD · 1Y · ✎** — sets the page's active window, and every panel follows it: the tiles' headline numbers and ordering, the Leverage Appetite pairs and their states, the Biggest Moves ranking, and (for 3M or custom) an extra column in the flows table. **1M is the default.** The ✎ pill takes any custom window from 2 to 520 weeks, computed live from each fund's weekly archive. Your selection is saved to your account.
+
 ## Hot Money
 
-Tiles for the theme funds that matter right now — semis (SOXX, SMH, SOXL), software (IGV), memory (DRAM), tech (XLK), and the mega-cap complex (QQQ, MAGS). Each shows the 1-month flow as a percent of assets, a year of weekly history as a sparkline, and flags when they're earned:
+Tiles for the theme funds *you* care about — the defaults cover semis (SOXX, SMH, SOXL), software (IGV), memory (DRAM), tech (XLK), and the mega-cap complex (QQQ, MAGS), and the **+ Add** button opens a searchable picker (type a ticker or any part of a fund's name) to build your own set. Tiles arrange themselves by the active window's flow — strongest inflow first — while the small row underneath always shows **1W and YTD** as a fixed frame of reference.
 
-- **z-chip** — this fund's current flow is unusually large vs its own history
-- **EXHAUSTION / CAPITULATION** badges — the flow/price divergence patterns
-- **synthetic** — DRAM holds swaps and T-bills rather than only physical shares, so its flows behave differently
+Every tile carries a **z-chip**: the active window's flow scored against that fund's own history of the same window. Quiet readings sit in muted grey; past ±1.5σ the chip turns amber — the threshold controls emphasis, not existence, so "is this money unusual?" is answered at a glance on every tile. Badges appear when earned:
+
+- **EXHAUSTION** — price runs more than half a sigma *above* its history while flow runs half a sigma *below* it: the fund is still going up as money walks out. Hover the badge for the exact criteria.
+- **CAPITULATION** — price and flow both more than a sigma below history, with the fund over 15% off its 1-year high: outflows persisting deep into the hole.
+- **synthetic** — DRAM holds swaps and T-bills rather than only physical shares, so its flows behave differently.
 
 ## The flows table
 
-Every tracked fund, grouped by tier, across the house timeframes: **1D · 1W · 1M · YTD · 1Y**, plus **Zσ** (the 1-month flow vs that fund's own flow history — heat past ±2σ), **YTD $ · AUM**. Percentages are *organic growth rates* — flow relative to the fund's assets at the window start — because a $1B flow means something entirely different to a $20B fund than to a $800B one. The strongest and weakest two in each column are tinted. Click any column to sort; click any row for that fund's full weekly flow history as a chart.
+Every tracked fund, grouped by tier, across the house timeframes: **1D · 1W · 1M · YTD · 1Y** — plus the active lookback as an extra sortable column whenever it isn't already one of those (3M, or your custom window). Percentages are *organic growth rates* — flow relative to the fund's assets at the window start — because a $1B flow means something entirely different to a $20B fund than to a $800B one. The strongest and weakest two in each column are tinted; click any column to sort, any row for that fund's full flow history as a chart.
 
-## Movers, crypto, and history
+Two controls in the table header turn it into a z-score screener:
 
-- **Movers** — the five biggest dollar inflows and outflows of the past four weeks, as diverging bars
-- **Crypto** — the Bitcoin and Ethereum spot-ETF complex, per issuer, daily (source: Farside Investors), with cumulative totals since launch
-- **History** — every fund chart reaches back as far as its issuer's records go: SPY and the sector funds to 2006, the major iShares funds to their inceptions around 2000–2002, SMH to 2011
+- **% | σ** — flips every window column from flow percentages to **z-scores**, each window scored against that fund's own history of the same window. Heat past ±2σ, tooltips keep the underlying % and dollars, sorting works on the scores. (YTD sits out in σ mode — its window length drifts through the year, so a fair "vs own history" score doesn't exist.)
+- **≥1σ** — hides every fund whose active-window flow is within a sigma of its own norm, leaving only the unusual money on screen. Forty-seven funds in, a handful of stories out.
+
+## Leverage Appetite
+
+The same exposure at 1x and 3x — whose door does the dip money walk through? Five pairs: **Semis** (SOXX/SMH vs SOXL), **Nasdaq 100** (QQQ vs TQQQ), **S&P 500** (SPY/IVV/VOO vs UPRO/SPXL), **Russell 2000** (IWM vs TNA), and **Long Treasuries** (TLT vs TMF). Each pair shows both sides' flow for the active window and earns a state:
+
+| State | Meaning |
+|---|---|
+| **CHASE** | the levered door taking money while the cash product is flat or selling — high-risk dip buying |
+| **BROAD BID** | both risk settings taking money |
+| **DE-RISK** | both risk settings shedding money |
+| **UNWIND** | leverage coming off while the cash product holds its bid |
+
+The headline line names the widest divergence — the day this panel shipped, it read *"Dip-buying is running through the levered door — SOXL +7.7% vs SOXX/SMH −0.8% of AUM (1M)."*
+
+## Biggest Moves
+
+The five biggest dollar inflows and outflows for the active window, as diverging bars — and the **spot Bitcoin and Ether ETF complexes compete in the same ranking** ("BTC ETFs" / "ETH ETFs" rows), because they're chasing the same marginal dollar. Click a fund's bar for its flow history; click a crypto row for the complex's.
+
+## Crypto ETFs
+
+Per-issuer daily flows for the spot Bitcoin and Ether complexes (source: Farside Investors), each card carrying:
+
+- **D | W | M** pills — daily rows, calendar-week totals, or calendar-month totals, with the sparkline redrawing to match
+- **‹ ›** paging — walk back through the full history (Bitcoin to January 2024) with the window fixed at ten rows
+- a **Zσ row** pinned above the table — each issuer's latest reported day scored against its own history, plus a complex-level score in the Total column
+- an evidence line in the Flow Show grammar — *"6th straight day of inflows"*, *"Largest daily outflow since…"*
+- clickable issuer tickers (IBIT, FBTC, ETHA…) opening the standard stock pop-out
+
+Click anywhere on a card for the complex's full history chart, with the spot BTC/ETH price as an overlay.
+
+## The history chart
+
+Every fund row, tile, and crypto card opens the same chart: net-flow bars with two optional overlay lines on the right-hand scale — **Price** (the fund's NAV where the issuer publishes it, a price series otherwise — the subtitle says which) or **Σ Flow**, the cumulative net dollars since the history began. One overlay at a time; they don't share units.
+
+- **D | W | M** switches the bar granularity — daily (trailing three years), weekly, or monthly (both full-depth) — and the range presets rescale so "1Y" always means one year of bars
+- **1Y / 3Y / 5Y / Max** presets, plus drag-zoom and pan
+- History reaches as far as the records go: SPY and the sector funds to 2006, the major iShares funds to ~2000, EWJ to 1996
 
 ## Where the numbers come from
 
@@ -43,8 +85,9 @@ Every tracked fund, grouped by tier, across the house timeframes: **1D · 1W · 
 |---|---|---|
 | iShares funds (SOXX, IGV, IVV, TLT, HYG…) | BlackRock daily records | exact shares outstanding, back to inception |
 | SPDR funds (SPY, sectors, GLD) | State Street daily records | exact shares outstanding, back to 2006 |
-| SMH | VanEck daily records | derived from AUM and NAV, back to 2011 |
-| QQQ, MAGS, DRAM, SOXL, VOO | FactSet-derived series | daily net flows, ~11 years |
-| Bitcoin / Ethereum ETFs | Farside Investors | per-issuer daily, since launch |
+| SMH, GDX | VanEck daily records | derived from AUM and NAV, back to 2011 |
+| QQQ, MAGS, DRAM, VOO, JEPQ, URA + the levered complex (SOXL, TQQQ, UPRO, SPXL, TNA, TMF, BITX, ETHU) and ETHA | FactSet-derived series | daily net flows, up to ~11 years |
+| Bitcoin / Ethereum ETF complexes | Farside Investors | per-issuer daily, since launch |
+| Price overlays for FactSet-sourced funds and crypto | market close series | adjusted closes standing in for NAV |
 
-Data refreshes several times a day as issuers post their files (typically next-morning for the prior session). A handful of data-quality guards run automatically — share-count jumps from fund splits are excluded (a split doubles shares without moving a dollar), and issuer misprints are cross-checked against published assets.
+Data refreshes several times a day as issuers post their files (typically next-morning for the prior session). A handful of data-quality guards run automatically — share-count jumps from fund splits are excluded (a split doubles shares without moving a dollar), issuer misprints are cross-checked against published assets, young funds don't print percentages against seed capital, and any window reaching into a fund's incubation era shows a dash instead of a thousand-percent artifact.
