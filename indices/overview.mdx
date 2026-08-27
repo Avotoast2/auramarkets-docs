@@ -7,6 +7,16 @@ The [Indices](https://auramarkets.io/indices) page is the world map of equity ma
 
 Use it to scan for outliers — anything in deep red or green is asking a question.
 
+## How clicking works
+
+The whole site follows three rules, and this page is the reference implementation:
+
+1. **Click a name, get its chart.** Any ticker or entity name — an index row, a sector, an industry group, a factor, a stock in the movers list — opens the full chart pop-out for that thing. Stocks get the [stock pop-out](/indices/stock-chart) with its company panel; sectors and industries open their explorer (heatmap / performance / line chart, and it remembers which view you used last); everything else gets the standard chart modal.
+2. **Click anywhere on a row, same thing.** Rows are the target — no hunting for tiny icons. Where a panel has something more specific to do (a treemap tile drills down, a breadth row opens that dimension's chart), the row does that instead.
+3. **Hovering never navigates.** It shows information: tooltips with the definition or the read, and on the sector and industry rows a live mini-heatmap of that group's constituents.
+
+If something looks clickable — pointer cursor, a highlight on hover — it is, and it does what these rules say.
+
 ## What's covered
 
 ### Americas (8)
