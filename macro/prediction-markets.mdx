@@ -1,0 +1,42 @@
+---
+title: "Prediction markets"
+description: "Kalshi real-money odds on the standing macro questions — FOMC, the Fed's year-end rate, CPI, recession."
+---
+
+The **Prediction Markets** strip on the [Macro](https://auramarkets.io/macro) dashboard shows what real money is paying for the macro outcomes everything else prices off. Not analyst forecasts, not survey medians — live odds from Kalshi's regulated event markets, where being wrong costs money.
+
+## The four standing questions
+
+| Tile | The question | How to read it |
+|---|---|---|
+| **Next FOMC** | What does the Fed do at the next meeting? | The leading outcome with its probability (e.g. *Hike 25 · 51%*), plus the probability-weighted **expected move in basis points** across the whole ladder |
+| **Fed rate after Dec** | Where does the Fed funds rate end the year? | The market-implied **median rate**, interpolated from the "above X%" contract ladder, plus the odds on the nearest threshold |
+| **Next CPI print (YoY)** | What does the next CPI release show? | The implied **median YoY print**, same ladder construction |
+| **US recession this year** | Does NBER declare a recession dated this calendar year? | A single probability |
+
+Each tile also carries the **1-day change**, a **7-day sparkline**, and the contract's close date.
+
+## Why these markets roll forward on their own
+
+Each tile is a *standing question*, not a fixed contract. The September FOMC market expires at the meeting; the strip automatically re-binds to the next one. Same for each month's CPI print and each year's recession contract. When a contract rolls, the sparkline resets — the new contract is a new question, and splicing the histories together would fabricate a jump that never traded.
+
+## The thin badge
+
+<Note>
+A **thin** badge means the market's order book is currently wide or shallow — the price is indicative, not a firm consensus. This is normal for CPI contracts far from the print date; liquidity concentrates as the release approaches. Un-badged tiles have tight, funded books behind the number.
+</Note>
+
+## How the numbers are built
+
+- Odds come from live **order books**, not last trade — the mid between the best bid and best offer, so a stale print can't stick a wrong number on the tile.
+- For ladder markets (Fed rate, CPI), the implied median is where the "above X%" probabilities cross 50% — the level the market considers a coin flip.
+- FOMC outcome probabilities are normalized across the decision ladder (cut 50+, cut 25, hold, hike 25, hike 50+) so they sum to 100%.
+- Odds refresh every 15 minutes during US market hours, every 30 minutes otherwise.
+
+## How most people use it
+
+1. **Before a Fed meeting or CPI print** — the tile is the market's base case. If the release matches the leading outcome, the reaction is about the details; if it doesn't, the surprise is the story.
+2. **Watching the 1-day delta** — a rate-path repricing often shows up here (and in the [2Y yield](/macro/treasury-yields)) before it's narrated anywhere.
+3. **Cross-checking a narrative** — if commentary says "recession risk is rising" but the recession tile hasn't moved, real money disagrees.
+
+Clicking a tile opens the underlying market on Kalshi.

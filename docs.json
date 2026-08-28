@@ -43,6 +43,7 @@
               "macro/vrp",
               "macro/cross-asset",
               "macro/credit",
+              "macro/prediction-markets",
               "macro/treasury-yields"
             ]
           },
