@@ -31,6 +31,8 @@ Tiles for the theme funds *you* care about — the defaults cover semis (SOXX, S
 
 Each tile reads top to bottom the way a quote card does: the headline flow with a year of weekly history as a **sparkline right beside it**, a fixed **1W · YTD** reference row underneath, then — when a fund has earned one — its **read**, marked with a slim accent bar: the Flow Show superlative in plain sight ("Largest 13-week inflow since Jun 2025 · 4th straight week of inflows"). Long reads clip to two lines; hover for the full text. The bottom edge is pinned for the qualifiers.
 
+A **% | $** pill beside the lookback ranks the tiles by flow as a share of assets or by dollars, and makes that measure the headline — the other sits under it, so a tile always shows both.
+
 Every tile carries a **z-chip** on that bottom edge: the active window's flow scored against that fund's own history of the same window. Quiet readings sit in muted grey; past ±1.5σ the chip turns amber — the threshold controls emphasis, not existence, so "is this money unusual?" is answered at a glance on every tile. Badges appear beside it when earned:
 
 - **EXHAUSTION** — price runs more than half a sigma *above* its history while flow runs half a sigma *below* it: the fund is still going up as money walks out. Hover the badge for the exact criteria.
@@ -49,6 +51,8 @@ Two controls in the table header turn it into a z-score screener:
 ## Leverage Appetite
 
 The same exposure at 1x and 3x — whose door does the dip money walk through? Five pairs: **Semis** (SOXX/SMH vs SOXL), **Nasdaq 100** (QQQ vs TQQQ), **S&P 500** (SPY/IVV/VOO vs UPRO/SPXL), **Russell 2000** (IWM vs TNA), and **Long Treasuries** (TLT vs TMF). Each pair shows both sides' flow for the active window and earns a state:
+
+Each row shows the window's flow as a share of assets, then the same flow in dollars.
 
 | State | Meaning |
 |---|---|

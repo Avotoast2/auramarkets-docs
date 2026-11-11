@@ -19,16 +19,22 @@ The Writer Signal page itself has three tabs:
 - **Digest** — the day's **Top items**: consensus narratives plus *dedicated pieces*, each with up to four primary tickers, an LLM **verdict pill** (bullish / bearish / neutral / informational) and a one-line takeaway
 - **Browse** — the full, filterable feed (covered on this page's [browsing guide](/research/browsing))
 
+## The Research menu
+
+**Research ▾** in the top bar opens the modules as pages: **Digest** (the daily synthesis of the corpus), **Tracked Calls** (the call ledger and writer scorecards), **Browse** (the feed, see [Browsing](/research/browsing)), **Chatter** (cashtag mentions across the X list), **Smart Money (13F)**, **Hedge Funds** and **Fund Flows**. Every writer has a page at `/research/writer/<name>` — the scorecard, their platforms with links and descriptions, their pieces and calls — and an X handle anywhere on the site links to it. Every piece has a page of its own, one template for articles, posts, videos and street research.
+
 ## What gets ingested
 
-Three sources, all daily:
+Five sources, all daily:
 
 | Source | What's pulled |
 |---|---|
 | **Substack** | Articles from a curated list of investing/macro publications. Both free and paid — paid subscriptions are picked up automatically and ingested with their **full archives**, not just new posts. |
 | **Substack Chat** | The **subscriber chats** of paid publications — weekly AMAs, live trade discussion, portfolio updates. Each thread is ingested as a full transcript and analyzed like an article, so the alpha that only lives in chat is searchable too. |
 | **X (Twitter)** | Posts and threads from a curated list of accounts. Original posts, threads, retweets with commentary, and quote-tweets all flagged. |
-| **YouTube** | Videos from a curated list of channels (in development). Eventually with timestamp-anchored claim extraction. |
+| **YouTube** | Videos from a curated list of channels — writers and institutions (Goldman Sachs, Morgan Stanley, Citi, JPMorgan, Norges Bank Investment Management among them). Each video is transcribed, summarised with timestamped highlights, chapters and the speakers, and read for claims like an article. |
+| **Street research** | Public research from the sell side and the index houses — Apollo, Cboe, FactSet, Barclays — read, classified by series and kind, figures pinned to the claims they support. |
+| **X tape** | Beyond the curated accounts, every post on the X list lands on a tape with its full text and media; the Chatter page and the Hedge Fund scanner read it. |
 
 Currently **600+ pieces live** across all three sources, growing daily.
 
@@ -40,7 +46,7 @@ Each piece of content gets:
 2. **Embedding** — stored in pgvector for semantic search
 3. **Ticker extraction** — every $TICKER mentioned is tagged
 4. **Author + publication** — for filtering and trust scoring
-5. **Confidence score** — 0–1, based on author reliability, claim specificity, and corroboration → [Confidence tiers](/research/confidence-tiers)
+5. **Conviction and specificity** — the writer's stance as a tier (Position · Call · Lean · Note) and the evidence as chips (a target and horizon, a named catalyst), facts that are shown rather than a score → [Conviction tiers](/research/confidence-tiers)
 6. **Lifecycle status** — fresh / aging / stale (claims have shelf life)
 
 ## How you can use it

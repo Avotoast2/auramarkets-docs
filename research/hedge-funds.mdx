@@ -1,0 +1,102 @@
+---
+title: "Hedge Funds"
+description: "What the hedge-fund complex is doing — performance from HedgeIndex and the replication ETFs, positioning from the CFTC, leverage from the OFR, and everything the corpus says about funds, read into one scoreboard."
+---
+
+The [Hedge Funds page](https://auramarkets.io/hedgefunds) (nav: **Research → Hedge Funds**) is a monitor, not a feed. It gathers the free public record on hedge-fund **performance, positioning and risk**, then reads everything auramarkets already ingests — X, street research, Substack, YouTube, the newswire — for what is being said about funds, and files each claim as a fact.
+
+The page follows the house monitor recipe: a row of tiles, a one-line read with Detail and Story registers, then the panels. Every panel is removable and reorderable from the **Layout** button.
+
+## The tiles
+
+| Tile | What it is | Source |
+|---|---|---|
+| **HedgeIndex Broad** | the asset-weighted hedge-fund index, latest month and YTD | HedgeIndex LLC, monthly |
+| **LAB Liquid · MTD** | hedge-fund beta replicated with liquid instruments, month to date | HedgeIndex, daily |
+| **S&P lev-fund net · Z** | leveraged funds' net S&P 500 e-mini position vs its own 3-year history, with the 4-week change | CFTC, weekly |
+| **Treasury basis short** | leveraged funds' Treasury futures short in 10-year equivalents | OFR, weekly |
+| **Leverage · largest HFs** | gross ÷ net assets across the largest qualifying funds | OFR (Form PF), quarterly |
+| **Dealers: HF leverage use** | net % of dealers reporting hedge funds using more leverage | Fed SCOOS, quarterly |
+| **Stretched contracts** | how many CFTC contracts sit beyond ±2σ of their 3-year norm | derived |
+
+## The Read
+
+One state, then the evidence. The machine looks at the S&P e-mini positioning change, the replication baskets and the LAB index, and the stretched-contract count, and commits:
+
+| State | Trigger |
+|---|---|
+| **STRESS** | trend basket down 3%+ on the month *and* the hedge-fund trackers down 2%+, or LAB liquid down 3%+ — strategies losing together, hedges not helping |
+| **DEGROSSING** | leveraged funds cut S&P exposure faster than normal (4-week change at or below −1σ) |
+| **RE-RISKING** | the opposite: exposure added at +1σ or more |
+| **CROWDED** | at least one contract beyond ±2σ of its 3-year history — the risk is the exit, not the direction |
+| **NEUTRAL** | nothing outside its normal range |
+
+The evidence line carries the numbers behind the call: positioning z-score and percentile, HedgeIndex month with the best and worst strategy, LAB month to date, the baskets' 1-month moves, the basis short, what dealers report. **Story** says the same thing in plain language.
+
+## Performance
+
+A chart beside its table. Three sources behind a pill:
+
+- **Strategies** — the HedgeIndex family: the Broad index, twelve strategy indices (Convertible Arb, Emerging Markets, Equity Market Neutral, Event Driven, Distressed, ED Multi-Strategy, Risk Arb, Fixed Income Arb, Global Macro, Long/Short Equity, Managed Futures, Multi-Strategy) and the investable Composite. Monthly NAV since 1993, asset-weighted, open and closed funds, about a six-week lag. Table columns: latest month, prior month, YTD, 1Y, 3Y and 5Y annualised, 1-year vol, drawdown from peak. Windows 1Y · 3Y · 5Y · 10Y.
+- **LAB daily** — the six LAB Liquid indices (Liquid, Long/Short, Event Driven, Merger Arb, Global Strategies, Managed Futures): hedge-fund beta in liquid instruments, printed every close since 2010. Columns 1D · MTD · 1M · 3M · YTD · 1Y and the distance from the 1-year high. Windows 1M to 10Y.
+- **ETF proxies** — the replication ETFs we price daily: DBMF, CTA and KMLM for trend, QAI for multi-strategy, HDG for the HFRI composite, GVIP for Goldman's hedge-fund VIP longs, against SPY. Ten years of history; a fund younger than the window starts at its own first print.
+
+Lines are rebased to the window start. The chart carries the axis on the left and compact tags on the right so neither covers the other. Used with permission of HedgeIndex LLC.
+
+## Positioning
+
+The CFTC Commitments of Traders, Tuesday positions released Friday, for **leveraged funds** in 21 financial contracts (S&P 500, Nasdaq 100, Russell 2000 and Dow e-minis, VIX futures, Treasuries from the 2-year to the Ultra Bond, SOFR and Fed Funds, seven currencies, Bitcoin) and **managed money** in six commodities (WTI, Brent, natural gas, gold, silver, copper).
+
+| Column | What it tells you |
+|---|---|
+| Net | long minus short, contracts |
+| % OI | net as a share of open interest |
+| 4W Δ · 4W Δ Z | the four-week change, raw and scored against the contract's own history of four-week changes |
+| Z · 1Y · Z · 3Y | today's net against the 1- and 3-year distribution |
+| Pctile 3Y | where today sits in three years, 0 to 100 |
+| 52W | a year of net positioning as a spark |
+
+Filter by All · Equities · Rates · FX · Commodities; click a column to sort. History runs from 2018.
+
+## Leverage & Risk
+
+The [OFR Hedge Fund Monitor](https://www.financialresearch.gov/hedge-fund-monitor/) API, fifteen series: leverage ratios by strategy (equity, macro, relative value, credit, multi-strategy, managed futures) and across the largest funds, repo and prime-broker borrowing, gross notional exposure and net assets, the leveraged-fund Treasury short, FICC sponsored repo, and the two dealer-survey lines from the Fed's SCOOS. Four charts (leverage ratio by strategy, borrowing, the Treasury basis short, dealers on hedge-fund leverage) over a table with the latest value, the change on the prior print, the as-of date and the OFR mnemonic. Masked cells are null in the source by design.
+
+## Research Notes
+
+Every hour the scanner takes the pieces ingested since the last pass — X posts and the X tape, street research, Substack, YouTube transcripts, newswire headlines, plus the Hedgeweek and Opalesque feeds — runs them through a hedge-fund lexicon, and has a model classify the survivors and pull out the facts.
+
+Five kinds, and no catch-all: a piece that fits none of them is dropped.
+
+| Kind | Holds |
+|---|---|
+| **Performance** | a fund's or strategy's return, P&L or drawdown |
+| **Positioning** | the book: exposure, leverage, crowding, de-grossing, which trades funds are in — funds only; a retail trader's or newsletter writer's positions never qualify |
+| **Flows** | the money: inflows, redemptions, gates, AUM, allocator demand, fund-raises, capital returned |
+| **People** | hires, departures, launches, closures, legal and regulatory |
+| **Views** | a manager's opinion on markets or a stock |
+
+Positioning, Performance and Flows show in **Research Notes**; People and Views in **News** below it. Each note is one row: the source's avatar and name (clicking either opens the writer's page, X handles included), the kind, the headline, ticker chips for any instruments named, then the facts as chips — entity, metric, value, period. Notes with more than eight facts show eight and a **+N more** chip; the full set is on the scoreboard.
+
+Figures ride the headline as small thumbnails. A vision pass classifies every image and keeps only charts, tables, slides and screenshots of text — webcam frames, podcast stills, faces and logos are dropped. Click a thumbnail to open it full size.
+
+## Reported Returns
+
+The press reports one fund's month as "Oct return", "October" or "last month", next to YTD figures, quarters, single days and prose like "best month since 2000". The **scoreboard** normalises all of it first: every claim resolves to a period (month, YTD, quarter, year), values parse to numbers where they are numbers, and fund names fold to their short press form (Rokos, not Rokos Capital Management; Finsbury Growth & Income, not "Nick Train's fund"), with sleeves kept apart (Tiger Global vs Tiger Global Crossover, Marshall Wace TOPS vs Eureka).
+
+Then one row per fund, one column per period the press has reported: the newest three months, this year's quarters, this and last year, plus Strategy and AUM when a source carried them. A cell is the newest number; hover for every source that reported it with its exact wording; **×N** marks how many sources agreed and **≠** flags a disagreement. Cohorts ("multi-strategy pods", "macro funds") sit in their own block, prose claims in an **Also reported** column. Click a cell to open the piece.
+
+Returns tables posted as pictures count. When a performance note carries an image, the vision pass transcribes the table — a Bloomberg monthly roundup of sixty funds with strategy and AUM lands as sixty rows. The **Tape** toggle shows the chronological list instead, folded by fund and period with the sources listed together.
+
+These are reported numbers, not verified ones; the source is the claim.
+
+## News
+
+People moves, launches, closures and capital returns, and managers' views — the two kinds that are not a positioning or performance read — in the same row recipe, filterable by People · Views.
+
+## Sources and limits
+
+- HedgeIndex (used with permission), CFTC via Socrata, the OFR API, Fed SCOOS, Polygon for the ETFs, Hedgeweek and Opalesque RSS, and the auramarkets corpus. All free, all public.
+- The scanner reads every image once and remembers its verdict; a returns table costs a few cents to transcribe, a classification a fraction of that.
+- Not here, on purpose: HFR index tables (terms forbid it; press numbers only), FINRA short-interest files (blocked), paid prime-brokerage research. Monthly strategy prints from Aurum and HFRI press releases are on the list.
+- Fund names are a living map. Two posters naming one fund two ways still produce two rows until the alias is added; aliases apply the moment they are, with no re-scan.
