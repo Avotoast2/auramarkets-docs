@@ -35,6 +35,7 @@
             "group": "Macro",
             "pages": [
               "macro/overview",
+              "macro/data",
               "macro/market-pulse",
               "macro/daily-recap",
               "macro/daily-digest",

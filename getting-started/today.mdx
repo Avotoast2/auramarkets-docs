@@ -1,58 +1,106 @@
 ---
 title: "Today"
-description: "The front door — one page that answers what happened across everything you follow, personalized to your names."
+description: "The front door — one ranked page that says what kind of day it is, what the institutions are doing, and what touches your names."
 ---
 
-[Today](https://auramarkets.io/today) is where auramarkets opens. It's the synthesis page: research coverage, tracked calls, 13F flows, earnings, macro events, and unusual price action — intersected with **your** portfolio and watchlists, refreshed every ~15 minutes.
+[Today](https://auramarkets.io/today) is where auramarkets opens. It is the synthesis page: every verdict engine, the Street desks, the macro prints, fund positioning and the research corpus, intersected with **your** portfolio and watchlists, rebuilt every ~15 minutes.
+
+The page reads top to bottom at three altitudes:
+
+1. **The regime** — what kind of day it is (vol, breadth, credit, factors, flows, the data).
+2. **The institutions** — what the desks, the funds and the prints say.
+3. **Your names** — what touched your book and your lists, from every source.
+
+Blocks only appear when they have something; a block with nothing to say disappears rather than showing an empty frame. After the Lead and the Regime board, the main blocks **order themselves by their loudest item** — a day with a hot CPI opens with Data, a day where three desks turned cautious on the same theme opens with The desks.
+
+## The Lead
+
+One headline, a short dek and up to three fact bullets: the day's most consequential thread, chosen from the facts below it. It is the only LLM-written text on the page, and it is phrased strictly over facts the page already shows — the state changes in What changed, the regime board's warnings, today's prints and surprises, the desk consensus, the hedge-fund and flows reads, and the names that moved most in your lists. Its footer names which of your names it touches, and **✦ Ask about today** opens AskAura with the page as context.
+
+## Regime board
+
+One row of STATE chips, one per verdict engine, each coloured by what the state means for risk (green supportive, red hostile, amber worth watching, grey neutral) and each a link to its monitor:
+
+| Chip | Engine |
+|---|---|
+| **Backdrop** | the [regime engine](/macro/market-pulse#the-regime-badge) behind Market Pulse |
+| **Vol · Breadth · Credit · Factors** | the verdicts on the [Equities overview](/indices/overview#the-verdict-panels), [Factors](/indices/factors) and [Credit](/macro/credit) |
+| **Flows · Earnings** | the [Fund Flows](/indices/fund-flows) read and the [earnings season](/indices/earnings-monitor) verdict |
+| **Hedge funds · AI complex** | the [Hedge Funds](/research/hedge-funds) read and the [AI complex](/indices/ai-watch) verdict vs SPY |
+| **Labor · Inflation · Growth · Housing** | the four domain reads from [Macro Data](/macro/data) |
+
+Hover a chip for the evidence line behind the state. The board replaces the old regime badge and 30-day strip.
 
 ## What changed
 
-The page now leads with an answer, not a feed: **material changes only**, pushed from the app's verdict engines. A row appears for exactly three reasons — a monitor's **verdict changed state** (credit went Asleep → Stirring, vol flipped into Underpriced risk, breadth entered Washout), a **tripwire fired**, or a **loud state is persisting** (re-mentioned at most every few days, never daily). Sources today: the credit monitor, the vol regime verdict, the breadth cockpit, fund flows, the factor regime, the earnings season verdict, and weekly rotation crossings. Each row carries its severity (colored left rail), the STATE — evidence line, and clicks through to the owning monitor.
+The spine of the page: **material changes only**, pushed from twenty monitors. A row appears for exactly three reasons — a monitor's **verdict changed state** (credit went Asleep → Stirring, vol flipped into Panic, breadth entered Washout), a **tripwire fired**, or a **loud state is persisting** (re-mentioned at most every few days, never daily). Each row carries its severity (coloured left rail), the STATE — evidence line, the date, and clicks through to the owning monitor. The **Detail / Story** toggle switches every line between the terse read and the plain-English version.
 
-Two honesty rules worth knowing: a verdict that's been flip-flopping gets labeled *"flip #3 this week — a borderline verdict, not a fresh regime"* instead of alerting every flip; and when nothing material happened the section says so — *"All quiet — 7 monitors watching. Last change: Credit Asleep → Priced for perfection (Aug 5)."* Quiet is an answer.
+Monitors feeding the stack: vol regime, breadth, credit, factors, fund flows, earnings season, rotation crossings, the X feed, the four Macro Data domains and the macro regime, scheduled prints that surprised by a sigma or more, prediction-market odds moving past their thresholds, the 13F season, the hedge-fund read, the AI complex verdict, Writer Score tier changes, and **desk shifts** — two or more Street desks taking the same direction on one theme inside 48 hours.
 
-The **Today tab in the nav shows a dot** when the stack has items you haven't seen; visiting the page clears it.
+Two honesty rules worth knowing: a verdict that has been flip-flopping gets labelled *"flip #3 this week — a borderline verdict, not a fresh regime"* instead of alerting on every flip; and when nothing material happened the section says so — *"All quiet — 20 monitors watching."* Quiet is an answer.
+
+The **Today tab in the nav shows a dot** when the stack has items you have not seen; visiting the page clears it.
+
+## Your book
+
+A strip of tiles for real holdings: the book's day, the spread against SPY, the lift and the drag, sector concentration, and the factor regime your book sits in. Values are the build's price snapshot, so they match the names below.
+
+## The desks
+
+The Street leg of the corpus, synthesised for the last 48 hours. On top, the **desk consensus**: for each theme the desks published on, how many desks took which side — *"Equities · 2 constructive · Goldman Sachs, Morgan Stanley"* — with a split called out when the desks disagree. Below it, the pieces grouped by theme, one line each with the desk, the author (a voice — click through to their [writer page](/research/entity-pages)), the series, the primary tickers and the stance when the piece carries one. The stance is the piece's own extracted conviction, or the direction from its [tracked calls](/research/calls); nothing is generated for this block.
+
+Rows open the piece page. **Street →** opens the full Street corpus in [Browse](/research/browsing).
+
+## Data
+
+[Macro Data](/macro/data), compacted: today's and tomorrow's Tier-1 and Tier-2 prints with consensus, the print once it lands, and the surprise in sigmas (coloured by what the surprise means for risk, not by its sign); the **next Tier-1 print** with its consensus; the four domain reads in the header; and a nowcast line — GDPNow, the Cleveland Fed CPI nowcast and the surprise index. Rows open Macro Data.
 
 ## Your names
 
-The centerpiece. Every name you follow (portfolio + watchlists) that had something happen recently gets a row — logo, ticker, company, the day's move with its σ-context, and **pills explaining exactly why it surfaced**:
+The centrepiece. Every name you follow (portfolio + watchlists) that had something happen recently gets a card or a row — logo, ticker, company, the day's move with its σ-context, a one-sentence story, and **chips explaining exactly why it surfaced**:
 
-| Pill | Meaning |
+| Chip | Meaning |
 |---|---|
-| <span style={{color:"#5fd68f"}}>**LONG·TA**</span> / <span style={{color:"#ef7a78"}}>**SHORT·FA**</span> | A fresh tracked call — green long / red short, tagged by what grounds it: **TA** (technicals), **FA** (fundamentals), or **MIXED**. When a name shows TA bears against FA bulls, that split *is* the signal. Pills also carry the writer's [grade](/research/calls#writer-grades): a **gold ring** = FOLLOW writer, a **dimmed ⚠** = FADE writer (contrary indicator). Hover for the evidence line — "FOLLOW · 21d avg +4.6% vs SPY · 61% hit · n=134". |
-| <span style={{color:"#a78bfa"}}>**FLIP**</span> | A writer **reversed a standing position** — "Zephyr: long→short · was +32% over 4mo". Flips rank names near the top, and arguably it's the strongest single signal on the page: someone with a public position just changed their mind. |
-| **X / SUBSTACK / YOUTUBE** | A dedicated piece by one of your writers (grouped per author — "Zephyr ×3"). Dimmed **MENTION** pills are passing references. |
+| **LONG·TA** / **SHORT·FA** | A fresh tracked call — long or short, tagged by what grounds it: **TA** (technicals), **FA** (fundamentals), or **MIXED**. When a name shows TA bears against FA bulls, that split *is* the signal. Chips also carry the writer's [grade](/research/calls#writer-grades): a gold ring for a FOLLOW writer, a dimmed ⚠ for a FADE writer (contrary indicator). Hover for the evidence line. |
+| **FLIP** | A writer **reversed a standing position** — "Zephyr: long→short · was +32% over 4mo". Flips rank names near the top; someone with a public position just changed their mind. |
+| **STREET / X / SUBSTACK / YOUTUBE** | A dedicated piece by a desk or one of your writers (grouped per author — "Zephyr ×3"). Dimmed **MENTION** chips are passing references. |
 | **13F** | Cluster funds bought or sold it last quarter. |
+| **AI** | The name sits in the [AI complex](/indices/ai-watch), with its group — "AI · Neo-clouds". |
 | **EARNINGS** | Reports today (before open / after close). |
 | **MOVE** | A ±2σ-or-bigger day *for that name's own volatility*. |
-| <span style={{color:"#5fd68f"}}>**52W HIGH**</span> / <span style={{color:"#ef7a78"}}>**52W LOW**</span>, **↑200D / ↓200D** | Major levels only: a fresh 52-week extreme, or a cross of the 200-day — the event, not the standing state. A quiet name that just broke out surfaces here even with zero coverage. |
+| **52W HIGH** / **52W LOW**, **↑200D / ↓200D** | Major levels only: a fresh 52-week extreme, or a cross of the 200-day — the event, not the standing state. A quiet name that just broke out surfaces here even with zero coverage. |
 
-Rows are ranked by how much happened; the first five pills show and the rest sit behind a **+N more** expander.
+The five names with the most going on get **spotlight cards**; the rest sit in a compact table ranked by how much happened. The first chips show and the rest sit behind a **+N more** expander.
 
-**Hover any pill** for a preview card — for calls, the *verbatim sentence* where the writer made the call; for coverage, the piece's extracted thesis (or the full tweet). Every card links both ways: **auramarkets →** (the article page) and the original (**open on X ↗**, Substack, YouTube).
+**Hover any chip** for a preview card — for calls, the *verbatim sentence* where the writer made the call; for coverage, the piece's extracted thesis (or the full tweet). Every card links both ways: **auramarkets →** (the piece page) and the original (**open on X ↗**, Substack, YouTube, the desk).
 
-**Click any ticker** and the full [stock pop-out](/indices/stock-chart) opens right on the page — chart with call/earnings/13F markers, studies, compare, company panel, Ask Aura — close it and you're back where you were.
+**Click any ticker** and the full [stock pop-out](/indices/stock-chart) opens right on the page — chart with call/earnings/13F markers, studies, compare, company panel, Ask Aura — close it and you are back where you were.
 
-**Search** works like the Calls search: type to filter live, Enter stacks a tag (AND semantics), and terms match tickers, company names, writers, and piece titles. A **suggestion dropdown** offers matches from your own rows as you type — tickers with company names, and the writers attached to them (with how many of your names each one touched) — pick one to commit it as a tag.
+**Search** works like the Calls search: type to filter live, Enter stacks a tag (AND semantics), and terms match tickers, company names, writers and piece titles. A suggestion dropdown offers matches from your own rows as you type.
 
-## The rest of the page
+## The rail
 
-- **Writer signal** — first-ever corpus mentions, new deep-dives, fresh calls, and cross-writer consensus, each track scrolling independently with its item count. Tickers show their **logo and company name** (same look as Your names), and **hovering any deep-dive or fresh-call item** pops the same preview card as the pills above — the piece's thesis, or the call quoted verbatim, with both links.
-- **Smart money** — the 13F cluster consensus, compact: the top eight names with logo, the 1-day move, a buyer/seller bar, and the net dollar flow across funds. The full table lives on [Smart Money (13F)](/research/thirteenf).
-- **On deck** — today's macro releases with tier badges and actual / consensus / previous, plus who reports earnings (logos inline, your held names starred ★).
-- **Rotation watch** — the top quadrant-crossing events from the [rotation view](/indices/thematic-heatmap#rotation-view): themes **newly leading ↗**, **turning up ⤴**, or **rolling over ↘** vs SPY this week. These are *crossings*, not standings — a theme only appears when it just changed quadrant. New crossings also surface in **What changed**; this rail is the detail view.
-- **Pulse** — the full **Market Pulse** briefing, rendered by the same component as the macro page.
-- **Wire** — a rolling multi-source headline feed (Bloomberg, WSJ, CNBC, MarketWatch, FT, NYT), deduplicated across outlets, **ticker-tagged stories first**, each with its outlet tag and timestamp. Ticker chips on subject-of-the-story names open the stock pop-out. It's the same newswire behind the Equities page's **Top Stories** panel — this is the stream, that's the ranked cut.
-- **Regime badge** — the current market state, top right, sourced from the [regime engine](/macro/market-pulse#the-regime-badge) (not AI sentiment). Hover for the confidence % and the ranked anomalies behind the read.
-- **30-day regime strip** — right under the badge: one colored cell per trading day showing the engine's state over the past month. Hover any cell for that day's state — a glance tells you whether today's read is a fresh flip or week three of the same regime.
+Beside Your names, compact and reorderable:
+
+- **Ahead** — one schedule for the next seven days: Tier-1 and Tier-2 prints with consensus and prior, FOMC decisions with the live Kalshi odds, market events (OPEX, witching, VIX settlement, FOMC minutes) and the earnings of your names with their session. Times are ET.
+- **Positioning** — three read lines: **13F** (the current filing season, the cluster's top accumulations and distributions), **Hedge funds** (the [Hedge Funds](/research/hedge-funds) STATE — evidence) and **Flows** (the [Fund Flows](/indices/fund-flows) read). Each opens its page; Detail / Story applies here too.
+- **Smart money** — the 13F cluster consensus, compact: the top names with logo, the 1-day move, a buyer/seller bar and the net dollar flow. The full table lives on [Smart Money (13F)](/research/thirteenf).
+- **Rotation watch** — the top quadrant-crossing events from the [rotation view](/indices/thematic-heatmap#rotation-view): themes **newly leading ↗**, **turning up ⤴** or **rolling over ↘** vs SPY this week. Crossings, not standings.
+- **Writer signal** — three short tracks from your writers: cross-writer **consensus**, **fresh calls** and **new deep-dives**. Hover an item for the same preview card as the chips above; **Digest →** opens the full [Digest](/research/overview).
+- **Crowd vs pros** — the X list cohorts on the day's top theme, when they split.
+- **Wire** — a rolling multi-source headline feed (Bloomberg, WSJ, CNBC, MarketWatch, FT, NYT), deduplicated across outlets, ticker-tagged stories first. The same newswire behind the Equities page's **Top Stories** panel — this is the stream, that is the ranked cut.
+
+## How clicking works
+
+The page follows the site's three gestures: a **ticker** opens the stock pop-out, a **row** opens the thing it names (the monitor, the piece, the release, the writer), and **hover** shows the evidence without leaving the page. Nothing on the page scrolls inside its own box; the page scrolls.
 
 ## Make it yours
 
-The header's **Layout** button [rearranges the page](/getting-started/customize): drag the right-column panels into your order, or remove any section you don't read — removed sections restore anytime from the same editor.
+The header's **Layout** button [rearranges the page](/getting-started/customize): drag the rail panels into your order, or remove any section you do not read — removed sections restore anytime from the same editor.
 
 ## Time travel
 
-The **◀ ▶ arrows** by the date step through archived snapshots — each day's final payload is preserved, so you can re-read any past morning exactly as it stood (history accumulates from July 3, 2026).
+The **◀ ▶ arrows** by the date step through archived snapshots — each day's final payload is preserved, so you can re-read any past morning exactly as it stood (history accumulates from July 3, 2026). Archived days keep the template order rather than re-ranking.
 
 <Note>
 The [Pre-Market Brief](/macro/daily-digest) email is the push version of this page — same engine, delivered ~6:30am ET.

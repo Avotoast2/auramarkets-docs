@@ -1,0 +1,71 @@
+---
+title: "Macro Data"
+description: "The scheduled US releases that move markets — consensus, the first print, the surprise in sigmas, what the desks said, and four domain reads that add up to a regime."
+---
+
+[Macro Data](https://auramarkets.io/macro/data) (nav: **Macro → Data**) catalogues the two dozen US releases that a trading desk watches, and reads them the way a desk does: not "what was the number" but **how far from consensus, in units of that release's own noise, and in which direction for risk**. It feeds the Regime board, the Data block and the Ahead schedule on [Today](/getting-started/today), and the four domain monitors in What changed.
+
+The page follows the house monitor recipe: a Read, a row of tiles, then the panels — Calendar, Desk View, Nowcasts and the Indicator Board. Every panel is removable and reorderable from the **Layout** button.
+
+## The catalogue
+
+| Tier | Releases |
+|---|---|
+| **Tier 1** | Payrolls (jobs, unemployment rate, average hourly earnings), CPI (headline and core m/m, y/y), the FOMC decision, initial and continuing claims, real GDP, ISM manufacturing and services, retail sales (headline and ex-autos), core PCE (m/m, y/y) |
+| **Tier 2** | Consumer confidence, Michigan sentiment and 1-year inflation expectations, durable orders, industrial production, new and existing home sales, housing starts and permits, PPI, ADP, JOLTS job openings, the trade balance, Empire State and Philly Fed |
+
+Each release belongs to a **domain** — labor, inflation, growth or housing (the FOMC decision is policy) — and carries a **polarity**: whether a high print is good or bad for risk. A hot CPI and a weak payrolls number are both bad surprises for the tape; the σ chips are coloured by that, not by the sign of the number.
+
+## Where the numbers come from
+
+- **Schedule** — the Fed's release calendars (through FRED), the Fed's own FOMC calendar, and the publishers' rules for ISM and the Conference Board. Fifteen months back, six forward.
+- **Consensus** — the ForexFactory calendar, captured ahead of each print and frozen point-in-time once the date passes, so the surprise is measured against what the consensus actually was that morning. Every revision of a future print's forecast is kept, so the card can show how consensus evolved into the release. Consensus accrues from the day a release first appears in the capture window, so the surprise history fills in over weeks, not instantly.
+- **The first print** — the ALFRED vintage as of release day: the number that was published that morning, not the revised series. ISM and the Conference Board publish outside FRED; their prints are read from the publishers' press releases.
+- **Revisions** — once a day the latest vintage is compared with each first print, so a card shows what the headline became and what revision the release carried to its prior.
+- **Market reaction** — SPY, QQQ and TLT from the last five-minute bar before the release to the close thirty minutes after, kept per print.
+
+## The Read
+
+Four domain lines in the house STATE — evidence form, and a regime quadrant.
+
+| Domain | States |
+|---|---|
+| **Labor** | HEATING · STEADY · COOLING · CRACKING |
+| **Inflation** | REACCELERATING · STICKY · COOLING · CONTAINED |
+| **Growth** | ACCELERATING · RESILIENT · SLOWING · CONTRACTING |
+| **Housing** | THAWING · STUCK · FREEZING |
+
+Each domain index is the tier-weighted sum of its recent risk-signed surprises with a 45-day half-life, so one big print matters for about six weeks and then fades. The **regime** plots growth surprise momentum against inflation surprise momentum: **Goldilocks** (growth up, inflation down), **Reflation** (both up), **Stagflation** (growth down, inflation up), **Slowdown** (both down). Hover the dot for the two readings behind it.
+
+When a domain's state changes, or a Tier-1 print surprises by a sigma or more, the change lands in [What changed](/getting-started/today#what-changed) on Today.
+
+## The tiles
+
+| Tile | What it is |
+|---|---|
+| **Next print** | the next Tier-1 release, its time and consensus; the Kalshi odds beside it for CPI and the FOMC decision |
+| **Surprise index** | the sum of the recent risk-signed surprises across every release — above zero the data has been beating in a way the tape likes |
+| **GDPNow** | the Atlanta Fed's running estimate for the current quarter against the GDP consensus |
+| **CPI nowcast** | the Cleveland Fed's estimate for the next CPI print's reference month against the consensus |
+
+## Calendar
+
+Windows — **This week · Next week · Month · Recent prints** — and filters: **Tier 1**, **+ Tier 2**, and **+ Non-US**, which adds the high- and medium-impact euro, UK, Japan, China, Canada, Australia and Switzerland items from the same consensus feed (dates and consensus only; no prints, no card). Each row: tier badge, release, time ET, consensus, prior, the print once it lands, the σ surprise, and SPY's thirty-minute reaction. Today's rows are lifted.
+
+**Click a row** to open the **release card**: tiles for the last print, consensus, prior, the surprise and the revision to prior; a chart of the series with first prints; the print history with consensus, surprise, revision and reaction per period; how consensus evolved into the print; and the research pieces that discussed the release in the days around it.
+
+## Desk View
+
+For the Tier-1 prints of the last week, what the corpus said: Street desk pieces, Substack, X reads and YouTube transcripts that discussed the release, found by the release's own keywords across the piece titles, summaries and theses. Rows open the piece.
+
+## Nowcasts
+
+GDPNow's evolution through the quarter (every vintage since the quarter opened, against the GDP consensus), and the Cleveland Fed inflation nowcast table — CPI and core CPI, m/m and y/y, for the months not yet printed.
+
+## Indicator Board
+
+Every release as a card, grouped by domain: tier badge, the latest print against consensus, the σ chip, and a spark of the first prints. Cards open the release card.
+
+<Note>
+The σ surprise is (print − consensus) ÷ the trailing dispersion of that release's own surprises, clipped at ±3. Until a release has four surprises on record the scale falls back to a share of the consensus level, so early chips are coarser than later ones.
+</Note>
