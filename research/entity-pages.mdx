@@ -7,6 +7,12 @@ The **entity page** for any ticker (e.g., `/research/entity/NVDA`) is a single t
 
 Useful when you're about to make a decision on a name and want to know what the smart-money writers and operators have been saying — without having to remember which Substack newsletter covered it last month.
 
+## One page per instrument, however it is written
+
+An index has one entity page whatever the author called it. SPX, ES, "the S&P", "S&P 500" and the vanilla trackers (SPY, VOO, IVV) all land on `/research/entity/SPX`, Nasdaq-100 commentary on `/research/entity/NDX` (NDX, NQ, "the Nasdaq", QQQ), the Russell on `RUT` (RTY, IWM), gold on `GC` (XAU, GLD), bitcoin on `BTC` (IBIT and the other spot funds), and so on for the Dow, VIX, the Treasury tenors, the dollar, oil, copper and the main non-US indices. The page header names the family and lists the other spellings, and the Writer Signal entity head shows the split by wording (SPX 61% · SPY 36% · ES 3%) — which is itself a read on who is talking, since the desks write SPX and retail writes SPY.
+
+The exception is the ETF discussed **as a fund**: flows, AUM, creations and redemptions, 0DTE and options volume, NAV premium or discount. Those pieces keep the ETF as their own entity, marked with an **ETF** chip, and `/research/entity/SPY?product=1` lists only them. Levered, inverse and equal-weight products (TQQQ, SQQQ, SPXL, RSP) are never folded — a mention of them is about the product.
+
 ## How to get there
 
 Three ways:
